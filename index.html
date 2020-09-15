@@ -100,7 +100,7 @@
 <div id="disclaimer" class="section level2">
 <h2 class="hasAnchor">
 <a href="#disclaimer" class="anchor"></a>Disclaimer</h2>
-<p><code>rfacts</code> is not a product of nor supported by <a href="https://www.berryconsultants.com/">Berry Consultants</a>. The code base of <code>rfacts</code> is completely independent from that of <a href="https://www.berryconsultants.com/software/">FACTS</a>, and the former only invokes the latter though dynamic system calls. However, <a href="https://www.berryconsultants.com/">Berry Consultants</a> owns copyright for the <a href="https://github.com/EliLillyCo/rfacts/tree/master/facts_xml_spec">FACTS XML specifications in <code>facts_xml_xpec/</code></a> and the <a href="https://github.com/EliLillyCo/rfacts/tree/master/inst/facts">example FACTS files in <code>inst/facts/</code></a>. <a href="https://www.lilly.com/">Eli Lilly and Company</a> owns copyright for the rest of <code>rfacts</code>.</p>
+<p><code>rfacts</code> is not a product of nor supported by <a href="https://www.berryconsultants.com/">Berry Consultants</a>. The code base of <code>rfacts</code> is completely independent from that of <a href="https://www.berryconsultants.com/software/">FACTS</a>, and the former only invokes the latter though dynamic system calls. However, <a href="https://www.berryconsultants.com/">Berry Consultants</a> owns copyright for the <a href="https://github.com/EliLillyCo/rfacts/tree/master/facts_xml_spec">FACTS XML specifications in <code>facts_xml_spec/</code></a> and the <a href="https://github.com/EliLillyCo/rfacts/tree/master/inst/facts">example FACTS files in <code>inst/facts/</code></a>. <a href="https://www.lilly.com/">Eli Lilly and Company</a> owns copyright for the rest of <code>rfacts</code>.</p>
 </div>
 <div id="limitations" class="section level2">
 <h2 class="hasAnchor">
@@ -148,15 +148,15 @@
 )
 
 <span class="kw">out</span>
-<span class="co">#&gt; [1] "/tmp/RtmpQrTcje/filee295ad592f9"</span>
+<span class="co">#&gt; [1] "/tmp/RtmpSu4B4a/file4772675ac608"</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_csv_files.html">get_csv_files</a></span>(<span class="kw">out</span>))
-<span class="co">#&gt; [1] "/tmp/RtmpQrTcje/filee295ad592f9/contin/acc1_drop1_resp1_params/patients00001.csv"          </span>
-<span class="co">#&gt; [2] "/tmp/RtmpQrTcje/filee295ad592f9/contin/acc1_drop1_resp1_params/patients00002.csv"          </span>
-<span class="co">#&gt; [3] "/tmp/RtmpQrTcje/filee295ad592f9/contin/acc1_drop1_resp1_params/weeks_freq_ignore_00001.csv"</span>
-<span class="co">#&gt; [4] "/tmp/RtmpQrTcje/filee295ad592f9/contin/acc1_drop1_resp1_params/weeks_freq_ignore_00002.csv"</span>
-<span class="co">#&gt; [5] "/tmp/RtmpQrTcje/filee295ad592f9/contin/acc1_drop1_resp1_params/weeks_freq_locf_00001.csv"  </span>
-<span class="co">#&gt; [6] "/tmp/RtmpQrTcje/filee295ad592f9/contin/acc1_drop1_resp1_params/weeks_freq_locf_00002.csv"</span>
+<span class="co">#&gt; [1] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/patients00001.csv"          </span>
+<span class="co">#&gt; [2] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/patients00002.csv"          </span>
+<span class="co">#&gt; [3] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_ignore_00001.csv"</span>
+<span class="co">#&gt; [4] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_ignore_00002.csv"</span>
+<span class="co">#&gt; [5] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_locf_00001.csv"  </span>
+<span class="co">#&gt; [6] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_locf_00002.csv"</span>
 </pre></div>
 <p>Use <code><a href="reference/facts_results.html">read_patients()</a></code> to read and aggregate all the <code>patients*.csv</code> files. <code>rfacts</code> has several such functions, including <code><a href="reference/facts_results.html">read_weeks()</a></code> and <code><a href="reference/facts_results.html">read_mcmc()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
@@ -164,16 +164,16 @@
 <span class="co">#&gt; # A tibble: 2,400 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 2,390 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
 <span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
@@ -196,16 +196,16 @@
 <span class="co">#&gt; # A tibble: 4,800 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 4,790 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
 <span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
@@ -218,16 +218,16 @@
 <span class="co">#&gt; # A tibble: 4,800 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 4,790 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
 <span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
@@ -252,10 +252,10 @@
 <span class="co"># Each scenario has its own folder with internal parameter files.</span>
 <span class="kw">scenarios</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_param_dirs.html">get_param_dirs</a></span>(<span class="kw">param_files</span>) <span class="co"># not in rfacts &lt;= 1.0.0</span>
 <span class="kw">scenarios</span>
-<span class="co">#&gt; [1] "/tmp/RtmpQrTcje/filee297f27f87b/contin/acc1_drop1_resp1_params"</span>
-<span class="co">#&gt; [2] "/tmp/RtmpQrTcje/filee297f27f87b/contin/acc1_drop1_resp2_params"</span>
-<span class="co">#&gt; [3] "/tmp/RtmpQrTcje/filee297f27f87b/contin/acc2_drop1_resp1_params"</span>
-<span class="co">#&gt; [4] "/tmp/RtmpQrTcje/filee297f27f87b/contin/acc2_drop1_resp2_params"</span>
+<span class="co">#&gt; [1] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc1_drop1_resp1_params"</span>
+<span class="co">#&gt; [2] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc1_drop1_resp2_params"</span>
+<span class="co">#&gt; [3] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc2_drop1_resp1_params"</span>
+<span class="co">#&gt; [4] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc2_drop1_resp2_params"</span>
 
 <span class="co"># Let's pick one of those scenarios and run the simulations.</span>
 <span class="kw">scenario</span> <span class="op">&lt;-</span> <span class="kw">scenarios</span>[<span class="fl">1</span>]
@@ -264,16 +264,16 @@
 <span class="co">#&gt; # A tibble: 600 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 590 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
 <span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
@@ -318,16 +318,16 @@
 <span class="co">#&gt; # A tibble: 4,800 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
-<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
-<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 filee29… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  1 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  2 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  3 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  4 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  5 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  6 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  7 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  8 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt;  9 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
+<span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 4,790 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
 <span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
