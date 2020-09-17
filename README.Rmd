@@ -44,7 +44,7 @@ Next, set the `RFACTS_PATHS` environment variable appropriately. For instruction
 
 ## Run FACTS simulations
 
-First, create a `*.facts` XML file using the [FACTS](https://www.berryconsultants.com/software/) GUI. The `rfacts` package has several built-in examples.
+First, create a `*.facts` XML file using the [FACTS](https://www.berryconsultants.com/software/) GUI. The `rfacts` package has several built-in examples, included with permission from Berry Consultants LLC.
 
 ```{r}
 library(rfacts)

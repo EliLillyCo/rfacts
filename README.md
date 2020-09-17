@@ -51,7 +51,7 @@ guide](https://EliLillyCo.github.io/rfacts/articles/config.html).
 
 First, create a `*.facts` XML file using the
 [FACTS](https://www.berryconsultants.com/software/) GUI. The `rfacts`
-package has several built-in examples.
+package has several built-in examples, included with permission from Berry Consultants LLC.
 
 ``` r
 library(rfacts)
