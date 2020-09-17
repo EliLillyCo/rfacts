@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<facts version="6.2.5.22668" guid="f8b7d8f9-c05c-4b7b-9a23-2f529f7dccae" name="TEST_980_NCRM_Test_ToxicityEscalation1" host="host">
+  <project-notes><![CDATA[]]></project-notes>
+  <parameterSets type="CRMDesignParamSet">
+    <parameterSet name="nov_crm" SetId="8a445882-0a4f-4dfb-bdf6-1e4f3a59beb2">
+      <property name="outcome-type">5</property>
+      <property name="use-open-enrolment">0</property>
+      <property name="save_cohort_size">3</property>
+      <property name="cohort-size">3</property>
+      <property name="win-max-size">10</property>
+      <property name="max-size-open">30</property>
+      <property name="two-sample">0</property>
+      <property name="two-sample-merged">0</property>
+      <property name="two-sample-max-cohorts">10</property>
+      <property name="resp_delay">0</property>
+      <property name="include-control">0</property>
+      <property name="maximum-tox">0.25</property>
+      <property name="ncrm-target-a-dose">0</property>
+      <property name="find-nearest-tox">0</property>
+      <property name="tox-target-rel">0</property>
+      <property name="n-crm-has-eff">0</property>
+      <property name="minimum-eff">0.5</property>
+      <property name="find-nearest-eff">0</property>
+      <property name="eff-target-rel">0</property>
+      <property name="n-crm-has-ord-vsr">0</property>
+      <property name="num-categories">3</property>
+      <property name="under-target-bound">0.16</property>
+      <property name="target-excess-bound">0.33</property>
+      <property name="excess-unacc-bound">0.6</property>
+      <property name="MaxExcessToxFlag">1</property>
+      <property name="MaxExcessToxGUI">0.25</property>
+      <property name="MaxExcessToxIncrementGUI">0</property>
+      <property name="MaxExcessToxUperBound">0.1</property>
+      <property name="MaxUnAccToxFlag">0</property>
+      <property name="MaxUnAccToxGUI">0.05</property>
+      <property name="MaxUnAccToxIncrementGUI">0</property>
+      <property name="MaxUnAcToxUpperBoundGUI">0.1</property>
+      <property name="mtpi-lower-bound">0.2</property>
+      <property name="mtpi-upper-bound">0.3</property>
+      <property name="open-rec-rate">2</property>
+      <property name="resp-delay-open">2</property>
+      <property name="open-queue-length">5</property>
+      <property name="open-queue-length-eff">5</property>
+      <property name="time-unit">week</property>
+      <property name="n-crm-has-tox">1</property>
+      <property name="n-crm-has-ordinal">1</property>
+      <property name="win-tox-eff-forbidden">0</property>
+      <property name="two-sample-at-dose">0</property>
+      <property name="two-sample-at-subj">1</property>
+      <property name="two-sample-rand">0</property>
+      <property name="open-rec-rate2">2</property>
+      <property name="two-sample-block">
+        <items>
+          <item>1</item>
+          <item>2</item>
+        </items>
+      </property>
+      <property name="two-sample-open-sep-queue">0</property>
+      <property name="open-queue-length2">5</property>
+      <property name="open-queue-length-eff2">5</property>
+      <property name="has_variants">0</property>
+      <property name="num_variants">5</property>
+      <property name="variant_names">
+        <items>
+          <item>Var1</item>
+          <item>Var2</item>
+          <item>Var3</item>
+          <item>Var4</item>
+          <item>Var5</item>
+        </items>
+      </property>
+      <property name="var_max_cohorts">
+        <items>
+          <item>10</item>
+          <item>10</item>
+          <item>10</item>
+          <item>10</item>
+          <item>10</item>
+        </items>
+      </property>
+      <property name="var_max_cohorts2">
+        <items>
+          <item>10</item>
+          <item>10</item>
+          <item>10</item>
+          <item>10</item>
+          <item>10</item>
+        </items>
+      </property>
+      <property name="use-cont-doses">1</property>
+      <property name="fixed-dose-spacing">1</property>
+      <property name="win-min-cont-dose">1</property>
+      <property name="win-max-cont-dose">20</property>
+      <property name="win-cont-dose-sep">1</property>
+      <property name="dose-names">
+        <items>
+          <item>1</item>
+          <item>2</item>
+          <item>3</item>
+          <item>4</item>
+          <item>5</item>
+          <item>6</item>
+          <item>7</item>
+          <item>8</item>
+          <item>9</item>
+          <item>10</item>
+          <item>11</item>
+          <item>12</item>
+          <item>13</item>
+          <item>14</item>
+          <item>15</item>
+          <item>16</item>
+          <item>17</item>
+          <item>18</item>
+          <item>19</item>
+          <item>20</item>
+        </items>
+      </property>
+      <property name="doses">
+        <items>
+          <item>1</item>
+          <item>2</item>
+          <item>3</item>
+          <item>4</item>
+          <item>5</item>
+          <item>6</item>
+          <item>7</item>
+          <item>8</item>
+          <item>9</item>
+          <item>10</item>
+          <item>11</item>
+          <item>12</item>
+          <item>13</item>
+          <item>14</item>
+          <item>15</item>
+          <item>16</item>
+          <item>17</item>
+          <item>18</item>
+          <item>19</item>
+          <item>20</item>
+        </items>
+      </property>
+      <property name="num-doses">20</property>
+      <property name="num-resp-doses">10</property>
+      <property name="win-start-dose">1</property>
+      <property name="cont-start-dose">1</property>
+      <property name="inc-3+3-valida-cohort">0</property>
+      <property name="two-sample-start">0</property>
+      <property name="use-only-odc">0</property>
+      <property name="use-single-patient">0</property>
+      <property name="single-expand-current">1</property>
+      <property name="single-stop-cat2">0</property>
+      <property name="count-small-in-tot">1</property>
+      <property name="single-expand-to-full">0</property>
+      <property name="restrict-run-in">0</property>
+      <property name="run-in-max-dose-name" />
+      <property name="win-use-control-rate">1</property>
+      <property name="control-rate">1</property>
+      <property name="min-cohort-on-dose">1</property>
+      <property name="nov-alloc-facts-5-6">1</property>
+      <property name="nov-alloc-mod">1</property>
+      <property name="split-dose-range">0</property>
+      <property name="win-low-esc-end">1</property>
+      <property name="max-dose-esc-high">1</property>
+      <property name="max-dose-esc-low">1</property>
+      <property name="win-max-dose-esc">1</property>
+      <property name="max-inc-fraction">2</property>
+      <property name="max-inc-from-last">1</property>
+      <property name="prob-min">0.2</property>
+      <property name="prob-max">0.2</property>
+      <property name="prob-gamma">2</property>
+      <property name="ord-end-single">3</property>
+      <property name="use-cohort-exp">0</property>
+      <property name="exp-cohort-size">5</property>
+      <property name="exp-cohort-size2">5</property>
+      <property name="exp-coh-ctrl-alloc">0</property>
+      <property name="exp-coh-ctrl-alloc2">0</property>
+      <property name="exp-cohort-target">2</property>
+      <property name="futility-mode">0</property>
+      <property name="win-min-hilow">6</property>
+      <property name="min-diff">0</property>
+      <property name="win-stop-eff">1</property>
+      <property name="win-stop-eff-cohorts-A">1</property>
+      <property name="win-stop-eff-prmed">0</property>
+      <property name="win-stop-eff-ci">0</property>
+      <property name="stop-CI-eff-alpha">0.05</property>
+      <property name="stop-CI-eff-threshold">1</property>
+      <property name="stop-MED-change">0.1</property>
+      <property name="win-stop-tox">0</property>
+      <property name="win-stop-tox-cohorts-A">1</property>
+      <property name="win-stop-tox-cohorts-B">0</property>
+      <property name="win-stop-tox-prmtd">0</property>
+      <property name="win-stop-tox-ci">0</property>
+      <property name="win-stop-tox-test-cohort">0</property>
+      <property name="win-stop-tox-min-ch">1</property>
+      <property name="test-cohort-size">3</property>
+      <property name="stop-CI-tox-alpha">0.05</property>
+      <property name="stop-CI-tox-threshold">1</property>
+      <property name="stop-MTD-change">0.1</property>
+      <property name="win-max-subj-at-MTD">2</property>
+      <property name="win-max2-subj-at-MTD">2</property>
+      <property name="win-max-subj-at-MED">6</property>
+      <property name="win-max-size-phase1">10</property>
+      <property name="win-min-size-phase1">6</property>
+      <property name="win-max-subj-at-MTD2">6</property>
+      <property name="min-tox-all-tox">2</property>
+      <property name="combine-and-max-cohorts-CI">1</property>
+      <property name="combine-and-grouped-rules">1</property>
+      <property name="win-nov-log-xhats">1</property>
+      <property name="win-nov-ref-median">1</property>
+      <property name="win-nov-ref-dose-A">1</property>
+      <property name="ord-prior-type">-1</property>
+      <property name="fix-a3">1</property>
+      <property name="fixed-a3">3</property>
+      <property name="ord-alpha-mean">
+        <items>
+          <item>4</item>
+          <item>3</item>
+        </items>
+      </property>
+      <property name="ord-alpha-sd">
+        <items>
+          <item>1</item>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="win-expl-tox-xhats">1</property>
+      <property name="win-dose-tox-x-hat">
+        <items>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-5.1972</xhat>
+              <xhat2>-5.1972</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-4.7346</xhat>
+              <xhat2>-4.7346</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-4.3863</xhat>
+              <xhat2>-4.3863</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-4.0986</xhat>
+              <xhat2>-4.0986</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-3.8473</xhat>
+              <xhat2>-3.8473</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-3.619</xhat>
+              <xhat2>-3.619</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-3.4055</xhat>
+              <xhat2>-3.4055</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-3.2007</xhat>
+              <xhat2>-3.2007</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-3</xhat>
+              <xhat2>-3</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-2.7993</xhat>
+              <xhat2>-2.7993</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-2.5945</xhat>
+              <xhat2>-2.5945</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-2.381</xhat>
+              <xhat2>-2.381</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-2.1527</xhat>
+              <xhat2>-2.1527</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-1.9014</xhat>
+              <xhat2>-1.9014</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-1.6137</xhat>
+              <xhat2>-1.6137</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-1.2654</xhat>
+              <xhat2>-1.2654</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-0.8027</xhat>
+              <xhat2>-0.8027</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>-0.0555</xhat>
+              <xhat2>-0.0555</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>0.6636</xhat>
+              <xhat2>0.6636</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>1</type>
+              <xhat>1.3695</xhat>
+              <xhat2>1.3695</xhat2>
+            </xhat_value>
+          </item>
+        </items>
+      </property>
+      <property name="resp-dose-indices">
+        <items>
+          <item>0</item>
+          <item>2</item>
+          <item>4</item>
+          <item>6</item>
+          <item>8</item>
+          <item>10</item>
+          <item>12</item>
+          <item>14</item>
+          <item>16</item>
+          <item>19</item>
+        </items>
+      </property>
+      <property name="small-cohort-size">1</property>
+      <property name="cont-esc-by-ratio">0</property>
+      <property name="win-cont-max-inc-0">3</property>
+      <property name="win-cont-max-inc-1">1</property>
+      <property name="win-cont-max-inc-N">1</property>
+      <property name="cont-mtd-width">1</property>
+      <property name="recruit-time">2</property>
+      <property name="has-esc-max-tox-rate">0</property>
+      <property name="esc-max-tox-rate">0.35</property>
+      <property name="cont-esc-width">1</property>
+      <property name="cont-max-inc-by-dose">0</property>
+      <property name="cont-max-inc-thesh1">10</property>
+      <property name="cont-max-inc-thesh2">10</property>
+      <property name="mtpi-zeta">0.95</property>
+      <property name="mtpi-use-max-subj">0</property>
+      <property name="mtpi-max-subj">10</property>
+      <property name="fit-4PL">0</property>
+      <property name="fit-4PL-conf">0.95</property>
+      <property name="win-expl-eff-xhats">1</property>
+      <property name="win-dose-eff-x-hat">
+        <items>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-5.1972</xhat>
+              <xhat2>-5.1972</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-4.7346</xhat>
+              <xhat2>-4.7346</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-4.3863</xhat>
+              <xhat2>-4.3863</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-4.0986</xhat>
+              <xhat2>-4.0986</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-3.8473</xhat>
+              <xhat2>-3.8473</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-3.619</xhat>
+              <xhat2>-3.619</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-3.4055</xhat>
+              <xhat2>-3.4055</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-3.2007</xhat>
+              <xhat2>-3.2007</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-3</xhat>
+              <xhat2>-3</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-2.7993</xhat>
+              <xhat2>-2.7993</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-2.5945</xhat>
+              <xhat2>-2.5945</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-2.381</xhat>
+              <xhat2>-2.381</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-2.1527</xhat>
+              <xhat2>-2.1527</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-1.9014</xhat>
+              <xhat2>-1.9014</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-1.6137</xhat>
+              <xhat2>-1.6137</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-1.2654</xhat>
+              <xhat2>-1.2654</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-0.8027</xhat>
+              <xhat2>-0.8027</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>-0.0555</xhat>
+              <xhat2>-0.0555</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>0.6636</xhat>
+              <xhat2>0.6636</xhat2>
+            </xhat_value>
+          </item>
+          <item>
+            <xhat_value>
+              <type>0</type>
+              <xhat>1.3695</xhat>
+              <xhat2>1.3695</xhat2>
+            </xhat_value>
+          </item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="CRMToxicityParamSet">
+    <parameterSet name="Toxicity 1" SetId="96f688c0-f1a8-4639-996f-0624166de031">
+      <property name="true-tox">
+        <items>
+          <item>0</item>
+          <item>0.05</item>
+          <item>0.1</item>
+          <item>0.15</item>
+          <item>0.2</item>
+          <item>0.25</item>
+          <item>0.3</item>
+          <item>0.35</item>
+          <item>0.4</item>
+          <item>0.45</item>
+          <item>0.5</item>
+          <item>0.55</item>
+          <item>0.6</item>
+          <item>0.65</item>
+          <item>0.7</item>
+          <item>0.75</item>
+          <item>0.8</item>
+          <item>0.85</item>
+          <item>0.9</item>
+          <item>0.95</item>
+        </items>
+      </property>
+      <property name="true-tox-2">
+        <items>
+          <item>0</item>
+          <item>0.05</item>
+          <item>0.1</item>
+          <item>0.15</item>
+          <item>0.2</item>
+          <item>0.25</item>
+          <item>0.3</item>
+          <item>0.35</item>
+          <item>0.4</item>
+          <item>0.45</item>
+          <item>0.5</item>
+          <item>0.55</item>
+          <item>0.6</item>
+          <item>0.65</item>
+          <item>0.7</item>
+          <item>0.75</item>
+          <item>0.8</item>
+          <item>0.85</item>
+          <item>0.9</item>
+          <item>0.95</item>
+        </items>
+      </property>
+      <property name="win-alpha">0.7</property>
+      <property name="ss-cat2-vsr-offset">1</property>
+      <property name="ss-cat2-vsr-offset-high">1</property>
+      <property name="ss-cat4-vsr-offset">-1</property>
+      <property name="ss-cat4-vsr-offset-high">-1</property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="ToxParamVSRParamSet">
+    <parameterSet name="ToxParam 1" SetId="6588107f-505b-4e67-9036-173228043e05">
+      <property name="param-vsr-is-tox">1</property>
+      <property name="win-single-curve-type">0</property>
+      <property name="win-par-curve-max">1</property>
+      <property name="win-par-curve-min">0</property>
+      <property name="win-par-curve-ed50">15</property>
+      <property name="win-par-curve-slope">0.5</property>
+      <property name="piece-wise-knots">
+        <items />
+      </property>
+      <property name="cat2-vsr-offset">1</property>
+      <property name="cat2-vsr-offset-high">1</property>
+      <property name="cat4-vsr-offset">-1</property>
+      <property name="cat4-vsr-offset-high">-1</property>
+      <property name="group2-vsr-offset">0</property>
+      <property name="group2-vsr-offset-high">0</property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="CRMEndpointParamSet">
+    <parameterSet name="tox-resp-params" SetId="86c89126-d5cc-448d-a90c-d3467b3eeab7">
+      <property name="win-sep-control">0</property>
+      <property name="model-type-tox">1</property>
+      <property name="control-prior-tox">1</property>
+      <property name="control-prior-non-tox">1</property>
+      <property name="min-toxicity">0</property>
+      <property name="max-toxicity">1</property>
+      <property name="ncrm-fixed-alpha">0</property>
+      <property name="alpha-tox">3</property>
+      <property name="prior-type">0</property>
+      <property name="beta-prior-limit">3</property>
+      <property name="allow-non-explicit-prior">0</property>
+      <property name="nov-prior-type">1</property>
+      <property name="nov-alpha-mean">-1.8696</property>
+      <property name="nov-alpha-sd">0.7417</property>
+      <property name="ln-beta-mean">-1.2959</property>
+      <property name="ln-beta-sd">1.139</property>
+      <property name="nov-prior-rho">-0.0792</property>
+      <property name="prior-pseudo-level">
+        <items />
+      </property>
+      <property name="prior-pseudo-counts">
+        <items />
+      </property>
+      <property name="prior-pseudo-tox">
+        <items />
+      </property>
+      <property name="prior-pseudo-level2">
+        <items />
+      </property>
+      <property name="prior-pseudo-counts-grp2">
+        <items />
+      </property>
+      <property name="prior-pseudo-tox-grp2">
+        <items />
+      </property>
+      <property name="nov-median-low">0.2</property>
+      <property name="nov-median-high">0.8</property>
+      <property name="prior-lower-CI">
+        <items>
+          <item>0.02</item>
+          <item>0.04</item>
+          <item>0.06</item>
+          <item>0.08</item>
+          <item>0.1</item>
+          <item>0.12</item>
+          <item>0.14</item>
+          <item>0.16</item>
+          <item>0.18</item>
+          <item>0.2</item>
+          <item>0.22</item>
+          <item>0.24</item>
+          <item>0.26</item>
+          <item>0.28</item>
+          <item>0.3</item>
+          <item>0.32</item>
+          <item>0.34</item>
+          <item>0.36</item>
+          <item>0.38</item>
+          <item>0.4</item>
+        </items>
+      </property>
+      <property name="prior-median">
+        <items>
+          <item>0.1</item>
+          <item>0.2</item>
+          <item>0.3</item>
+          <item>0.4</item>
+          <item>0.5</item>
+          <item>0.6</item>
+          <item>0.7</item>
+          <item>0.8</item>
+          <item>0.9</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+          <item>0.95</item>
+        </items>
+      </property>
+      <property name="prior-upper-CI">
+        <items>
+          <item>0.8</item>
+          <item>0.82</item>
+          <item>0.84</item>
+          <item>0.86</item>
+          <item>0.88</item>
+          <item>0.9</item>
+          <item>0.92</item>
+          <item>0.94</item>
+          <item>0.96</item>
+          <item>0.98</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+          <item>0.99</item>
+        </items>
+      </property>
+      <property name="nov-prior-source">1</property>
+      <property name="sug-prior-median-low">0.9</property>
+      <property name="sug-prior-median-mid">0.5</property>
+      <property name="sug-prior-median-high">0.05</property>
+      <property name="sug-prior-median-low2">0.2</property>
+      <property name="sug-prior-median-mid2">0.6</property>
+      <property name="sug-prior-median-high2">0.05</property>
+      <property name="sug-prior-median-low4">0.05</property>
+      <property name="sug-prior-median-mid4">0.4</property>
+      <property name="sug-prior-median-high4">0.2</property>
+      <property name="sug-prior-q-level">
+        <items />
+      </property>
+      <property name="sug-prior-q-rate">
+        <items />
+      </property>
+      <property name="sug-prior-q-prob">
+        <items />
+      </property>
+      <property name="sug-prior-q-prob2">
+        <items />
+      </property>
+      <property name="sug-prior-q-prob4">
+        <items />
+      </property>
+      <property name="nov-prior-src-type">2</property>
+      <property name="nov-alpha-mean2">1</property>
+      <property name="nov-alpha-sd2">1</property>
+      <property name="nov-alpha-mean4">-1</property>
+      <property name="nov-alpha-sd4">1</property>
+      <property name="two-sample-zero-b">0</property>
+      <property name="two-sample-positive-a">0</property>
+      <property name="two-sample-negative-a">0</property>
+      <property name="n-crm-prior-a-tox">0</property>
+      <property name="n-crm-prior-a-sd-tox">1</property>
+      <property name="n-crm-prior-lnb-tox">0</property>
+      <property name="n-crm-prior-lnb-sd-tox">1</property>
+      <property name="n-crm-prior-rho-grp2-tox">0</property>
+      <property name="prior-pseudo-tox2">
+        <items />
+      </property>
+      <property name="prior-pseudo-tox4">
+        <items />
+      </property>
+      <property name="prior-pseudo-tox22">
+        <items />
+      </property>
+      <property name="prior-pseudo-tox42">
+        <items />
+      </property>
+    </parameterSet>
+    <parameterSet name="eff-resp-params" SetId="145a026f-191b-4b84-909f-af476582ed2d">
+      <property name="win-sep-control-eff">0</property>
+      <property name="model-type-eff">1</property>
+      <property name="control-prior-eff">1</property>
+      <property name="control-prior-non-eff">1</property>
+      <property name="min-efficacy">0</property>
+      <property name="max-efficacy">1</property>
+      <property name="ncrm-fixed-alpha-eff">0</property>
+      <property name="alpha-eff">3</property>
+      <property name="prior-type-eff">0</property>
+      <property name="beta-prior-limit-eff">3</property>
+      <property name="allow-non-explicit-prior-eff">0</property>
+      <property name="nov-prior-type-eff">1</property>
+      <property name="nov-alpha-mean-eff">0</property>
+      <property name="nov-alpha-sd-eff">1</property>
+      <property name="ln-beta-mean-eff">0</property>
+      <property name="ln-beta-sd-eff">1</property>
+      <property name="nov-prior-rho-eff">0</property>
+      <property name="prior-pseudo-level-eff">
+        <items />
+      </property>
+      <property name="prior-pseudo-counts-eff">
+        <items />
+      </property>
+      <property name="prior-pseudo-eff">
+        <items />
+      </property>
+      <property name="prior-pseudo-level-eff2">
+        <items />
+      </property>
+      <property name="prior-pseudo-counts-eff-grp2">
+        <items />
+      </property>
+      <property name="prior-pseudo-eff-grp2">
+        <items />
+      </property>
+      <property name="nov-median-low-eff">0.2</property>
+      <property name="nov-median-high-eff">0.8</property>
+      <property name="prior-lower-CI-eff">
+        <items>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+          <item>0.02</item>
+        </items>
+      </property>
+      <property name="prior-median-eff">
+        <items>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+          <item>0.1</item>
+        </items>
+      </property>
+      <property name="prior-upper-CI-eff">
+        <items>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+          <item>0.8</item>
+        </items>
+      </property>
+      <property name="nov-prior-source-eff">3</property>
+      <property name="sug-prior-median-low-eff">0.1</property>
+      <property name="sug-prior-median-mid-eff">0.5</property>
+      <property name="sug-prior-median-high-eff">0.1</property>
+      <property name="sug-prior-median-low2-eff">0.2</property>
+      <property name="sug-prior-median-mid2-eff">0.6</property>
+      <property name="sug-prior-median-high2-eff">0.05</property>
+      <property name="sug-prior-median-low4-eff">0.05</property>
+      <property name="sug-prior-median-mid4-eff">0.4</property>
+      <property name="sug-prior-median-high4-eff">0.2</property>
+      <property name="sug-prior-q-level-eff">
+        <items />
+      </property>
+      <property name="sug-prior-q-rate-eff">
+        <items />
+      </property>
+      <property name="sug-prior-q-prob-eff">
+        <items />
+      </property>
+      <property name="sug-prior-q-prob2-eff">
+        <items />
+      </property>
+      <property name="sug-prior-q-prob4-eff">
+        <items />
+      </property>
+      <property name="nov-prior-src-type-eff">0</property>
+      <property name="nov-alpha-mean2-eff">1</property>
+      <property name="nov-alpha-sd2-eff">1</property>
+      <property name="nov-alpha-mean4-eff">-1</property>
+      <property name="nov-alpha-sd4-eff">1</property>
+      <property name="two-sample-zero-b-eff">0</property>
+      <property name="two-sample-positive-a-eff">0</property>
+      <property name="two-sample-negative-a-eff">0</property>
+      <property name="n-crm-prior-a-eff">0</property>
+      <property name="n-crm-prior-a-sd-eff">1</property>
+      <property name="n-crm-prior-lnb-eff">0</property>
+      <property name="n-crm-prior-lnb-sd-eff">1</property>
+      <property name="n-crm-prior-rho-grp2-eff">0</property>
+      <property name="prior-pseudo-eff2">
+        <items />
+      </property>
+      <property name="prior-pseudo-eff4">
+        <items />
+      </property>
+      <property name="prior-pseudo-eff22">
+        <items />
+      </property>
+      <property name="prior-pseudo-eff42">
+        <items />
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <simulation-settings>
+    <property name="num_sims">1000</property>
+    <property name="burn">1000</property>
+    <property name="length">25000</property>
+    <property name="rv_seed_1">3500</property>
+    <property name="rv_seed_2">1</property>
+    <property name="num_weeks_out">1000</property>
+    <property name="num_freq_weeks_out">1</property>
+    <property name="num_subj_out">1</property>
+    <property name="num_mcmc_files">0</property>
+    <property name="mcmc_thin">1</property>
+    <property name="mcmc_per_imputation">1</property>
+    <property name="is_local">1</property>
+  </simulation-settings>
+  <setup-simulation-settings name="ToxParam 1">
+    <property name="num_sims">1000</property>
+    <property name="burn">1000</property>
+    <property name="length">25000</property>
+    <property name="rv_seed_1">3500</property>
+    <property name="rv_seed_2">1</property>
+    <property name="num_weeks_out">1000</property>
+    <property name="num_freq_weeks_out">1</property>
+    <property name="num_subj_out">1</property>
+    <property name="num_mcmc_files">0</property>
+    <property name="mcmc_thin">1</property>
+    <property name="mcmc_per_imputation">1</property>
+    <property name="is_local">1</property>
+  </setup-simulation-settings>
+</facts>

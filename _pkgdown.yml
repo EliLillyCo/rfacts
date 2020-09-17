@@ -1,0 +1,76 @@
+destination: docs
+navbar:
+  title: rfacts
+  type: default
+  structure:
+    left: 
+    - home
+    - slides
+    - news
+    right:
+    - github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    news:
+      text: News
+      href: news/index.html
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/EliLillyCo/rfacts
+reference:
+- title: Help
+  contents:
+  - '`rfacts-package`'
+- title: Configuration
+  contents:
+  - '`reset_rfacts_paths`'
+  - '`rfacts_paths`'
+  - '`rfacts_sitrep`'
+- title: Top-level functions
+  contents:
+  - '`run_facts`'
+  - '`run_flfll`'
+  - '`run_engine`'
+- title: Linux engines
+  contents:
+  - '`run_engine_contin`'
+  - '`run_engine_dichot`'
+  - '`run_engine_multep`'
+  - '`run_engine_tte`'
+  - '`run_engine_aipf_contin`'
+  - '`run_engine_aipf_dichot`'
+  - '`run_engine_aipf_tte`'
+  - '`run_engine_crm`'
+- title: CSV files
+  contents:
+  - '`get_csv_files`'
+  - '`overwrite_csv_files`'
+  - '`read_patients`'
+  - '`read_weeks`'
+  - '`read_mcmc`'
+  - '`read_s1_patients`'
+  - '`read_s1_weeks`'
+  - '`read_s1_mcmc`'
+  - '`read_s2_patients`'
+  - '`read_s2_weeks`'
+  - '`read_s2_mcmc`'
+  - '`read_master_patients`'
+  - '`read_master_weeks`'
+  - '`read_master_mcmc`'
+  - '`read_cohorts`'
+  - '`read_simulations`'
+  - '`read_csv_special`'
+- title: FACTS files
+  contents:
+  - '`get_facts_file_example`'
+  - '`get_facts_scenarios`'
+  - '`get_facts_version`'
+  - '`get_facts_versions`'
+  - '`get_facts_engine`'
+- title: Param files
+  contents:
+  - '`prep_param_files`'
+  - '`get_param_files`'
+  - '`get_param_dirs`'

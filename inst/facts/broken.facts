@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<facts version="6.2.5.22668" guid="0aa5cec0-57d8-4764-9e61-ac6be07566aa" name="test" host="host">
+  <project-notes><![CDATA[]]></project-notes>
+  <parameterSets type="NucleusParameterSet">
+    <parameterSet name="nucleus" SetId="45553d64-ab71-4e91-a50c-3d25f1ee554b">
+      <property name="type">1</property>
+      <property name="qoi_parameter_set">
+        <qoi_types>
+          <post_prob_qois>
+            <post_prob_qoi>
+              <condition>3</condition>
+              <tte_qoi_type>1</tte_qoi_type>
+              <relation>
+                <is_absolute>False</is_absolute>
+                <comparison_arm>Control</comparison_arm>
+                <delta>1</delta>
+              </relation>
+              <alt_name>Pr(CSD)</alt_name>
+              <is_default_qoi>True</is_default_qoi>
+              <qoi_id>2e6de331-df54-47e5-b8aa-c4d521bad7a9</qoi_id>
+            </post_prob_qoi>
+            <post_prob_qoi>
+              <condition>3</condition>
+              <tte_qoi_type>1</tte_qoi_type>
+              <relation>
+                <is_absolute>False</is_absolute>
+                <comparison_arm>Control</comparison_arm>
+                <delta>0</delta>
+              </relation>
+              <alt_name>Pr(PBO)</alt_name>
+              <is_default_qoi>True</is_default_qoi>
+              <qoi_id>2de4240e-a7c0-41f1-9b03-88e5a53baca7</qoi_id>
+            </post_prob_qoi>
+          </post_prob_qois>
+          <pred_prob_qois>
+            <pred_prob_qoi>
+              <phase>2</phase>
+              <test_type>1</test_type>
+              <subjects_per_arm>250</subjects_per_arm>
+              <margin>0</margin>
+              <alpha>0.025</alpha>
+              <alt_name>Pr(SS)</alt_name>
+              <is_default_qoi>True</is_default_qoi>
+              <qoi_id>8bdd8ab9-dc4b-485b-8ef0-8171dc900f65</qoi_id>
+            </pred_prob_qoi>
+          </pred_prob_qois>
+          <pvalue_qois>
+            <pvalue_qoi>
+              <pvalue_dropouts_type>0</pvalue_dropouts_type>
+              <test_type>1</test_type>
+              <alt_name>QOI_3_1</alt_name>
+              <is_default_qoi>False</is_default_qoi>
+              <qoi_id>05d24730-4566-4c18-b78a-f698b4ff2206</qoi_id>
+            </pvalue_qoi>
+          </pvalue_qois>
+          <target_doses_qoi>
+            <target_dose_qoi>
+              <target_type>1</target_type>
+              <relation />
+              <alt_name>Pr(Max)</alt_name>
+              <is_default_qoi>True</is_default_qoi>
+              <qoi_id>6eebf6a7-0f76-4552-828c-2675d7910cb7</qoi_id>
+            </target_dose_qoi>
+            <target_dose_qoi>
+              <target_type>2</target_type>
+              <relation>
+                <is_absolute>False</is_absolute>
+                <comparison_arm>Control</comparison_arm>
+                <delta>1</delta>
+              </relation>
+              <alt_name>Pr(MED)</alt_name>
+              <is_default_qoi>True</is_default_qoi>
+              <qoi_id>70db503e-7330-42ff-9b51-ad70cc138318</qoi_id>
+            </target_dose_qoi>
+            <target_dose_qoi>
+              <target_type>3</target_type>
+              <relation>
+                <is_absolute>False</is_absolute>
+                <comparison_arm>Control</comparison_arm>
+                <delta>0.9</delta>
+              </relation>
+              <alt_name>Pr(EDq)</alt_name>
+              <is_default_qoi>True</is_default_qoi>
+              <qoi_id>f5948a62-533b-49a3-aff1-98e84dbe080e</qoi_id>
+            </target_dose_qoi>
+          </target_doses_qoi>
+          <decisions_qoi>
+            <decision_qois>
+              <ref_qoi_id>2e6de331-df54-47e5-b8aa-c4d521bad7a9</ref_qoi_id>
+              <target_dose_qoi>ActualDose---Dose 1</target_dose_qoi>
+              <alt_name>Pr(CSD)_at_Dose_1</alt_name>
+              <is_default_qoi>False</is_default_qoi>
+              <qoi_id>ccf11d11-80d7-4c23-9de5-650293453bb4</qoi_id>
+            </decision_qois>
+          </decisions_qoi>
+        </qoi_types>
+      </property>
+      <property name="adaptive_alloc_target_parameter_set">
+        <adapt_alloc_targets />
+      </property>
+      <property name="arm_dropping_criteria">
+        <arm_dropping_criteria />
+      </property>
+      <property name="is_adaptive">1</property>
+      <property name="alloc_info_type">0</property>
+      <property name="interim_stopping_criteria">
+        <interims_criteria>
+          <interim_criteria>
+            <interim_number>32767</interim_number>
+            <futility_criteria>
+              <is_enabled>True</is_enabled>
+              <is_and_condition>False</is_and_condition>
+              <min_info_reqd>0</min_info_reqd>
+            </futility_criteria>
+            <success_criteria>
+              <is_enabled>True</is_enabled>
+              <stopping_criterion>
+                <qoi_id>ccf11d11-80d7-4c23-9de5-650293453bb4</qoi_id>
+                <condition>3</condition>
+                <threshold>0.9</threshold>
+              </stopping_criterion>
+              <is_and_condition>True</is_and_condition>
+              <min_info_reqd>0</min_info_reqd>
+            </success_criteria>
+            <eval_arm_dropping>True</eval_arm_dropping>
+          </interim_criteria>
+          <interim_criteria>
+            <interim_number>1</interim_number>
+            <futility_criteria>
+              <is_enabled>True</is_enabled>
+              <is_and_condition>False</is_and_condition>
+              <min_info_reqd>0</min_info_reqd>
+            </futility_criteria>
+            <graduation_criteria>
+              <is_enabled>False</is_enabled>
+              <is_and_condition>True</is_and_condition>
+              <min_info_reqd>0</min_info_reqd>
+            </graduation_criteria>
+            <success_criteria>
+              <is_enabled>True</is_enabled>
+              <stopping_criterion>
+                <qoi_id>ccf11d11-80d7-4c23-9de5-650293453bb4</qoi_id>
+                <condition>3</condition>
+                <threshold>0.9</threshold>
+              </stopping_criterion>
+              <is_and_condition>True</is_and_condition>
+              <min_info_reqd>0</min_info_reqd>
+            </success_criteria>
+            <eval_arm_dropping>True</eval_arm_dropping>
+          </interim_criteria>
+        </interims_criteria>
+      </property>
+      <property name="continuous_endpoint">1</property>
+      <property name="use_cohorts">0</property>
+      <property name="is_longitudinal_modeled">0</property>
+      <property name="is_longitudinal_modeled_and_enabled">0</property>
+      <property name="include_baseline">0</property>
+      <property name="is_change_from_baseline">0</property>
+      <property name="use_special_long">0</property>
+      <property name="special_long_feature">0</property>
+      <property name="dichot_threshold_greater">0</property>
+      <property name="dichot_threshold_value">0</property>
+      <property name="final_stable_success">0</property>
+      <property name="first_cohort_size">20</property>
+      <property name="cohort_size">5</property>
+      <property name="num_cohorts">50</property>
+      <property name="cohort_time">0</property>
+      <property name="max_subjects">300</property>
+      <property name="study_weeks">
+        <items>
+          <item>1</item>
+          <item>2</item>
+          <item>3</item>
+        </items>
+      </property>
+      <property name="final_visit">3</property>
+      <property name="visit_names">
+        <items>
+          <item>Visit 1</item>
+        </items>
+      </property>
+      <property name="is_noninferiority">0</property>
+      <property name="use_placebo">1</property>
+      <property name="target_is_rel">1</property>
+      <property name="high_is_good">1</property>
+      <property name="csd">1</property>
+      <property name="use_ac">0</property>
+      <property name="doses_save">
+        <items>
+          <item>0</item>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="dose_names">
+        <items>
+          <item>Control</item>
+          <item>Dose 1</item>
+        </items>
+      </property>
+      <property name="efficacy_model">10</property>
+      <property name="prior_sigma">
+        <gamma>
+          <mu>10</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="hier_lambda">
+        <gamma>
+          <mu>1</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="ndlm_tau">
+        <gamma>
+          <mu>10</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="logit_min">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>10</sd>
+        </meansdpair>
+      </property>
+      <property name="logit_max">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>10</sd>
+        </meansdpair>
+      </property>
+      <property name="logit_ed50">
+        <meansdpair>
+          <mean>5</mean>
+          <sd>5</sd>
+        </meansdpair>
+      </property>
+      <property name="logit_slope">
+        <meansdpair>
+          <mean>1</mean>
+          <sd>5</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_theta">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>1</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_delta">
+        <meansdpair>
+          <mean>1</mean>
+          <sd>1</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_pmin">
+        <meansdpair>
+          <mean>2</mean>
+          <sd>3</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_pwidth">
+        <meansdpair>
+          <mean>3</mean>
+          <sd>3</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_alpha">
+        <meansdpair>
+          <mean>1</mean>
+          <sd>0.5</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_wwidth">
+        <meansdpair>
+          <mean>3</mean>
+          <sd>3</sd>
+        </meansdpair>
+      </property>
+      <property name="ushaped_beta">
+        <meansdpair>
+          <mean>1</mean>
+          <sd>0.5</sd>
+        </meansdpair>
+      </property>
+      <property name="monotonic_increasing">2</property>
+      <property name="no_model_single_prior">1</property>
+      <property name="no_model_mean">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="no_model_sd">
+        <items>
+          <item>10</item>
+        </items>
+      </property>
+      <property name="ndlm2_first_diff">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>10</sd>
+        </meansdpair>
+      </property>
+      <property name="model_placebo_separately">0</property>
+      <property name="historical_data_save">0</property>
+      <property name="historical_data_ac">0</property>
+      <property name="historical_data_bac">0</property>
+      <property name="control_prior">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>10</sd>
+        </meansdpair>
+      </property>
+      <property name="comparator_prior">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>10</sd>
+        </meansdpair>
+      </property>
+      <property name="init_dose_prior">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>10</sd>
+        </meansdpair>
+      </property>
+      <property name="dr_prior_mean">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="dropout_imputation">0</property>
+      <property name="baseline_in_model">0</property>
+      <property name="baseline_beta">
+        <meansdpair>
+          <mean>0</mean>
+          <sd>1</sd>
+        </meansdpair>
+      </property>
+      <property name="long_model_type">3</property>
+      <property name="long_model_spec">0</property>
+      <property name="long_prior_spec">0</property>
+      <property name="long_alpha_mu">0</property>
+      <property name="long_alpha_mu_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="long_alpha_stdv">10</property>
+      <property name="long_alpha_sd_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="long_beta_mu">0.75</property>
+      <property name="long_beta_mu_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="long_beta_stdv">1</property>
+      <property name="long_beta_sd_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="tch_tau">
+        <items>
+          <item>
+            <gamma>
+              <mu>0.5</mu>
+              <n>1</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="tch_alpha">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="itp_k">
+        <items>
+          <item>
+            <meansdpair>
+              <mean>1</mean>
+              <sd>1</sd>
+            </meansdpair>
+          </item>
+        </items>
+      </property>
+      <property name="itp_tau">
+        <items>
+          <item>
+            <gamma>
+              <mu>1</mu>
+              <n>1</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="itp_omega">
+        <items>
+          <item>
+            <meansdpair>
+              <mean>1</mean>
+              <sd>1</sd>
+            </meansdpair>
+          </item>
+          <item>
+            <meansdpair>
+              <mean>1</mean>
+              <sd>1</sd>
+            </meansdpair>
+          </item>
+        </items>
+      </property>
+      <property name="long_lambda_single">
+        <gamma>
+          <mu>0.5</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="long_lambda_list">
+        <items>
+          <item>
+            <gamma>
+              <mu>0.5</mu>
+              <n>1</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="long_lambda_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="kernel_bandwidth">
+        <items>
+          <item>2</item>
+        </items>
+      </property>
+      <property name="kernel_min_subj">
+        <items>
+          <item>6</item>
+        </items>
+      </property>
+      <property name="kernel_sd">
+        <items>
+          <item>2</item>
+        </items>
+      </property>
+      <property name="bb_alpha_mu_1">1</property>
+      <property name="bb_alpha_mu_1_full">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="bb_beta_mu_1">1</property>
+      <property name="bb_beta_mu_1_full">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="bb_alpha_mu_0">1</property>
+      <property name="bb_alpha_mu_0_full">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="bb_beta_mu_0">1</property>
+      <property name="bb_beta_mu_0_full">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="long_rmm_alpha_0">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="long_rmm_alpha_S">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="long_rmm_alpha_1">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="lr_mu_1">0.5</property>
+      <property name="lr_mu_1_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="lr_mu_0">0.5</property>
+      <property name="lr_mu_0_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="lr_sd_1">0.5</property>
+      <property name="lr_sd_1_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="lr_sd_0">0.5</property>
+      <property name="lr_sd_0_matrix">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="arm_drop">2</property>
+      <property name="alloc_update_type">0</property>
+      <property name="min_alloc_prob">0</property>
+      <property name="init_alloc_save">
+        <items>
+          <item>5</item>
+          <item>5</item>
+        </items>
+      </property>
+      <property name="first_cohort_alloc">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="cohort_alloc">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="dose_fix_alloc_save">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="dose_fixed_prob_save">
+        <items>
+          <item />
+          <item />
+        </items>
+      </property>
+      <property name="block_size">10</property>
+      <property name="block_plac_rate">2</property>
+      <property name="block_alloc_gui">
+        <items>
+          <item />
+          <item />
+        </items>
+      </property>
+      <property name="det_alloc_filename" />
+      <property name="update_freq_save">2</property>
+      <property name="cohort_update_freq">1</property>
+      <property name="cohort_updates_start">1</property>
+      <property name="update_subjects">
+        <items />
+      </property>
+      <property name="interims_milestones_visits">
+        <items />
+      </property>
+      <property name="continue_follow_success">1</property>
+      <property name="continue_follow_futility">0</property>
+      <property name="continue_follow_arm_drop">0</property>
+      <property name="stop_ia">0</property>
+      <property name="arm_drop_limit_save">1</property>
+      <property name="dropped_arm_alloc">0</property>
+      <property name="prune_protect_low">1</property>
+      <property name="prune_protect_high">0</property>
+      <property name="prune_priority">0</property>
+      <property name="arm_drop_blocking">
+        <items>
+          <item>1</item>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="non_adapt_blocking">
+        <items>
+          <item>1</item>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="static_alloc">
+        <items>
+          <item>0</item>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="rr_power">1</property>
+      <property name="single_burnin_new">100</property>
+      <property name="first_interim_visit">1</property>
+      <property name="sample_cohorts">0</property>
+      <property name="cohort_control">1</property>
+      <property name="cohort_comparator">1</property>
+      <property name="bac_study_names">
+        <items />
+      </property>
+      <property name="ac_study_names">
+        <items />
+      </property>
+      <property name="ss_bac_study">
+        <items />
+      </property>
+      <property name="ss_baac_study">
+        <items />
+      </property>
+      <property name="cont_resp_bac_study">
+        <items />
+      </property>
+      <property name="cont_resp_ac_study">
+        <items />
+      </property>
+      <property name="dich_resp_bac_study">
+        <items />
+      </property>
+      <property name="dich_resp_ac_study">
+        <items />
+      </property>
+      <property name="sd_bac_study">
+        <items />
+      </property>
+      <property name="sd_baac_study">
+        <items />
+      </property>
+      <property name="hyperprior_mean">0</property>
+      <property name="hyperprior_mean_ac">0</property>
+      <property name="hyperprior_sd">1</property>
+      <property name="hyperprior_sd_ac">1</property>
+      <property name="hyperprior_tau">
+        <gamma>
+          <mu>1</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="hyperprior_tau_ac">
+        <gamma>
+          <mu>1</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="enable_freq">1</property>
+      <property name="contrast_coeff_save">
+        <items>
+          <item>0</item>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="one_sided_alpha">0.025</property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="DropoutParameterSet">
+    <parameterSet name="Drop1" SetId="cc20a384-5407-4e5c-a17f-774bc9046042">
+      <property name="is_stage_two_data">0</property>
+      <property name="enable_per_visit_dropouts">0</property>
+      <property name="dropout_rate">
+        <items>
+          <item>0.05</item>
+          <item>0.05</item>
+        </items>
+      </property>
+      <property name="visit_dropout_rate">
+        <items>
+          <item>
+            <items>
+              <item>0</item>
+              <item>0</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="use_common_dropout_profile">1</property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="EfficacyParameterSet">
+    <parameterSet name="Resp 1" SetId="ce5905a8-3d98-4c10-bf21-bf8689a11dfa" EndpointType="1">
+      <property name="true_endpoint_response">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="enable_per_dose_sigma">0</property>
+      <property name="true_sigma_save">10</property>
+      <property name="true_sigma_per_dose_save">
+        <items>
+          <item>10</item>
+          <item>10</item>
+        </items>
+      </property>
+      <property name="true_response_rate">
+        <items>
+          <item>0.5</item>
+          <item>0.5</item>
+        </items>
+      </property>
+      <property name="external_vsr_mean">1</property>
+      <property name="external_mean_vsr_file">test.mvsr</property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="RecruitmentParameterSet">
+    <parameterSet name="Acc 1" SetId="f4cd3ef6-b79c-4bbc-b22a-14f6babdbbf8">
+      <property name="is_stage_two_data">0</property>
+      <property name="location_names">
+        <items>
+          <item>Region 1</item>
+        </items>
+      </property>
+      <property name="recruit_rates">
+        <items>
+          <item>5</item>
+        </items>
+      </property>
+      <property name="start_dates">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="ramp_up">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="peak_start">
+        <items>
+          <item />
+        </items>
+      </property>
+      <property name="ramp_down">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="start_day">
+        <items>
+          <item />
+        </items>
+      </property>
+      <property name="last_day">
+        <items>
+          <item />
+        </items>
+      </property>
+      <property name="common_accrual_profile">1</property>
+    </parameterSet>
+  </parameterSets>
+  <simulation-settings>
+    <property name="num_sims">3</property>
+    <property name="burn">1000</property>
+    <property name="length">2500</property>
+    <property name="rv_seed_1">3500</property>
+    <property name="rv_seed_2">1</property>
+    <property name="num_weeks_out">100</property>
+    <property name="num_freq_weeks_out">1</property>
+    <property name="num_subj_out">1</property>
+    <property name="num_mcmc_files">0</property>
+    <property name="mcmc_thin">1</property>
+    <property name="is_local">1</property>
+  </simulation-settings>
+  <setup-simulation-settings name="Acc 1_Drop1_Resp 1">
+    <property name="num_sims">3</property>
+    <property name="burn">1000</property>
+    <property name="length">2500</property>
+    <property name="rv_seed_1">3500</property>
+    <property name="rv_seed_2">1</property>
+    <property name="num_weeks_out">100</property>
+    <property name="num_freq_weeks_out">1</property>
+    <property name="num_subj_out">1</property>
+    <property name="num_mcmc_files">0</property>
+    <property name="mcmc_thin">1</property>
+    <property name="is_local">1</property>
+  </setup-simulation-settings>
+</facts>

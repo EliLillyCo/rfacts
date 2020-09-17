@@ -1,0 +1,7 @@
+linters: with_defaults(
+  absolute_path_linter = NULL,
+  absolute_paths_linter = NULL,
+  camel_case_linter = NULL,
+  object_name_linter = NULL,
+  object_usage_linter = NULL,
+  snake_case_linter = NULL)

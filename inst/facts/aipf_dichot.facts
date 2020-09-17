@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<facts version="6.2.5.22668" guid="55966335-26a5-4165-b98b-d87251d1b4c7" name="aipf_dichot" host="host">
+  <project-notes><![CDATA[]]></project-notes>
+  <parameterSets type="AIPFParameterSet">
+    <parameterSet name="aipf" SetId="7f917ae0-0b6d-4299-9617-f729efddf2d4">
+      <property name="type">2</property>
+      <property name="is_adaptive">1</property>
+      <property name="use_longitudinal">1</property>
+      <property name="include_control">1</property>
+      <property name="use_stable_state">0</property>
+      <property name="high_is_good">1</property>
+      <property name="is_noninferiority">0</property>
+      <property name="groups">
+        <items>
+          <item>
+            <group>
+              <name>Group 1</name>
+              <cap>1</cap>
+              <size>50</size>
+            </group>
+          </item>
+        </items>
+      </property>
+      <property name="total_cap">
+        <selectedvalue>
+          <selected>0</selected>
+          <value>300</value>
+        </selectedvalue>
+      </property>
+      <property name="include_baseline">0</property>
+      <property name="is_change_baseline">0</property>
+      <property name="final_stable_success">1</property>
+      <property name="use_min_follow">0</property>
+      <property name="min_follow">52</property>
+      <property name="max_follow">52</property>
+      <property name="has_variants">0</property>
+      <property name="num_variants">5</property>
+      <property name="variant_names">
+        <items>
+          <item>Var1</item>
+          <item>Var2</item>
+          <item>Var3</item>
+          <item>Var4</item>
+          <item>Var5</item>
+        </items>
+      </property>
+      <property name="var_group_caps">
+        <items>
+          <item>
+            <items>
+              <item>50</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>50</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>50</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>50</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>50</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="success_delta">
+        <items>
+          <item>0.5</item>
+          <item>0.5</item>
+        </items>
+      </property>
+      <property name="futility_delta">
+        <items>
+          <item>0.3</item>
+          <item>0.3</item>
+        </items>
+      </property>
+      <property name="p3_pred">0</property>
+      <property name="p3_non_inf">0</property>
+      <property name="p3_arm_size">
+        <items>
+          <item>250</item>
+          <item>250</item>
+        </items>
+      </property>
+      <property name="p3_alpha">
+        <items>
+          <item>0.025</item>
+          <item>0.025</item>
+        </items>
+      </property>
+      <property name="p3_csd">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="p3_followup">
+        <items>
+          <item>52</item>
+          <item>52</item>
+        </items>
+      </property>
+      <property name="study_weeks">
+        <items>
+          <item>1</item>
+          <item>2</item>
+        </items>
+      </property>
+      <property name="final_visit">2</property>
+      <property name="visit_names">
+        <items>
+          <item>Visit 1</item>
+          <item>Visit 2</item>
+        </items>
+      </property>
+      <property name="interval_censor">0</property>
+      <property name="time_cut_weeks">
+        <items />
+      </property>
+      <property name="time_cut_names">
+        <items />
+      </property>
+      <property name="control_obj_resp">
+        <items>
+          <item>0.1</item>
+        </items>
+      </property>
+      <property name="hier_borrow_control">1</property>
+      <property name="hier_mu">0</property>
+      <property name="hier_sd">1</property>
+      <property name="hier_gamma">
+        <gamma>
+          <mu>1</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="control_prior_mean">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="control_prior_sd">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="control_historical_data">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="bac_mu">
+        <items>
+          <item>
+            <meansdpair>
+              <mean>0</mean>
+              <sd>1</sd>
+            </meansdpair>
+          </item>
+        </items>
+      </property>
+      <property name="bac_tau">
+        <items>
+          <item>
+            <gamma>
+              <mu>1</mu>
+              <n>1</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="bac_studies">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="gui_cluster_control">0</property>
+      <property name="dp_scale_param_control">2</property>
+      <property name="cox_model">0</property>
+      <property name="time_cuts_mod">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="control_rates">
+        <items>
+          <item>
+            <items>
+              <item>0.1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="lambda_mean">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="prior_lambda_a">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="bac_studies_names">
+        <items>
+          <item>
+            <items />
+          </item>
+        </items>
+      </property>
+      <property name="bac_study_data">
+        <items>
+          <item>
+            <items>
+              <item>
+                <items />
+              </item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="prior_lambda_a_mean">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="prior_lambda_a_alpha">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="prior_lambda_b_mean">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="prior_lambda_b_alpha">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="hier_borrow_trt">1</property>
+      <property name="trt_prior_mu">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="trt_prior_sd">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="hier_trt_mu">0</property>
+      <property name="hier_trt_sd">1</property>
+      <property name="hier_trt_gamma">
+        <gamma>
+          <mu>1</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="sigma_prior_gamma">
+        <gamma>
+          <mu>1</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="baseline_adjusted">0</property>
+      <property name="beta_prior_mu">0</property>
+      <property name="beta_prior_sd">1</property>
+      <property name="missing_data_model">0</property>
+      <property name="pooled_prior_mu">0</property>
+      <property name="pooled_prior_sd">1</property>
+      <property name="gui_cluster_trt">0</property>
+      <property name="dp_scale_param_trt">2</property>
+      <property name="long_model_type">3</property>
+      <property name="long_model_spec">0</property>
+      <property name="long_prior_spec">0</property>
+      <property name="long_model_instances">
+        <items>
+          <item>All groups</item>
+        </items>
+      </property>
+      <property name="long_alpha_mu">0</property>
+      <property name="long_alpha_mu_full">
+        <items>
+          <item>
+            <items>
+              <item>0</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="long_alpha_stdv">10</property>
+      <property name="long_alpha_sd_full">
+        <items>
+          <item>
+            <items>
+              <item>10</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="long_beta_mu">0.75</property>
+      <property name="long_beta_mu_full">
+        <items>
+          <item>
+            <items>
+              <item>0.75</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="long_beta_stdv">1</property>
+      <property name="long_beta_sd_full">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="long_lambda">
+        <gamma>
+          <mu>0.5</mu>
+          <n>1</n>
+        </gamma>
+      </property>
+      <property name="long_lambda_list">
+        <items>
+          <item>
+            <gamma>
+              <mu>0.5</mu>
+              <n>1</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="long_lambda_full">
+        <items>
+          <item>
+            <items>
+              <item>
+                <gamma>
+                  <mu>0.5</mu>
+                  <n>1</n>
+                </gamma>
+              </item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="tch_tau">
+        <items>
+          <item>
+            <gamma>
+              <mu>0.5</mu>
+              <n>12</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="tch_alpha_matrix">
+        <items>
+          <item>
+            <items>
+              <item>
+                <meansdpair>
+                  <mean>0</mean>
+                  <sd>2</sd>
+                </meansdpair>
+              </item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="kernel_bandwidth">
+        <items>
+          <item>2</item>
+        </items>
+      </property>
+      <property name="kernel_min_subj">
+        <items>
+          <item>6</item>
+        </items>
+      </property>
+      <property name="kernel_sd">
+        <items>
+          <item>2</item>
+        </items>
+      </property>
+      <property name="bb_alpha_mu_1">1</property>
+      <property name="bb_alpha_mu_1_full">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="bb_alpha_mu_0">1</property>
+      <property name="bb_alpha_mu_0_full">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="bb_beta_mu_1">1</property>
+      <property name="bb_beta_mu_1_full">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="bb_beta_mu_0">1</property>
+      <property name="bb_beta_mu_0_full">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="stable_state_alpha_0">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="stable_state_alpha_S">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="stable_state_alpha_1">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="lr_alpha_mu_1">0.5</property>
+      <property name="lr_alpha_mu_1_full">
+        <items>
+          <item>
+            <items>
+              <item>0.5</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="lr_alpha_mu_0">0.5</property>
+      <property name="lr_alpha_mu_0_full">
+        <items>
+          <item>
+            <items>
+              <item>0.5</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="lr_beta_mu_1">0.5</property>
+      <property name="lr_beta_mu_1_full">
+        <items>
+          <item>
+            <items>
+              <item>0.5</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="lr_beta_mu_0">0.5</property>
+      <property name="lr_beta_mu_0_full">
+        <items>
+          <item>
+            <items>
+              <item>0.5</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="long_itp_k">
+        <items>
+          <item>
+            <meansdpair>
+              <mean>1</mean>
+              <sd>1</sd>
+            </meansdpair>
+          </item>
+        </items>
+      </property>
+      <property name="long_itp_tau">
+        <items>
+          <item>
+            <gamma>
+              <mu>1</mu>
+              <n>1</n>
+            </gamma>
+          </item>
+        </items>
+      </property>
+      <property name="long_itp_omega_g">
+        <items>
+          <item>
+            <items>
+              <item>
+                <meansdpair>
+                  <mean>1</mean>
+                  <sd>1</sd>
+                </meansdpair>
+              </item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>
+                <meansdpair>
+                  <mean>1</mean>
+                  <sd>1</sd>
+                </meansdpair>
+              </item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="group_block_size">
+        <items>
+          <item>
+            <items>
+              <item>6</item>
+              <item>6</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="update_mode">0</property>
+      <property name="alloc_info_type">0</property>
+      <property name="update_frequency">2</property>
+      <property name="num_burnin_subjects">5</property>
+      <property name="update_by_event">0</property>
+      <property name="update_subjects">
+        <items />
+      </property>
+      <property name="interims_milestones_visits">
+        <items />
+      </property>
+      <property name="first_interim_visit">1</property>
+      <property name="continue_follow_success">1</property>
+      <property name="continue_follow_futility">0</property>
+      <property name="stop_ia">0</property>
+      <property name="interim_stopping_criteria">
+        <interims_criteria>
+          <interim_criteria>
+            <interim_number>32767</interim_number>
+            <success_criteria />
+            <futility_criteria />
+          </interim_criteria>
+          <interim_criteria>
+            <interim_number>1</interim_number>
+            <success_criteria>
+              <posterior_cut_list_tag>
+                <posterior_cut_tag>0.8</posterior_cut_tag>
+              </posterior_cut_list_tag>
+              <posterior_cut_list_tag>
+                <posterior_cut_tag>0.8</posterior_cut_tag>
+              </posterior_cut_list_tag>
+              <phase_three_cut_list_tag>
+                <phase_three_cut_tag>0.8</phase_three_cut_tag>
+              </phase_three_cut_list_tag>
+              <phase_three_cut_list_tag>
+                <phase_three_cut_tag>0.8</phase_three_cut_tag>
+              </phase_three_cut_list_tag>
+            </success_criteria>
+            <futility_criteria>
+              <posterior_cut_list_tag>
+                <posterior_cut_tag>0.4</posterior_cut_tag>
+              </posterior_cut_list_tag>
+              <posterior_cut_list_tag>
+                <posterior_cut_tag>0.4</posterior_cut_tag>
+              </posterior_cut_list_tag>
+              <phase_three_cut_list_tag>
+                <phase_three_cut_tag>0.4</phase_three_cut_tag>
+              </phase_three_cut_list_tag>
+              <phase_three_cut_list_tag>
+                <phase_three_cut_tag>0.4</phase_three_cut_tag>
+              </phase_three_cut_list_tag>
+            </futility_criteria>
+          </interim_criteria>
+        </interims_criteria>
+      </property>
+      <property name="use_futility_stopping">0</property>
+      <property name="use_fut_post">1</property>
+      <property name="use_fut_p3">0</property>
+      <property name="futility_study_or">1</property>
+      <property name="total_subj_fut">0</property>
+      <property name="total_event_fut">0</property>
+      <property name="futility_group">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="futility_study_stop">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="futility_stop_type">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="min_subj_fut">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="min_event_fut">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="use_success_stopping">0</property>
+      <property name="use_suc_post">1</property>
+      <property name="use_suc_p3">0</property>
+      <property name="success_study_or">0</property>
+      <property name="total_subj_succ">0</property>
+      <property name="total_event_succ">0</property>
+      <property name="success_group">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="success_study_stop">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="success_stop_type">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="min_subj_succ">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="min_event_succ">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="use_fut_post_eval">1</property>
+      <property name="use_fut_p3_eval">0</property>
+      <property name="futility_study_eval_or">0</property>
+      <property name="futility_cuts_fin">
+        <items>
+          <item>0.4</item>
+          <item>0.4</item>
+        </items>
+      </property>
+      <property name="futility_cuts_p3_fin">
+        <items>
+          <item>0.4</item>
+          <item>0.4</item>
+        </items>
+      </property>
+      <property name="futility_study_eval">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="futility_eval_type">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="use_suc_post_eval">1</property>
+      <property name="use_suc_p3_eval">0</property>
+      <property name="success_study_eval_or">0</property>
+      <property name="success_cuts_fin">
+        <items>
+          <item>0.8</item>
+          <item>0.8</item>
+        </items>
+      </property>
+      <property name="success_cuts_p3_fin">
+        <items>
+          <item>0.8</item>
+          <item>0.8</item>
+        </items>
+      </property>
+      <property name="success_study_eval">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="success_eval_type">
+        <items>
+          <item>0</item>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="enable_freq">1</property>
+      <property name="overall_alpha">0.05</property>
+      <property name="interact_alpha">0.05</property>
+      <property name="group_alpha">
+        <items>
+          <item>0.05</item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="AIPFDropoutParamSet">
+    <parameterSet name="Dropout 1" SetId="4bbe8576-63b9-4c1c-a96f-8214d33fdbae">
+      <property name="mode">0</property>
+      <property name="rate">
+        <items>
+          <item>0.05</item>
+          <item>0.05</item>
+        </items>
+      </property>
+      <property name="treat_rate">
+        <items>
+          <item>0.05</item>
+          <item>0.05</item>
+        </items>
+      </property>
+      <property name="control_rate">
+        <items>
+          <item>0.05</item>
+          <item>0.05</item>
+        </items>
+      </property>
+      <property name="treat_group_rate">
+        <items>
+          <item>
+            <items>
+              <item>0.05</item>
+              <item>0.05</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="control_group_rate">
+        <items>
+          <item>
+            <items>
+              <item>0.05</item>
+              <item>0.05</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="treat_group_hazard">
+        <items>
+          <item>0.05</item>
+        </items>
+      </property>
+      <property name="control_group_hazard">
+        <items>
+          <item>0.05</item>
+        </items>
+      </property>
+      <property name="treat_visit_rate">
+        <items />
+      </property>
+      <property name="control_visit_rate">
+        <items />
+      </property>
+      <property name="segment_starts_drop">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="treat_segment_hazard">
+        <items>
+          <item>
+            <items>
+              <item>0.05</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="control_segment_hazard">
+        <items>
+          <item>
+            <items>
+              <item>0.05</item>
+            </items>
+          </item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="AIPFGroupResponseSet">
+    <parameterSet name="Group Response 1" SetId="a449665a-a95d-46d2-9bda-00d629d8e8a6">
+      <property name="vsr_treatment_response">
+        <items>
+          <item>0.5</item>
+        </items>
+      </property>
+      <property name="vsr_control_response">
+        <items>
+          <item>0.2</item>
+        </items>
+      </property>
+      <property name="sigma_spec">0</property>
+      <property name="final_sigma">12</property>
+      <property name="final_treat_sigma">12</property>
+      <property name="final_control_sigma">12</property>
+      <property name="treat_sigma">
+        <items>
+          <item>10</item>
+        </items>
+      </property>
+      <property name="control_sigma">
+        <items>
+          <item>10</item>
+        </items>
+      </property>
+      <property name="external_vsr_mean">0</property>
+      <property name="external_mean_vsr_file" />
+      <property name="should_succeed">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="AipfLongitudinalParamSet">
+    <parameterSet name="Longitudinal 1" SetId="065fbb77-11d8-4bed-9bc3-a38a7b02aabf">
+      <property name="sim_method">5</property>
+      <property name="set_per_group">1</property>
+      <property name="vsr_instances">
+        <items>
+          <item>Group 1</item>
+        </items>
+      </property>
+      <property name="correlation">
+        <items>
+          <item>
+            <items>
+              <item>0.8</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>0.8</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="fraction">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="fraction_sigma">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="omega">0.5</property>
+      <property name="omega_trt">0.5</property>
+      <property name="omega_per_group">
+        <items>
+          <item>
+            <items>
+              <item>0.5</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>0.5</item>
+            </items>
+          </item>
+        </items>
+      </property>
+      <property name="true_retain_per_visit">
+        <items>
+          <item>0.9</item>
+          <item>0.9</item>
+        </items>
+      </property>
+      <property name="true_enter_per_visit">
+        <items>
+          <item>0.2</item>
+          <item>0.2</item>
+        </items>
+      </property>
+      <property name="itp_k_ctrl">1</property>
+      <property name="itp_k_trt">1</property>
+      <property name="itp_k">
+        <items>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+          <item>
+            <items>
+              <item>1</item>
+            </items>
+          </item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="GroupRecruitmentParamSet">
+    <parameterSet name="Accrual 1" SetId="2b8e978d-1c50-4ea6-b0b7-0c8b8bf9ef4f">
+      <property name="is_stage_two_data">0</property>
+      <property name="location_names">
+        <items>
+          <item>Region 1</item>
+        </items>
+      </property>
+      <property name="recruit_rates">
+        <items>
+          <item>5</item>
+        </items>
+      </property>
+      <property name="start_dates">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="ramp_up">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="peak_start">
+        <items>
+          <item />
+        </items>
+      </property>
+      <property name="ramp_down">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+      <property name="start_day">
+        <items>
+          <item />
+        </items>
+      </property>
+      <property name="last_day">
+        <items>
+          <item />
+        </items>
+      </property>
+      <property name="common_accrual_profile">1</property>
+      <property name="pop_ratio">
+        <items>
+          <item>1</item>
+        </items>
+      </property>
+      <property name="start_week">
+        <items>
+          <item>0</item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+  <simulation-settings>
+    <property name="num_sims">5</property>
+    <property name="burn">1000</property>
+    <property name="length">2500</property>
+    <property name="rv_seed_1">3500</property>
+    <property name="rv_seed_2">1</property>
+    <property name="num_weeks_out">100</property>
+    <property name="num_freq_weeks_out">1</property>
+    <property name="num_subj_out">1</property>
+    <property name="num_mcmc_files">0</property>
+    <property name="mcmc_thin">1</property>
+    <property name="mcmc_per_imputation">1</property>
+    <property name="is_local">1</property>
+  </simulation-settings>
+</facts>
