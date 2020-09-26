@@ -141,7 +141,7 @@ CSV output files from FACTS and return special aggregated data frames.
 and writes the content to the original CSV files it came from.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>overwrite_csv_files</span>(<span class='kw'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>overwrite_csv_files</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,16 +158,16 @@ or similar function.</p></td>
     <p>Nothing.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span>(<span class='st'>"contin.facts"</span>)
-<span class='kw'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_facts.html'>run_facts</a></span>(<span class='kw'>facts_file</span>, n_sims = <span class='fl'>2</span>)
-<span class='kw'>pats</span> <span class='op'>&lt;-</span> <span class='fu'><a href='facts_results.html'>read_patients</a></span>(<span class='kw'>out</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>pats</span><span class='op'>$</span><span class='kw'>visit_1</span>)
-<span class='kw'>pats</span><span class='op'>$</span><span class='kw'>visit_1</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
-<span class='fu'>overwrite_csv_files</span>(<span class='kw'>pats</span>)
-<span class='kw'>pats2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='facts_results.html'>read_patients</a></span>(<span class='kw'>out</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>pats2</span><span class='op'>$</span><span class='kw'>visit_1</span>)
-}
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span><span class='op'>(</span><span class='st'>"contin.facts"</span><span class='op'>)</span>
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_facts.html'>run_facts</a></span><span class='op'>(</span><span class='va'>facts_file</span>, n_sims <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+<span class='va'>pats</span> <span class='op'>&lt;-</span> <span class='fu'><a href='facts_results.html'>read_patients</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>pats</span><span class='op'>$</span><span class='va'>visit_1</span><span class='op'>)</span>
+<span class='va'>pats</span><span class='op'>$</span><span class='va'>visit_1</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
+<span class='fu'>overwrite_csv_files</span><span class='op'>(</span><span class='va'>pats</span><span class='op'>)</span>
+<span class='va'>pats2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='facts_results.html'>read_patients</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>pats2</span><span class='op'>$</span><span class='va'>visit_1</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

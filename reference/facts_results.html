@@ -157,35 +157,35 @@ supply a custom file name prefix such as "patients",
 but be warned: not every kind of CSV output file is tested in <code>rfacts</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>read_patients</span>(<span class='kw'>csv_files</span>)
+    <pre class="usage"><span class='fu'>read_patients</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_weeks</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_weeks</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_mcmc</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_mcmc</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_s1_mcmc</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_s1_mcmc</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_s1_weeks</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_s1_weeks</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_s1_patients</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_s1_patients</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_s2_patients</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_s2_patients</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_s2_weeks</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_s2_weeks</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_s2_mcmc</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_s2_mcmc</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_master_mcmc</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_master_mcmc</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_master_patients</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_master_patients</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_master_weeks</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_master_weeks</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_cohorts</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_cohorts</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_simulations</span>(<span class='kw'>csv_files</span>)
+<span class='fu'>read_simulations</span><span class='op'>(</span><span class='va'>csv_files</span><span class='op'>)</span>
 
-<span class='fu'>read_csv_special</span>(<span class='kw'>csv_files</span>, <span class='kw'>prefix</span>, numbered = <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>read_csv_special</span><span class='op'>(</span><span class='va'>csv_files</span>, <span class='va'>prefix</span>, numbered <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -247,21 +247,21 @@ Required for <code><a href='overwrite_csv_files.html'>overwrite_csv_files()</a><
 <code><a href='run_engine.html'>run_engine()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span>(<span class='st'>"contin.facts"</span>)
-<span class='kw'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_facts.html'>run_facts</a></span>(
-  <span class='kw'>facts_file</span>,
-  n_sims = <span class='fl'>4</span>,
-  verbose = <span class='fl'>FALSE</span>
-)
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span><span class='op'>(</span><span class='st'>"contin.facts"</span><span class='op'>)</span>
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_facts.html'>run_facts</a></span><span class='op'>(</span>
+  <span class='va'>facts_file</span>,
+  n_sims <span class='op'>=</span> <span class='fl'>4</span>,
+  verbose <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span>
 <span class='co'># What results files do we have?</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='fu'><a href='get_csv_files.html'>get_csv_files</a></span>(<span class='kw'>out</span>))
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='get_csv_files.html'>get_csv_files</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'># Read all the "patients*.csv" files with `read_patients(out)`.</span>
 <span class='co'># For each scenario, we have files named</span>
 <span class='co'># patients00001.csv, patients00002.csv, patients00003.csv,</span>
 <span class='co'># and patients00004.csv.</span>
-<span class='fu'>read_patients</span>(<span class='kw'>out</span>)
-}
+<span class='fu'>read_patients</span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

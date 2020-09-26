@@ -118,9 +118,8 @@
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest GitHub version of <code>rfacts</code>, open R and run the following.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
-<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"EliLillyCo/rfacts"</span>)
-</pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"EliLillyCo/rfacts"</span><span class="op">)</span></pre></div>
 <p>Next, set the <code>RFACTS_PATHS</code> environment variable appropriately. For instructions, please see the <a href="https://EliLillyCo.github.io/rfacts/articles/config.html">configuration guide</a>.</p>
 </div>
 <div id="run-facts-simulations" class="section level2">
@@ -128,39 +127,37 @@
 <a href="#run-facts-simulations" class="anchor"></a>Run FACTS simulations</h2>
 <p>First, create a <code>*.facts</code> XML file using the <a href="https://www.berryconsultants.com/software/">FACTS</a> GUI. The <code>rfacts</code> package has several built-in examples, included with permission from Berry Consultants LLC.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://EliLillyCo.github.io/rfacts">rfacts</a></span>)
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://EliLillyCo.github.io/rfacts">rfacts</a></span><span class="op">)</span>
 
 <span class="co"># get_facts_file_example() returns the path to</span>
 <span class="co"># an example a FACTS file from rfacts itself.</span>
 <span class="co"># For your own FACTS files you create yourself in the FACTS GUI,</span>
 <span class="co"># you can skip get_facts_file_example().</span>
-<span class="kw">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_facts_file_example.html">get_facts_file_example</a></span>(<span class="st">"contin.facts"</span>)
+<span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span>(<span class="kw">facts_file</span>)
-<span class="co">#&gt; [1] "contin.facts"</span>
-</pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">facts_file</span><span class="op">)</span>
+<span class="co">#&gt; [1] "contin.facts"</span></pre></div>
 <p>Then, run trial simulations with <code><a href="reference/run_facts.html">run_facts()</a></code>. By default, the results are written to a temporary directory. Set the <code>output_path</code> argument to customize the path.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_facts.html">run_facts</a></span>(
-  <span class="kw">facts_file</span>,
-  n_sims = <span class="fl">2</span>,
-  verbose = <span class="fl">FALSE</span>
-)
+<span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_facts.html">run_facts</a></span><span class="op">(</span>
+  <span class="va">facts_file</span>,
+  n_sims <span class="op">=</span> <span class="fl">2</span>,
+  verbose <span class="op">=</span> <span class="cn">FALSE</span>
+<span class="op">)</span>
 
-<span class="kw">out</span>
+<span class="va">out</span>
 <span class="co">#&gt; [1] "/tmp/RtmpSu4B4a/file4772675ac608"</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="fu"><a href="reference/get_csv_files.html">get_csv_files</a></span>(<span class="kw">out</span>))
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="reference/get_csv_files.html">get_csv_files</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/patients00001.csv"          </span>
 <span class="co">#&gt; [2] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/patients00002.csv"          </span>
 <span class="co">#&gt; [3] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_ignore_00001.csv"</span>
 <span class="co">#&gt; [4] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_ignore_00002.csv"</span>
 <span class="co">#&gt; [5] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_locf_00001.csv"  </span>
-<span class="co">#&gt; [6] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_locf_00002.csv"</span>
-</pre></div>
+<span class="co">#&gt; [6] "/tmp/RtmpSu4B4a/file4772675ac608/contin/acc1_drop1_resp1_params/weeks_freq_locf_00002.csv"</span></pre></div>
 <p>Use <code><a href="reference/facts_results.html">read_patients()</a></code> to read and aggregate all the <code>patients*.csv</code> files. <code>rfacts</code> has several such functions, including <code><a href="reference/facts_results.html">read_weeks()</a></code> and <code><a href="reference/facts_results.html">read_mcmc()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="fu"><a href="reference/facts_results.html">read_patients</a></span>(<span class="kw">out</span>)
+<span class="fu"><a href="reference/facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2,400 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
@@ -176,8 +173,7 @@
 <span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 2,390 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
-<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
-</pre></div>
+<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span></pre></div>
 </div>
 <div id="the-simulation-process" class="section level2">
 <h2 class="hasAnchor">
@@ -190,9 +186,9 @@
 <code><a href="reference/run_engine.html">run_engine()</a></code>: execute the instructions in the <code>*.param</code> files to conduct trial simulations and produce CSV output.</li>
 </ol>
 <!-- end list --><div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="kw">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span>(<span class="kw">facts_file</span>, verbose = <span class="fl">FALSE</span>)
-<span class="fu"><a href="reference/run_engine.html">run_engine</a></span>(<span class="kw">facts_file</span>, param_files = <span class="kw">out</span>, n_sims = <span class="fl">4</span>, verbose = <span class="fl">FALSE</span>)
-<span class="fu"><a href="reference/facts_results.html">read_patients</a></span>(<span class="kw">out</span>)
+<span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="reference/run_engine.html">run_engine</a></span><span class="op">(</span><span class="va">facts_file</span>, param_files <span class="op">=</span> <span class="va">out</span>, n_sims <span class="op">=</span> <span class="fl">4</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="reference/facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4,800 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
@@ -208,13 +204,12 @@
 <span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 4,790 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
-<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
-</pre></div>
+<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span></pre></div>
 <p><code><a href="reference/run_engine.html">run_engine()</a></code> automatically detects the Linux engine required for your FACTS file. If you know the engine in advance, you can use a specific engine function such as <code><a href="reference/facts_engines.html">run_engine_contin()</a></code> or <code><a href="reference/facts_engines.html">run_engine_dichot()</a></code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="kw">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span>(<span class="kw">facts_file</span>, verbose = <span class="fl">FALSE</span>)
-<span class="fu"><a href="reference/facts_engines.html">run_engine_contin</a></span>(param_files = <span class="kw">out</span>, n_sims = <span class="fl">4</span>, verbose = <span class="fl">FALSE</span>)
-<span class="fu"><a href="reference/facts_results.html">read_patients</a></span>(<span class="kw">out</span>)
+<span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="reference/facts_engines.html">run_engine_contin</a></span><span class="op">(</span>param_files <span class="op">=</span> <span class="va">out</span>, n_sims <span class="op">=</span> <span class="fl">4</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="reference/facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4,800 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
@@ -230,13 +225,11 @@
 <span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 4,790 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
-<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
-</pre></div>
+<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span></pre></div>
 <p>If you are unsure which engine function to use, call <code><a href="reference/get_facts_engine.html">get_facts_engine()</a></code></p>
 <div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="fu"><a href="reference/get_facts_engine.html">get_facts_engine</a></span>(<span class="kw">facts_file</span>)
-<span class="co">#&gt; [1] "run_engine_contin"</span>
-</pre></div>
+<span class="fu"><a href="reference/get_facts_engine.html">get_facts_engine</a></span><span class="op">(</span><span class="va">facts_file</span><span class="op">)</span>
+<span class="co">#&gt; [1] "run_engine_contin"</span></pre></div>
 </div>
 <div id="run-a-single-scenario" class="section level2">
 <h2 class="hasAnchor">
@@ -244,23 +237,23 @@
 <p>If we take control of the simulation process, we can pick and choose which FACTS simulation scenarios to run and read.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit">
 <span class="co"># Example FACTS file built into rfacts.</span>
-<span class="kw">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_facts_file_example.html">get_facts_file_example</a></span>(<span class="st">"contin.facts"</span>)
+<span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span>
 
 <span class="co"># Set up the files for the scenarios.</span>
-<span class="kw">param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span>(<span class="kw">facts_file</span>, verbose = <span class="fl">FALSE</span>)
+<span class="va">param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 
 <span class="co"># Each scenario has its own folder with internal parameter files.</span>
-<span class="kw">scenarios</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_param_dirs.html">get_param_dirs</a></span>(<span class="kw">param_files</span>) <span class="co"># not in rfacts &lt;= 1.0.0</span>
-<span class="kw">scenarios</span>
+<span class="va">scenarios</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_param_dirs.html">get_param_dirs</a></span><span class="op">(</span><span class="va">param_files</span><span class="op">)</span> <span class="co"># not in rfacts &lt;= 1.0.0</span>
+<span class="va">scenarios</span>
 <span class="co">#&gt; [1] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc1_drop1_resp1_params"</span>
 <span class="co">#&gt; [2] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc1_drop1_resp2_params"</span>
 <span class="co">#&gt; [3] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc2_drop1_resp1_params"</span>
 <span class="co">#&gt; [4] "/tmp/RtmpSu4B4a/file47725c87cacf/contin/acc2_drop1_resp2_params"</span>
 
 <span class="co"># Let's pick one of those scenarios and run the simulations.</span>
-<span class="kw">scenario</span> <span class="op">&lt;-</span> <span class="kw">scenarios</span>[<span class="fl">1</span>]
-<span class="fu"><a href="reference/facts_engines.html">run_engine_contin</a></span>(<span class="kw">scenario</span>, n_sims = <span class="fl">2</span>, verbose = <span class="fl">FALSE</span>)
-<span class="fu"><a href="reference/facts_results.html">read_patients</a></span>(<span class="kw">scenario</span>)
+<span class="va">scenario</span> <span class="op">&lt;-</span> <span class="va">scenarios</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+<span class="fu"><a href="reference/facts_engines.html">run_engine_contin</a></span><span class="op">(</span><span class="va">scenario</span>, n_sims <span class="op">=</span> <span class="fl">2</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="reference/facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">scenario</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 600 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
@@ -276,45 +269,42 @@
 <span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 590 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
-<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
-</pre></div>
+<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span></pre></div>
 </div>
 <div id="parallel-computing" class="section level2">
 <h2 class="hasAnchor">
 <a href="#parallel-computing" class="anchor"></a>Parallel computing</h2>
 <p>rfacts makes it straightforward to parallelize across simulations. First, use <code><a href="reference/run_flfll.html">run_flfll()</a></code> to create a directory of param files. Be sure to supply an <code>output_path</code> that all the parallel workers can access (e.g. no <code><a href="https://rdrr.io/r/base/tempfile.html">tempfile()</a></code>s).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://EliLillyCo.github.io/rfacts">rfacts</a></span>)
-<span class="kw">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_facts_file_example.html">get_facts_file_example</a></span>(<span class="st">"contin.facts"</span>)
-<span class="kw">param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span>(), <span class="st">"param_files"</span>)
-<span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span>(<span class="kw">facts_file</span>, <span class="kw">param_files</span>)
-<span class="co">#&gt; [1] "/home/c240390/projects/rfacts/param_files"</span>
-</pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://EliLillyCo.github.io/rfacts">rfacts</a></span><span class="op">)</span>
+<span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span>
+<span class="va">param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"param_files"</span><span class="op">)</span>
+<span class="fu"><a href="reference/run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, <span class="va">param_files</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/home/c240390/projects/rfacts/param_files"</span></pre></div>
 <p>Next, write a custom function that accepts the param files, runs a single simulation for each param file, and returns the important data in memory. Be sure to set a unique seed for each simulation iteration.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="kw">sim_once</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">iter</span>, <span class="kw">param_files</span>) {
+<span class="va">sim_once</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">iter</span>, <span class="va">param_files</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># Copy param files to a temp file in order to</span>
   <span class="co"># (1) Avoid race conditions in parallel processing, and</span>
   <span class="co"># (2) Make things run faster: temp files are on local node storage.</span>
-  <span class="kw">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span>()
-  <span class="kw">fs</span>::<span class="fu"><a href="http://fs.r-lib.org/reference/copy.html">dir_copy</a></span>(path = <span class="kw">param_files</span>, new_path = <span class="kw">out</span>)
+  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span><span class="op">)</span>
+  <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/copy.html">dir_copy</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">param_files</span>, new_path <span class="op">=</span> <span class="va">out</span><span class="op">)</span>
   
   <span class="co"># Run the engine once per param file.</span>
-  <span class="fu"><a href="reference/facts_engines.html">run_engine_contin</a></span>(<span class="kw">out</span>, n_sims = <span class="fl">1L</span>, seed = <span class="kw">iter</span>)
+  <span class="fu"><a href="reference/facts_engines.html">run_engine_contin</a></span><span class="op">(</span><span class="va">out</span>, n_sims <span class="op">=</span> <span class="fl">1L</span>, seed <span class="op">=</span> <span class="va">iter</span><span class="op">)</span>
   
   <span class="co"># Return aggregated patients files.</span>
-  <span class="fu"><a href="reference/facts_results.html">read_patients</a></span>(<span class="kw">out</span>) <span class="co"># Reads fast because `out` is a tempfile().</span>
-}
-</pre></div>
+  <span class="fu"><a href="reference/facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span> <span class="co"># Reads fast because `out` is a tempfile().</span>
+<span class="op">}</span></pre></div>
 <p>At this point, we should test this function locally without parallel computing.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 
 <span class="co"># All the patients files were named patients00001.csv,</span>
 <span class="co"># so do not trust the facts_sim column.</span>
 <span class="co"># For data post-processing, use the facts_id column instead.</span>
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span>(<span class="fl">4</span>), <span class="kw">sim_once</span>, param_files = <span class="kw">param_files</span>) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>, <span class="va">sim_once</span>, param_files <span class="op">=</span> <span class="va">param_files</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 4,800 x 15</span>
 <span class="co">#&gt;    facts_file facts_scenario facts_sim facts_id facts_output facts_csv</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    </span>
@@ -330,30 +320,28 @@
 <span class="co">#&gt; 10 contin.fa… acc1_drop1_re…         1 file477… patients     /tmp/Rtm…</span>
 <span class="co">#&gt; # … with 4,790 more rows, and 9 more variables: facts_header &lt;chr&gt;,</span>
 <span class="co">#&gt; #   subject &lt;int&gt;, region &lt;int&gt;, date &lt;dbl&gt;, dose &lt;int&gt;, lastvisit &lt;int&gt;,</span>
-<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span>
-</pre></div>
+<span class="co">#&gt; #   dropout &lt;int&gt;, baseline &lt;lgl&gt;, visit_1 &lt;dbl&gt;</span></pre></div>
 <p>Parallel computing happens when we call <code>sim_once()</code> repeatedly over several parallel workers. A powerful and convenient parallel computing solution is <a href="https://mschubert.github.io/clustermq/"><code>clustermq</code></a>. Here is a sketch of how to use it with <code>rfacts</code>. <code>mclapply()</code> from the <code>parallel</code> package is a quick and dirty alternative.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit">
 <span class="co"># Configure clustermq to use our grid and your template file.</span>
 <span class="co"># If you are using a scheduler like SGE, you need to write a template file</span>
 <span class="co"># like clustermq.tmpl. To learn how, visit</span>
 <span class="co"># https://mschubert.github.io/clustermq/articles/userguide.html#configuration-1</span>
-<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span>(clustermq.scheduler = <span class="st">"sge"</span>, clustermq.template = <span class="st">"clustermq.tmpl"</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>clustermq.scheduler <span class="op">=</span> <span class="st">"sge"</span>, clustermq.template <span class="op">=</span> <span class="st">"clustermq.tmpl"</span><span class="op">)</span>
 
 <span class="co"># Run the computation.</span>
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">clustermq</span>)
-<span class="kw">patients</span> <span class="op">&lt;-</span> <span class="fu">Q</span>(
-  fun = <span class="kw">sim_once</span>,
-  iter = <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span>(<span class="fl">50</span>),
-  const = <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(params = <span class="kw">params</span>),
-  pkgs = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"fs"</span>, <span class="st">"rfacts"</span>),
-  n_jobs = <span class="fl">4</span>
-) <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>()
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">clustermq</span><span class="op">)</span>
+<span class="va">patients</span> <span class="op">&lt;-</span> <span class="fu">Q</span><span class="op">(</span>
+  fun <span class="op">=</span> <span class="va">sim_once</span>,
+  iter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span>,
+  const <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>params <span class="op">=</span> <span class="va">params</span><span class="op">)</span>,
+  pkgs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"fs"</span>, <span class="st">"rfacts"</span><span class="op">)</span>,
+  n_jobs <span class="op">=</span> <span class="fl">4</span>
+<span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># Show aggregated patient data.</span>
-<span class="kw">patients</span>
-</pre></div>
+<span class="va">patients</span></pre></div>
 <p>Alternatives to <code>clustermq</code> include <code><a href="https://rdrr.io/r/parallel/mclapply.html">parallel::mclapply()</a></code>, <code>furrr::future_map()</code>, and <code>future.apply::future_lapply()</code>.</p>
 </div>
 <div id="helpers" class="section level2">
@@ -361,13 +349,12 @@
 <a href="#helpers" class="anchor"></a>Helpers</h2>
 <p>Various <code>get_facts_*()</code> functions interrogate FACTS files.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="fu"><a href="reference/get_facts_scenarios.html">get_facts_scenarios</a></span>(<span class="kw">facts_file</span>)
+<span class="fu"><a href="reference/get_facts_scenarios.html">get_facts_scenarios</a></span><span class="op">(</span><span class="va">facts_file</span><span class="op">)</span>
 <span class="co">#&gt; [1] "acc1_drop1_resp1" "acc1_drop1_resp2" "acc2_drop1_resp1" "acc2_drop1_resp2"</span>
-<span class="fu"><a href="reference/get_facts_version.html">get_facts_version</a></span>(<span class="kw">facts_file</span>)
+<span class="fu"><a href="reference/get_facts_version.html">get_facts_version</a></span><span class="op">(</span><span class="va">facts_file</span><span class="op">)</span>
 <span class="co">#&gt; [1] "6.2.5.22668"</span>
-<span class="fu"><a href="reference/get_facts_versions.html">get_facts_versions</a></span>()
-<span class="co">#&gt; [1] "6.2.5"   "6.0.0.1"</span>
-</pre></div>
+<span class="fu"><a href="reference/get_facts_versions.html">get_facts_versions</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] "6.2.5"   "6.0.0.1"</span></pre></div>
 </div>
 </div>
   </div>

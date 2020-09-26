@@ -137,7 +137,7 @@ for your FACTS file." />
 for your FACTS file.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_facts_engine</span>(<span class='kw'>facts_file</span>)</pre>
+    <pre class="usage"><span class='fu'>get_facts_engine</span><span class='op'>(</span><span class='va'>facts_file</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,21 +167,21 @@ help file and read about the arguments, e.g. <code><a href='facts_engines.html'>
     <div class='dont-index'><p><code><a href='run_facts.html'>run_facts()</a></code>, <code><a href='run_engine.html'>run_engine()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='kw'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span>(<span class='st'>"contin.facts"</span>)
-<span class='kw'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_flfll.html'>run_flfll</a></span>(<span class='kw'>facts_file</span>, verbose = <span class='fl'>FALSE</span>) <span class='co'># Generate param files.</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='va'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span><span class='op'>(</span><span class='st'>"contin.facts"</span><span class='op'>)</span>
+<span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_flfll.html'>run_flfll</a></span><span class='op'>(</span><span class='va'>facts_file</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='co'># Generate param files.</span>
 <span class='co'># Find the appropriate FACTS engine function.</span>
-<span class='fu'>get_facts_engine</span>(<span class='kw'>facts_file</span>)
+<span class='fu'>get_facts_engine</span><span class='op'>(</span><span class='va'>facts_file</span><span class='op'>)</span>
 <span class='co'># Read about the function arguments.</span>
 <span class='co'># You can pass these arguments to `...` in `run_facts()`</span>
 <span class='co'># or `run_engine()` or just call `run_engine_contin()` directly.</span>
 <span class='co'># ?run_engine_contin</span>
 <span class='co'># Call the FACTS engine function to run simulations.</span>
 <span class='co'># Alternatively, you could just call `run_engine()`.</span>
-<span class='fu'><a href='facts_engines.html'>run_engine_contin</a></span>(<span class='kw'>out</span>, n_sims = <span class='fl'>1</span>, verbose = <span class='fl'>FALSE</span>)
+<span class='fu'><a href='facts_engines.html'>run_engine_contin</a></span><span class='op'>(</span><span class='va'>out</span>, n_sims <span class='op'>=</span> <span class='fl'>1</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 <span class='co'># See the results.</span>
-<span class='fu'><a href='facts_results.html'>read_patients</a></span>(<span class='kw'>out</span>)
-}
+<span class='fu'><a href='facts_results.html'>read_patients</a></span><span class='op'>(</span><span class='va'>out</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
