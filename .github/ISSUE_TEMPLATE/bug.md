@@ -7,11 +7,13 @@ labels: "type: bug"
 
 ## Prework
 
-* [ ] I understand and agree to the [code of conduct](https://github.com/EliLillyCo/rfacts/blob/master/CODE_OF_CONDUCT.md).
-* [ ] I understand and agree to the [contributing guidelines](https://github.com/EliLillyCo/rfacts/blob/master/CONTRIBUTING.md).
-* [ ] This post does not contain any proprietary or confidential information. I understand that all information I share here is publicly visible.
-* [ ] I am reasonably sure this is a genuine bug in `rfacts` and most likely not a user error. (If you run into an error and do not know the cause, please submit a "Trouble" issue instead.)
-* [ ] Be considerate of the maintainer's time and make it as easy as possible to troubleshoot any problems you identify. Read [here](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) and [here](https://www.tidyverse.org/help/) to learn about minimal reproducible examples. Format your code according to the [tidyverse style guide](https://style.tidyverse.org/) to make it easier for others to read.
+* [ ] Read and agree to the [code of conduct](https://github.com/EliLillyCo/rfacts/blob/master/CODE_OF_CONDUCT.md) and [contributing guidelines](https://github.com/EliLillyCo/rfacts/blob/master/CONTRIBUTING.md).
+* [ ] If there is [already a relevant issue](https://github.com/EliLillyCo/rfacts/issues), whether open or closed, comment on the existing thread instead of posting a new issue.
+* [ ] This post does not contain any proprietary or confidential information. All information shared here is publicly visible.
+* [ ] For any problem you identify, post a [minimal reproducible example](https://www.tidyverse.org/help/) so the maintainer can troubleshoot. A reproducible example is:
+    * [ ] **Runnable**: post enough R code and data so any onlooker can create the error on their own computer.
+    * [ ] **Minimal**: reduce runtime wherever possible and remove complicated details that are irrelevant to the issue at hand.
+    * [ ] **Readable**: format your code according to the [tidyverse style guide](https://style.tidyverse.org/).
 
 ## Description
 
@@ -19,7 +21,10 @@ Please describe the bug.
 
 ## Reproducible example
 
-Be considerate of the maintainer's time and make it as easy as possible to troubleshoot any problems you identify. Read [here](https://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example) and [here](https://www.tidyverse.org/help/) to learn about minimal reproducible examples. Format your code according to the [tidyverse style guide](https://style.tidyverse.org/) to make it easier for others to read.
+* [ ] For any problem you identify, post a [minimal reproducible example](https://www.tidyverse.org/help/) so the maintainer can troubleshoot. A reproducible example is:
+    * [ ] **Runnable**: post enough R code and data so any onlooker can create the error on their own computer.
+    * [ ] **Minimal**: reduce runtime wherever possible and remove complicated details that are irrelevant to the issue at hand.
+    * [ ] **Readable**: format your code according to the [tidyverse style guide](https://style.tidyverse.org/).
 
 ## Expected result
 

@@ -1,8 +1,6 @@
 # Prework
 
-* [ ] I understand and agree to the [code of conduct](https://github.com/EliLillyCo/rfacts/blob/master/CODE_OF_CONDUCT.md).
-* [ ] I understand and agree to the [contributing guidelines](https://github.com/EliLillyCo/rfacts/blob/master/CONTRIBUTING.md).
-* [ ] This pull request does not contain any proprietary or confidential information. I understand that all information I post here is publicly visible.
+* [ ] I understand and agree to the [code of conduct](https://github.com/EliLillyCo/rfacts/blob/master/CODE_OF_CONDUCT.md) and the [contributing guidelines](https://github.com/EliLillyCo/rfacts/blob/master/CONTRIBUTING.md).
 * [ ] I have already submitted an issue to the [issue tracker](http://github.com/EliLillyCo/rfacts/issues) to discuss my idea with the maintainer.
 
 # Summary
