@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
 
 # rfacts
 
+[![cran](https://www.r-pkg.org/badges/version/rfacts)](https://cran.r-project.org/package=rfacts)
 [![active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![check](https://github.com/EliLillyCo/rfacts/workflows/check/badge.svg)](https://github.com/EliLillyCo/rfacts/actions?query=workflow%3Acheck)
 [![lint](https://github.com/EliLillyCo/rfacts/workflows/lint/badge.svg)](https://github.com/EliLillyCo/rfacts/actions?query=workflow%3Alint)
@@ -33,7 +34,13 @@ The rfacts package is an R interface to the [Fixed and Adaptive Clinical Trial S
 
 ## Installation
 
-To install the latest GitHub version of `rfacts`, open R and run the following.
+To install the latest release from CRAN, open R and run the following.
+
+```{r, eval = FALSE}
+install.packages("rfacts")
+```
+
+To install the latest development version:
 
 ```{r, eval = FALSE}
 install.packages("remotes")
