@@ -101,7 +101,7 @@
 <a href="#how-it-works" class="anchor"></a>How it works</h1>
 <p>The workflow is very similar to the parallel computing section of the vignette. First, we use our FACTS file and <code><a href="../reference/run_flfll.html">run_flfll()</a></code> to generate a directory of param files. For computing on a cluster, the param files should be stored on disk where parallel workers have access (e.g. no <code><a href="https://rdrr.io/r/base/tempfile.html">tempfile()</a></code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://EliLillyCo.github.io/rfacts">rfacts</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/">rfacts</a></span><span class="op">)</span>
 <span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"dichot.facts"</span><span class="op">)</span> <span class="co"># could be any FACTS file</span>
 <span class="va">all_param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"param_files"</span><span class="op">)</span>
 
