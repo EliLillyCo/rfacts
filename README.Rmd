@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![lint](https://github.com/EliLillyCo/rfacts/workflows/lint/badge.svg)](https://github.com/EliLillyCo/rfacts/actions?query=workflow%3Alint)
 [![codecov](https://codecov.io/gh/EliLillyCo/rfacts/branch/master/graph/badge.svg?token=3T5DlLwUVl)](https://codecov.io/gh/EliLillyCo/rfacts)
 
-The rfacts package is an R interface to the [Fixed and Adaptive Clinical Trial Simulator (FACTS)](https://www.berryconsultants.com/software/) on Unix-like systems. It programmatically invokes [FACTS](https://www.berryconsultants.com/software/) to run clinical trial simulations, and it aggregates simulation output data into tidy data frames. These capabilities provide end-to-end automation for large-scale simulation workflows, and they enhance computational reproducibility. For more information, please visit the [documentation website](https://EliLillyCo.github.io/rfacts).
+The rfacts package is an R interface to the [Fixed and Adaptive Clinical Trial Simulator (FACTS)](https://www.berryconsultants.com/software/) on Unix-like systems. It programmatically invokes [FACTS](https://www.berryconsultants.com/software/) to run clinical trial simulations, and it aggregates simulation output data into tidy data frames. These capabilities provide end-to-end automation for large-scale simulation workflows, and they enhance computational reproducibility. For more information, please visit the [documentation website](https://elilillyco.github.io/rfacts).
 
 ## Disclaimer
 
@@ -29,7 +29,7 @@ The rfacts package is an R interface to the [Fixed and Adaptive Clinical Trial S
 
 * FACTS files prior to version 6.2.4 are unsupported.
 * `rfacts` only works on Unix-like systems.
-* `rfacts` requires paths to pre-compiled versions of Mono, FLFLL, and the FACTS Linux engines. See the installation instructions below and the [configuration guide](https://EliLillyCo.github.io/rfacts/articles/config.html).
+* `rfacts` requires paths to pre-compiled versions of Mono, FLFLL, and the FACTS Linux engines. See the installation instructions below and the [configuration guide](https://elilillyco.github.io/rfacts/articles/config.html).
 
 ## Installation
 
@@ -40,7 +40,7 @@ install.packages("remotes")
 remotes::install_github("EliLillyCo/rfacts")
 ```
 
-Next, set the `RFACTS_PATHS` environment variable appropriately. For instructions, please see the [configuration guide](https://EliLillyCo.github.io/rfacts/articles/config.html).
+Next, set the `RFACTS_PATHS` environment variable appropriately. For instructions, please see the [configuration guide](https://elilillyco.github.io/rfacts/articles/config.html).
 
 ## Run FACTS simulations
 

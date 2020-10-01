@@ -11,7 +11,7 @@ Description: The rfacts package is an R interface to the
   please visit <https://www.berryconsultants.com/software/>.
 Version: 0.0.1
 License: MIT + file LICENSE
-URL: https://EliLillyCo.github.io/rfacts,
+URL: https://elilillyco.github.io/rfacts/,
   https://github.com/EliLillyCo/rfacts
 BugReports: https://github.com/EliLillyCo/rfacts/issues
 Authors@R: c(

@@ -137,7 +137,7 @@ rfacts_paths_msg <- function(path) {
     " does not exist.",
     "Set the RFACTS_PATHS environment variable ",
     "to a valid path. See the configuration guide at ",
-    "https://EliLillyCo.github.io/rfacts/articles/config.html ",
+    "https://elilillyco.github.io/rfacts/articles/config.html ",
     "for detailed instructions."
   )
 }
