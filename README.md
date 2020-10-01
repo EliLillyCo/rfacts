@@ -15,7 +15,7 @@ trial simulations, and it aggregates simulation output data into tidy
 data frames. These capabilities provide end-to-end automation for
 large-scale simulation workflows, and they enhance computational
 reproducibility. For more information, please visit the [documentation
-website](https://elilillyco.github.io/rfacts).
+website](https://elilillyco.github.io/rfacts/).
 
 ## Disclaimer
 
