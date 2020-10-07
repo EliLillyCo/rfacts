@@ -5,11 +5,11 @@ Description: The 'rfacts' package is an R interface to the
   on Unix-like systems. It programmatically invokes 'FACTS' to run clinical
   trial simulations, and it aggregates simulation output data
   into tidy data frames. These capabilities provide end-to-end
-  automation for large-scale simulation workflows, and
+  automation for large-scale simulation pipelines, and
   they enhance computational reproducibility.
   For more information on 'FACTS' itself,
   please visit <https://www.berryconsultants.com/software/>.
-Version: 0.0.2
+Version: 0.0.2.9000
 License: MIT + file LICENSE
 URL: https://elilillyco.github.io/rfacts/,
   https://github.com/EliLillyCo/rfacts
