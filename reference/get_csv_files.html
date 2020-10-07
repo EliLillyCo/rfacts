@@ -160,8 +160,9 @@ Avoid <code>summary.csv</code> files. They are not reliable on Linux.</p></td>
     <p>A character vector of names of CSV files.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='va'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span><span class='op'>(</span><span class='st'>"contin.facts"</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='va'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span><span class='op'>(</span><span class='st'>"contin.facts"</span><span class='op'>)</span>
+<span class='co'># Can only run if system dependencies are configured:</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"RFACTS_PATHS"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_facts.html'>run_facts</a></span><span class='op'>(</span>
   <span class='va'>facts_file</span>,
   n_sims <span class='op'>=</span> <span class='fl'>2L</span>,

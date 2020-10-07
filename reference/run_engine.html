@@ -182,7 +182,8 @@ functions (such as <code><a href='facts_engines.html'>run_engine_contin()</a></c
 <code><a href='get_facts_engine.html'>get_facts_engine()</a></code>, <code><a href='prep_param_files.html'>prep_param_files()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+    <pre class="examples"><div class='input'><span class='co'># Can only run if system dependencies are configured:</span>
+<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.getenv.html'>Sys.getenv</a></span><span class='op'>(</span><span class='st'>"RFACTS_PATHS"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='va'>facts_file</span> <span class='op'>&lt;-</span> <span class='fu'><a href='get_facts_file_example.html'>get_facts_file_example</a></span><span class='op'>(</span><span class='st'>"contin.facts"</span><span class='op'>)</span> <span class='co'># example FACTS file</span>
 <span class='va'>out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='run_flfll.html'>run_flfll</a></span><span class='op'>(</span><span class='va'>facts_file</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='co'># Generate param files.</span>
 <span class='co'># Run the simulations.</span>
