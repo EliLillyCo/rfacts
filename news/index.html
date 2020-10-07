@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
       </span>
     </div>
 
@@ -129,11 +129,14 @@
       <small>Source: <a href='https://github.com/EliLillyCo/rfacts/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="version-0019000" class="section level1">
-<h1 class="page-header" data-toc-text="0.0.1.9000">
-<a href="#version-0019000" class="anchor"></a>Version 0.0.1.9000</h1>
+    <div id="version-002" class="section level1">
+<h1 class="page-header" data-toc-text="0.0.2">
+<a href="#version-002" class="anchor"></a>Version 0.0.2</h1>
 <ul>
 <li>Mention CRAN in docs.</li>
+<li>Use single quotes to reference software names in the <code>DESCRIPTION</code>.</li>
+<li>Avoid <code>\dontrun{}</code> in examples. Instead, check if the required system dependencies are configured. Most of the examples need to be skipped because <code>rfacts</code> relies on system dependencies that are proprietary and not publicly available. To obtain the system dependencies, contact Berry Consultants: <a href="https://www.berryconsultants.com/software" class="uri">https://www.berryconsultants.com/software</a>.</li>
+<li>Always write to temp files in the README, examples, tests, and vignettes.</li>
 </ul>
 </div>
     <div id="version-001" class="section level1">
