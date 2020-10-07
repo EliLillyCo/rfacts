@@ -64,7 +64,8 @@ for the changes to take effect.
 }
 
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 reset_rfacts_paths()
 }
 }

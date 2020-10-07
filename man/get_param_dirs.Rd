@@ -25,7 +25,8 @@ subdirectories, each corresponding to a single simulation scenario
 (VSR profile x accrual profile x dropout profile, etc).
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 facts_file <- get_facts_file_example("contin.facts")
 param_files <- run_flfll(facts_file, verbose = FALSE)
 scenarios <- get_param_dirs(param_files)

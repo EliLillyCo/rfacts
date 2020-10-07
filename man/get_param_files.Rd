@@ -17,7 +17,8 @@ List the paths to the all the param files
 in a directory or directories.
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 facts_file <- get_facts_file_example("contin.facts")
 dir <- run_flfll(facts_file, verbose = FALSE)
 get_param_files(dir)

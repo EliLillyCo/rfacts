@@ -23,8 +23,9 @@ A character vector of names of CSV files.
 List output CSV files in a directory or directories.
 }
 \examples{
-\dontrun{
 facts_file <- get_facts_file_example("contin.facts")
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 out <- run_facts(
   facts_file,
   n_sims = 2L,

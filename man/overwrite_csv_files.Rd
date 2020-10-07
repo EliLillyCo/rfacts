@@ -20,8 +20,9 @@ CSV output files from FACTS and return special aggregated data frames.
 and writes the content to the original CSV files it came from.
 }
 \examples{
-\dontrun{
 facts_file <- get_facts_file_example("contin.facts")
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 out <- run_facts(facts_file, n_sims = 2)
 pats <- read_patients(out)
 head(pats$visit_1)

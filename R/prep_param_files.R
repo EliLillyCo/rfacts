@@ -19,7 +19,8 @@
 #' @param param_files A character vector of param files and/or directories
 #'   containing param files.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' out <- run_flfll(facts_file, verbose = FALSE)
 #' param_files <- prep_param_files(out) # For speed.

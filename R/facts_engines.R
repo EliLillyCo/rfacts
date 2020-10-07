@@ -76,8 +76,9 @@
 #'   detects the version automatically from the FACTS file and
 #'   passes it to the appropriate engine function.
 #' @examples
-#' \dontrun{
 #' facts_file <- get_facts_file_example("contin.facts")
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' out <- run_flfll(facts_file, verbose = FALSE) # Generate param files.
 #' # Identify which engine you need.
 #' get_facts_engine(facts_file)

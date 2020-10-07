@@ -108,7 +108,8 @@ supply a custom file name prefix such as "patients",
 but be warned: not every kind of CSV output file is tested in \code{rfacts}.
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 facts_file <- get_facts_file_example("contin.facts")
 out <- run_facts(
   facts_file,

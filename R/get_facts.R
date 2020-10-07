@@ -23,7 +23,8 @@
 #'   - "tte.facts" - Time to event.
 #'   - "unsupported.facts" - FACTS file with an unsupported engine type.
 #' @examples
-#' \dontrun{
+#' # Only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' facts_file
 #' out <- run_facts(
@@ -50,7 +51,8 @@ get_facts_file_example <- function(facts_file) {
 #' @inheritParams get_facts_version
 #' @param verbose Logical, whether to print progress to the R console.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' get_facts_scenarios(facts_file)
 #' }
@@ -78,7 +80,8 @@ get_facts_scenarios <- function(facts_file, verbose = FALSE) {
 #'   2. The lowest supported version if (1) does not exist.
 #' @return A character vector of supported FACTS versions.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' get_facts_versions()
 #' }
 get_facts_versions <- function() {
@@ -120,7 +123,8 @@ get_path_version <- function(paths, version, field) {
 #' @return Character, the name of a FACTS engine function.
 #' @inheritParams get_facts_version
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' out <- run_flfll(facts_file, verbose = FALSE) # Generate param files.
 #' # Find the appropriate FACTS engine function.
@@ -203,9 +207,7 @@ get_facts_param_type <- function(facts_file) {
 #' @examples
 #' facts_file <- get_facts_file_example("contin.facts")
 #' facts_file
-#' \dontrun{
 #' get_facts_version(facts_file)
-#' }
 get_facts_version <- function(facts_file) {
   out <- facts_xml(facts_file)
   out <- xml2::xml_find_first(out, "//facts/@version")

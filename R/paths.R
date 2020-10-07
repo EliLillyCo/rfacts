@@ -54,7 +54,8 @@
 #' @return A data frame with paths and other metadata about `rfacts`
 #'   system dependencies
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' rfacts_paths()
 #' }
 rfacts_paths <- function() {
@@ -70,7 +71,8 @@ rfacts_paths <- function() {
 #'   environment variable.
 #' @inheritSection rfacts_paths Dependencies
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' reset_rfacts_paths()
 #' }
 reset_rfacts_paths <- function() {

@@ -4,7 +4,8 @@
 #' @name rfacts-package
 #' @aliases rfacts
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts") # example FACTS file
 #' out <- run_facts(
 #'   facts_file,

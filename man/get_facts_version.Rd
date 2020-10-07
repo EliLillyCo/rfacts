@@ -20,9 +20,7 @@ your \verb{*.facts} file.
 \examples{
 facts_file <- get_facts_file_example("contin.facts")
 facts_file
-\dontrun{
 get_facts_version(facts_file)
-}
 }
 \seealso{
 \code{\link[=get_facts_versions]{get_facts_versions()}}

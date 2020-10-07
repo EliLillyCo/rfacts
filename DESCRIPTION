@@ -1,13 +1,13 @@
 Package: rfacts
-Title: R Interface to FACTS on Unix-Like Systems
-Description: The rfacts package is an R interface to the
-  Fixed and Adaptive Clinical Trial Simulator (FACTS)
-  on Unix-like systems. It programmatically invokes FACTS to run clinical
+Title: R Interface to 'FACTS' on Unix-Like Systems
+Description: The 'rfacts' package is an R interface to the
+  Fixed and Adaptive Clinical Trial Simulator ('FACTS')
+  on Unix-like systems. It programmatically invokes 'FACTS' to run clinical
   trial simulations, and it aggregates simulation output data
   into tidy data frames. These capabilities provide end-to-end
   automation for large-scale simulation workflows, and
   they enhance computational reproducibility.
-  For more information on FACTS itself,
+  For more information on 'FACTS' itself,
   please visit <https://www.berryconsultants.com/software/>.
 Version: 0.0.1.9000
 License: MIT + file LICENSE

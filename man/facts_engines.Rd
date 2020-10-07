@@ -293,8 +293,9 @@ and then passing the result to one of the individual engine
 functions (such as \code{\link[=run_engine_contin]{run_engine_contin()}}).
 }
 \examples{
-\dontrun{
 facts_file <- get_facts_file_example("contin.facts")
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 out <- run_flfll(facts_file, verbose = FALSE) # Generate param files.
 # Identify which engine you need.
 get_facts_engine(facts_file)

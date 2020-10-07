@@ -21,7 +21,8 @@
 #'   to identify the appropriate engine function for your FACTS file.
 #'   Then, open the help file of that function to read about the arguments.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts") # example FACTS file
 #' out <- run_flfll(facts_file, verbose = FALSE) # Generate param files.
 #' # Run the simulations.

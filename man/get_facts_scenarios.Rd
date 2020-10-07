@@ -22,7 +22,8 @@ These names usually come from the virtual subject response (VSR)
 scenarios, the accrual profiles, and the dropout profiles.
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 facts_file <- get_facts_file_example("contin.facts")
 get_facts_scenarios(facts_file)
 }

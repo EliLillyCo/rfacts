@@ -5,7 +5,8 @@
 #' @return Character vector of paths to param files.
 #' @param param_files Character vector of directories containing param files.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' dir <- run_flfll(facts_file, verbose = FALSE)
 #' get_param_files(dir)
@@ -29,7 +30,8 @@ get_param_files <- function(param_files) {
 #'   directory containing param files. [run_flfll()] and [run_facts()]
 #'   return paths you can supply to `param_files` in `get_param_dirs()`.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' param_files <- run_flfll(facts_file, verbose = FALSE)
 #' scenarios <- get_param_dirs(param_files)

@@ -28,7 +28,8 @@ as a list of special \code{param_files} objects.
 (It does not modify the actual contents of the \verb{*.param`` files.) This preprocessing step is fast when executed once, but slow when executed thousands of times. So if you need to call a }run_engine_*()\verb{function repeatedly, consider passing it an object from}prep_param_files()`.
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 facts_file <- get_facts_file_example("contin.facts")
 out <- run_flfll(facts_file, verbose = FALSE)
 param_files <- prep_param_files(out) # For speed.

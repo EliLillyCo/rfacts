@@ -25,7 +25,8 @@ one in the FACTS file, or
 }
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 get_facts_versions()
 }
 }

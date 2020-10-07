@@ -28,7 +28,8 @@ identifies the correct \verb{run_engine_*()} function so you can open the
 help file and read about the arguments, e.g. \code{?run_engine_contin}.
 }
 \examples{
-\dontrun{
+# Can only run if system dependencies are configured:
+if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 facts_file <- get_facts_file_example("contin.facts")
 out <- run_flfll(facts_file, verbose = FALSE) # Generate param files.
 # Find the appropriate FACTS engine function.

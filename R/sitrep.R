@@ -6,7 +6,8 @@
 #' @inheritSection rfacts_paths Dependencies
 #' @return A data frame of information on the status of each executable.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' rfacts_sitrep()
 #' }
 rfacts_sitrep <- function() {

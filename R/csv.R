@@ -51,7 +51,8 @@
 #'   like `simulations.csv` and `simulations_freq_locf.csv`.
 #'   Avoid `summary.csv` files. They are not reliable on Linux.
 #' @examples
-#' \dontrun{
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' facts_file <- get_facts_file_example("contin.facts")
 #' out <- run_facts(
 #'   facts_file,
@@ -291,8 +292,9 @@ parse_csv_body <- function(lines_body) {
 #'   like `simulations.csv` and `simulations_freq_locf.csv`.
 #'   Avoid `summary.csv` files. They are not reliable on Linux.
 #' @examples
-#' \dontrun{
 #' facts_file <- get_facts_file_example("contin.facts")
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' out <- run_facts(
 #'   facts_file,
 #'   n_sims = 2L,
@@ -314,8 +316,9 @@ get_csv_files <- function(csv_files, numbered = TRUE) {
 #' @param x An aggregated data frame from [read_patients()]
 #'   or similar function.
 #' @examples
-#' \dontrun{
 #' facts_file <- get_facts_file_example("contin.facts")
+#' # Can only run if system dependencies are configured:
+#' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
 #' out <- run_facts(facts_file, n_sims = 2)
 #' pats <- read_patients(out)
 #' head(pats$visit_1)
