@@ -6,6 +6,7 @@ clustermq
 Clustermq
 codecov
 contin
+cran
 CRM
 crm
 csv
@@ -16,6 +17,8 @@ flfll
 fsimexp
 GitHub
 github
+hpc
+HPC
 http
 https
 lifecycle
@@ -37,6 +40,7 @@ Parallelization
 param
 programmatically
 pre
+README
 recommender
 repo
 reproducibility

@@ -135,12 +135,15 @@ read_patients(scenario)
 
 ## Parallel computing
 
-rfacts makes it straightforward to parallelize across simulations. First, use `run_flfll()` to create a directory of param files. Be sure to supply an `output_path` that all the parallel workers can access (e.g. no `tempfile()`s).
+rfacts makes it straightforward to parallelize across simulations. First, use `run_flfll()` to create a directory of param files. The example below uses a `tempfile()` to store the param files (i.e. `output_path`).  However, for distributed computing on traditional HPC clusters, `output_path` should be a directory path that all nodes can access.
 
 ```{r}
 library(rfacts)
 facts_file <- get_facts_file_example("contin.facts")
-param_files <- file.path(getwd(), "param_files")
+# On traditional HPC clusters, this should be a shared directory
+# instead of a temp directory:
+tmp <- fs::dir_create(tempfile())
+param_files <- file.path(tmp, "param_files")
 run_flfll(facts_file, param_files)
 ```
 
@@ -208,8 +211,4 @@ Various `get_facts_*()` functions interrogate FACTS files.
 get_facts_scenarios(facts_file)
 get_facts_version(facts_file)
 get_facts_versions()
-```
-
-```{r, include = FALSE}
-unlink("param_files", recursive = TRUE)
 ```
