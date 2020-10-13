@@ -5,7 +5,7 @@
 [![active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![check](https://github.com/EliLillyCo/rfacts/workflows/check/badge.svg)](https://github.com/EliLillyCo/rfacts/actions?query=workflow%3Acheck)
 [![lint](https://github.com/EliLillyCo/rfacts/workflows/lint/badge.svg)](https://github.com/EliLillyCo/rfacts/actions?query=workflow%3Alint)
-[![codecov](https://codecov.io/gh/EliLillyCo/rfacts/branch/master/graph/badge.svg?token=3T5DlLwUVl)](https://codecov.io/gh/EliLillyCo/rfacts)
+[![codecov](https://codecov.io/gh/EliLillyCo/rfacts/branch/main/graph/badge.svg?token=3T5DlLwUVl)](https://codecov.io/gh/EliLillyCo/rfacts)
 
 The rfacts package is an R interface to the [Fixed and Adaptive Clinical
 Trial Simulator (FACTS)](https://www.berryconsultants.com/software/) on

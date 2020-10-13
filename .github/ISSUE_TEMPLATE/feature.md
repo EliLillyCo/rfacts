@@ -7,7 +7,7 @@ labels: "type: new feature"
 
 ## Prework
 
-* [ ] Read and agree to the [code of conduct](https://github.com/EliLillyCo/rfacts/blob/master/CODE_OF_CONDUCT.md) and [contributing guidelines](https://github.com/EliLillyCo/rfacts/blob/master/CONTRIBUTING.md).
+* [ ] Read and agree to the [code of conduct](https://github.com/EliLillyCo/rfacts/blob/main/CODE_OF_CONDUCT.md) and [contributing guidelines](https://github.com/EliLillyCo/rfacts/blob/main/CONTRIBUTING.md).
 * [ ] This post does not contain any proprietary or confidential information. All information shared here is publicly visible.
 * [ ] New features take time and effort to create, and they take even more effort to maintain. So if the purpose of the feature is to resolve a struggle you are encountering personally, please consider first posting a "trouble" or "other" issue so we can discuss your use case and search for existing solutions first.
 

@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 * FLFLL (>= 6.2.4)
 * Mono (>= 5.20.1.19)
 
-Before you can use `rfacts` to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at [`inst/example_paths.csv`](https://github.com/EliLillyCo/rfacts/blob/master/inst/example_paths.csv) in the `rfacts` package source.
+Before you can use `rfacts` to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at [`inst/example_paths.csv`](https://github.com/EliLillyCo/rfacts/blob/main/inst/example_paths.csv) in the `rfacts` package source.
 
 ```{r}
 path <- system.file("example_paths.csv", package = "rfacts")
