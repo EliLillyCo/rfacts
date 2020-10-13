@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2.9000</span>
       </span>
     </div>
 
@@ -104,7 +104,7 @@
 <li>FLFLL (&gt;= 6.2.4)</li>
 <li>Mono (&gt;= 5.20.1.19)</li>
 </ul>
-<p>Before you can use <code>rfacts</code> to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at <a href="https://github.com/EliLillyCo/rfacts/blob/master/inst/example_paths.csv"><code>inst/example_paths.csv</code></a> in the <code>rfacts</code> package source.</p>
+<p>Before you can use <code>rfacts</code> to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at <a href="https://github.com/EliLillyCo/rfacts/blob/main/inst/example_paths.csv"><code>inst/example_paths.csv</code></a> in the <code>rfacts</code> package source.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"example_paths.csv"</span>, package <span class="op">=</span> <span class="st">"rfacts"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span><span class="op">)</span>
