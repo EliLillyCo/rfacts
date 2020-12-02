@@ -41,29 +41,6 @@ test_that("ensure_output_column() with regular default dir", {
   expect_true(all(grepl("\\.facts$", out$output)))
 })
 
-test_that("write_facts() max_subjects", {
-  skip_paths()
-  facts_file <- get_facts_file_example("contin.facts")
-  fields <- data.frame(
-    field = "my_subjects",
-    type = "NucleusParameterSet",
-    set = "nucleus",
-    property = "max_subjects"
-  )
-  values <- data.frame(
-    facts_file = facts_file,
-    output = file.path(tempfile(), c("out1000.facts", "out2000.facts")),
-    my_subjects = c(1000, 2000)
-  )
-  files <- write_facts(fields = fields, values = values)
-  out <- read_patients(run_facts(facts_file, n_sims = 1))
-  out1 <- read_patients(run_facts(files[1], n_sims = 1))
-  out2 <- read_patients(run_facts(files[2], n_sims = 1))
-  expect_equal(nrow(out), 1200L)
-  expect_equal(nrow(out1), 4000L)
-  expect_equal(nrow(out2), 8000L)
-})
-
 test_that("write_facts() change VSR", {
   skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
@@ -146,29 +123,48 @@ test_that("write_facts() change VSR", {
   expect_lt(mean(out12$visit_1), 30)
 })
 
-test_that("write_facts() analysis prior", {
+test_that("write_facts() max_subjects and analysis prior", {
   skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
-  fields <- data.frame(
+  fields <- rbind(
+    data.frame(
+      field = "analysis_prior",
+      type = "NucleusParameterSet",
+      set = "nucleus",
+      property = "control_prior",
+      stringsAsFactors = FALSE
+    ),
+    data.frame(
+      field = "my_subjects",
+      type = "NucleusParameterSet",
+      set = "nucleus",
+      property = "max_subjects"
+    )
+  )
+  values <- data.frame(
+    facts_file = facts_file,
+    output = file.path(tempfile(), c("out1000.facts", "out2000.facts")),
+    my_subjects = c(1000, 2000),
+    stringsAsFactors = FALSE
+  )
+  values$analysis_prior <- list(c(1, 3), c(2, 4))
+  files <- write_facts(fields = fields, values = values)
+  out <- read_patients(run_facts(facts_file, n_sims = 1))
+  out1 <- read_patients(run_facts(files[1], n_sims = 1))
+  out2 <- read_patients(run_facts(files[2], n_sims = 1))
+  expect_equal(nrow(out), 1200L)
+  expect_equal(nrow(out1), 4000L)
+  expect_equal(nrow(out2), 8000L)
+  field <- data.frame(
     field = "analysis_prior",
     type = "NucleusParameterSet",
     set = "nucleus",
     property = "control_prior",
     stringsAsFactors = FALSE
   )
-  values <- data.frame(
-    facts_file = facts_file,
-    output = file.path(tempfile(), c("out1000.facts", "out2000.facts")),
-    stringsAsFactors = FALSE
-  )
-  values$analysis_prior <- list(c(1, 3), c(2, 4))
-  files <- write_facts(fields = fields, values = values)
-  run_facts(facts_file, n_sims = 1)
-  run_facts(files[1], n_sims = 1)
-  run_facts(files[2], n_sims = 1)
   get_prior <- function(file) {
     xml <- xml2::as_list(xml2::read_xml(file))
-    index <- find_xml_index(xml, fields)
+    index <- find_xml_index(xml, field)
     xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
   }
   prior0 <- get_prior(facts_file)
