@@ -1,0 +1,133 @@
+---
+title: "Generating FACTS files"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Generating FACTS files}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+knitr::opts_knit$set(root.dir = fs::dir_create(tempfile()))
+library(rfacts)
+library(tidyverse)
+```
+
+To help statisticians explore wider ranges of possibilities for clinical trials, the  `write_facts()` function generates multiple versions of existing FACTS files with different features. This vignette walks through the process
+
+## FACTS XML format
+
+FACTS files have a special XML format to define clinical trial simulations. Most of the internal configuration settings are defined in `<property>` tags inside `<parameterSet>...</parameterSet>` and `<parameterSets>...</parameterSets>`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<facts version="6.2.5.22668" name="contin" host="host">
+  <parameterSets type="NucleusParameterSet">
+    <parameterSet name="nucleus">
+      <property name="type">1</property>
+      ...
+      <property name="max_subjects">300</property>
+      <property name="cohort_size">5</property>
+      <property name="num_cohorts">50</property>
+      <property name="cohort_time">0</property>
+      ...
+    </parameterSet>
+  </parameterSets>
+  <parameterSets type="EfficacyParameterSet">
+    <parameterSet name="Resp 1" EndpointType="1">
+      <property name="true_endpoint_response">
+        <items>
+          <item>1.777</item>
+          <item>2.777</item>
+          <item>3.777</item>
+        </items>
+      </property>
+    </parameterSet>
+  </parameterSets>
+</facst>
+```
+
+## Write FACTS files
+
+`write_facts()` works on the `<property>` tags located above. Any `<property>` within a `<facts><parameterSets><parameterSet>` block can be modified programmatically. To demonstrate, we will create two new FACTS files with modified virtual subject response scenarios and different numbers of patients. We start with a known FACTS file we create from the Windows GUI (or a built-in example from this package).
+
+```{r}
+library(rfacts)
+library(tidyverse)
+tmp <- file.copy(get_facts_file_example("contin.facts"), getwd())
+facts_file <- "contin.facts"
+```
+
+Next, we declare the XML fields we want to replace. We define one field to control the maximum number of subjects,
+
+```{r}
+field_subjects <- tibble(
+  field = "my_subjects",        # custom name the user can make up
+  type = "NucleusParameterSet", # "type" attribute of the <parameterSets> tag
+  set = "nucleus",              # "name" attribute of the <parameterSet> tag
+  property = "max_subjects"     # "name" attribute of the <property> tag
+)
+```
+
+and another field to modify the "resp2" virtual subject response scenario.
+
+```{r}
+field_vsr <- data.frame(
+  field = "my_vsr",                 
+  type = "EfficacyParameterSet",      
+  set = "resp2",                      
+  property = "true_endpoint_response" 
+)
+```
+
+We put the fields together in a single data frame.
+
+```{r}
+fields <- bind_rows(field_subjects, field_vsr)
+fields
+```
+
+Next, we define a grid of values to iterate over when we modify these fields. The grid should have one row per FACTS file and one column for every value of `fields$field` you want to modify in the XML. The `values` data frame must also contain a `facts_file` column to identify the source file. You can optionally include an `output` column to control the output path of each generated FACTS file, but this is not required.
+
+```{r}
+values <- tibble(
+  facts_file = facts_file,
+  my_subjects = c(1000, 2000),
+  my_vsr = list(c(15, 50), c(25, 75))
+)
+values
+```
+
+Above, `my_subjects` is a vector of max sample sizes, and `my_vsr` is a list of VSR response means (one for each treatment group). Each value of `my_vsr` will be inserted as an `<item>` list in each output FACTS file, and the length of each list element must equal the length of the original `<item>` list.
+
+To generate the FACTS files, simply call `write_facts()`.
+
+```{r}
+write_facts(fields = fields, values = values)
+list.files("_facts")
+```
+
+To control the output paths, add an `output` column to the `values` data frame.
+
+```{r}
+unlink("_facts", recursive = TRUE)
+values$output <- c("small.facts", "large.facts")
+write_facts(fields = fields, values = values)
+```
+
+## Check your work
+
+Please verify that your FACTS files were generated properly. There are 3 main ways to do this:
+
+1. Open the generated FACTS files in the Windows GUI and inspect the various tabs.
+1. Run the FACTS file with `run_facts()` and check that the output is consistent with the input settings you specified.
+1. Use `read_facts()` to inspect the settings that should be modified.
+
+```{r}
+read_facts(facts_file = facts_file, fields = fields)
+
+read_facts(facts_file = "small.facts", fields = fields)
+
+read_facts(facts_file = "large.facts", fields = fields)
+```
