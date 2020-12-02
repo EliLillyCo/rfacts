@@ -105,8 +105,8 @@
 <li>Mono (&gt;= 5.20.1.19)</li>
 </ul>
 <p>Before you can use <code>rfacts</code> to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at <a href="https://github.com/EliLillyCo/rfacts/blob/main/inst/example_paths.csv"><code>inst/example_paths.csv</code></a> in the <code>rfacts</code> package source.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"example_paths.csv"</span>, package <span class="op">=</span> <span class="st">"rfacts"</span><span class="op">)</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"example_paths.csv"</span>, package <span class="op">=</span> <span class="st">"rfacts"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; executable_type,facts_version,path,engine_name,param_set,param_type</span>
 <span class="co">#&gt; mono,6.2.4,/PATH/TO/mono/mono-5.20.1.19/bin/mono,NA,NA,NA</span>
@@ -130,7 +130,7 @@
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/aipf_tte/6.0.0.4/aipf_tte.x,aipf_tte,AIPFParameterSet,3</span>
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/CRM/6.0.0.4/CRM.x,crm,CRMDesignParamSet,0</span>
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/contin/6.0.0.4/contin.x,contin,SDBaseParameterSet,1</span>
-<span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/dichot/6.0.0.4/dichot.x,dichot,SDBaseParameterSet,2</span></pre></div>
+<span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/dichot/6.0.0.4/dichot.x,dichot,SDBaseParameterSet,2</span></code></pre></div>
 <div id="required-columns" class="section level2">
 <h2 class="hasAnchor">
 <a href="#required-columns" class="anchor"></a>Required columns</h2>
@@ -154,12 +154,12 @@
 <h1 class="hasAnchor">
 <a href="#connecting-rfacts-to-the-system-dependencies" class="anchor"></a>Connecting <code>rfacts</code> to the system dependencies</h1>
 <p>To allow <code>rfacts</code> to find the CSV file above, you must set the <code>RFACTS_PATHS</code> environment variable. For a single R session, you can do this with <code><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv(RFACTS_PATHS = "path/to/file.csv")</a></code>. To set <code>RFACTS_PATHS</code> permanently for all future sessions, open your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code> and add a line with <code>RFACTS_PATHS=path/to/file.csv</code>. Then, restart R so the changes take effect. Verify that you did this correctly by checking the value of the environment variable.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/rfacts/example_paths.csv"</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/rfacts/example_paths.csv"</span></code></pre></div>
 <p>Check the system dependency information with <code><a href="../reference/rfacts_paths.html">rfacts_paths()</a></code>.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/">rfacts</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/">rfacts</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/rfacts_paths.html">rfacts_paths</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 22 x 6</span>
 <span class="co">#&gt;    executable_type facts_version path         engine_name param_set   param_type</span>
@@ -174,10 +174,10 @@
 <span class="co">#&gt;  8 engine          6.0.0.1       /PATH/TO/fa… tte         TTEDesignP… 3         </span>
 <span class="co">#&gt;  9 engine          6.0.0.1       /PATH/TO/fa… aipf_contin AIPFParame… 1         </span>
 <span class="co">#&gt; 10 engine          6.0.0.1       /PATH/TO/fa… aipf_dichot AIPFParame… 2         </span>
-<span class="co">#&gt; # … with 12 more rows</span></pre></div>
+<span class="co">#&gt; # … with 12 more rows</span></code></pre></div>
 <p>Use <code><a href="../reference/rfacts_sitrep.html">rfacts_sitrep()</a></code> to verify that all the executables exist and are indeed executable. This vignette uses toy paths that do not actually exist. In your setup, if <code>exists</code> and <code>is_executable</code> are all <code>TRUE</code>, then your setup is configured correctly.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="fu"><a href="../reference/rfacts_sitrep.html">rfacts_sitrep</a></span><span class="op">(</span><span class="op">)</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/rfacts_sitrep.html">rfacts_sitrep</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 22 x 5</span>
 <span class="co">#&gt;    executable_type facts_version exists is_executable path                      </span>
 <span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;         &lt;lgl&gt;  &lt;lgl&gt;         &lt;chr&gt;                     </span>
@@ -191,7 +191,7 @@
 <span class="co">#&gt;  8 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/tt…</span>
 <span class="co">#&gt;  9 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/ai…</span>
 <span class="co">#&gt; 10 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/ai…</span>
-<span class="co">#&gt; # … with 12 more rows</span></pre></div>
+<span class="co">#&gt; # … with 12 more rows</span></code></pre></div>
 <p>If you change <code>RFACTS_PATHS</code>, you need to call <code><a href="../reference/reset_rfacts_paths.html">reset_rfacts_paths()</a></code> or restart R in order for the changes to take effect.</p>
 </div>
   </div>
