@@ -149,6 +149,7 @@ write_facts_file <- function(fields, values) {
       value = values[[name]]
     )
   }
+  fs::dir_create(dirname(output))
   xml2::write_xml(x = xml2::as_xml_document(xml), file = output)
 }
 
