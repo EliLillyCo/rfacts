@@ -149,9 +149,75 @@ write_facts_file <- function(fields, values) {
       value = values[[name]]
     )
   }
-  browser()
+  xml2::write_xml(x = xml2::as_xml_document(xml), file = output)
 }
 
 substitute_xml <- function(xml, field, value) {
-  browser()
+  index <- find_xml_index(xml, field)
+  prior <- xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
+  if (is.character(prior) && length(prior) == 1L) {
+    xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]] <- value
+  }
+  xml
+}
+
+find_xml_index <- function(xml, field) {
+  index_paramsets <- find_xml_index_scalar(
+    xml$facts,
+    "parameterSets",
+    "type",
+    field$type
+  )
+  index_paramset <- find_xml_index_scalar(
+    xml$facts[[index_paramsets]],
+    "parameterSet",
+    "name",
+    field$set
+  )
+  index_property <- find_xml_index_scalar(
+    xml$facts[[index_paramsets]][[index_paramset]],
+    "property",
+    "name",
+    field$property
+  )
+  list(
+    paramsets = index_paramsets,
+    paramset = index_paramset,
+    property = index_property
+  )
+}
+
+find_xml_index_scalar <- function(xml, tag, attr, element) {
+  names <- names(xml)
+  index <- vapply(seq_along(xml), function(index) {
+    identical(bare_object(names[[index]]), tag) &&
+      identical(bare_object(attr(xml[[index]], attr)), bare_object(element))
+  }, FUN.VALUE = logical(1))
+  assert_xml_found(index, tag, attr, element)
+  which(index)
+}
+
+assert_xml_found <- function(index, tag, attr, element) {
+  if (sum(index) < 1L) {
+    stop0(
+      "no XML tag ",
+      tag,
+      " found with ",
+      attr,
+      " ",
+      element,
+      " in the current piece of FACTS file XML."
+    )
+  }
+  if (sum(index) > 1L) {
+    stop0(
+      "more than one XML tag ",
+      tag,
+      " found with ",
+      attr,
+      " ",
+      element,
+      " in the current piece of FACTS file XML."
+    )
+  }
 }
