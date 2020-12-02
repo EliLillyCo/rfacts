@@ -41,6 +41,29 @@ test_that("ensure_output_column() with regular default dir", {
   expect_true(all(grepl("\\.facts$", out$output)))
 })
 
+test_that("write_facts() to default path", {
+  skip_paths()
+  withr::with_dir(fs::dir_create(tempdir()), {
+    facts_file <- get_facts_file_example("contin.facts")
+    fields <- data.frame(
+      field = "response",
+      type = "EfficacyParameterSet",
+      set = "resp2",
+      property = "true_endpoint_response"
+    )
+    values <- data.frame(
+      facts_file = rep(facts_file, 2),
+      stringsAsFactors = FALSE
+    )
+    values$response <- list(c(0, 1000), c(0, 2000))
+    files <- write_facts(fields = fields, values = values)
+    expect_equal(sort(files), sort(file.path("_facts", list.files("_facts"))))
+    expect_true(all(file.exists(files)))
+    expect_true(all(dirname(files) == "_facts"))
+    expect_true(all(grepl("\\.facts$", files)))
+  })
+})
+
 test_that("write_facts() change VSR", {
   skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
