@@ -54,7 +54,7 @@ FACTS files have a special XML format to define clinical trial simulations. Most
 
 ```{r}
 library(rfacts)
-library(tidyverse)
+library(tibble)
 tmp <- file.copy(get_facts_file_example("contin.facts"), getwd())
 facts_file <- "contin.facts"
 ```
