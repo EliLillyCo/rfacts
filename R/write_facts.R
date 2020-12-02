@@ -80,9 +80,11 @@ write_facts <- function(fields, values, default_dir = "_facts"){
   assert_scalar_character(default_dir)
   assert_fields(fields)
   assert_values(values)
+  assert_all_fields_defined(fields, values)
   fields <- convert_character_columns(fields)
   values <- convert_character_columns(values)
   values <- ensure_output_column(values, default_dir)
+
   lapply(
     split(values, f = seq_len(nrow(values))),
     write_facts_file,
@@ -98,6 +100,11 @@ assert_fields <- function(fields) {
 
 assert_values <- function(values) {
   stopifnot("facts_file" %in% colnames(values))
+}
+
+assert_all_fields_defined <- function(fields, values) {
+  names <- setdiff(colnames(values), c("facts_file", "output"))
+  stopifnot(all(names %in% fields$field))
 }
 
 convert_character_columns <- function(x) {
@@ -136,11 +143,15 @@ write_facts_file <- function(fields, values) {
   values$output <- NULL
   xml <- xml2::read_xml(facts_file)
   for (name in names(values)) {
-    xml <- substitute_xml(xml, name, values[[name]])
+    xml <- substitute_xml(
+      xml = xml,
+      field = as.list(fields[fields$field == name,]),
+      value = values[[name]]
+    )
   }
   browser()
 }
 
-substitute_xml <- function(xml, name, value) {
+substitute_xml <- function(xml, field, value) {
   browser()
 }
