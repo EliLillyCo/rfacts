@@ -10,6 +10,7 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 knitr::opts_knit$set(root.dir = fs::dir_create(tempfile()))
+library(dplyr)
 library(rfacts)
 library(tibble)
 ```
@@ -53,6 +54,7 @@ FACTS files have a special XML format to define clinical trial simulations. Most
 `write_facts()` works on the `<property>` tags located above. Any `<property>` within a `<facts><parameterSets><parameterSet>` block can be modified programmatically. To demonstrate, we will create two new FACTS files with modified virtual subject response scenarios and different numbers of patients. We start with a known FACTS file we create from the Windows GUI (or a built-in example from this package).
 
 ```{r}
+library(dplyr)
 library(rfacts)
 library(tibble)
 tmp <- file.copy(get_facts_file_example("contin.facts"), getwd())
