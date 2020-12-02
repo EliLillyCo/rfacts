@@ -62,3 +62,8 @@ test_that("assert_scalar()", {
   expect_error(assert_scalar(numeric(0)))
   expect_error(assert_scalar_numeric(NULL))
 })
+
+test_that("assert_df()", {
+  expect_silent(assert_df(data.frame(x = 1)))
+  expect_error(assert_df(123))
+})

@@ -16,6 +16,15 @@
   }
 }
 
+trn <- function(condition, x, y) {
+  if (any(condition)) {
+    x
+  }
+  else {
+    y
+  }
+}
+
 choose_version <- function(version, choices) {
   if (!length(choices)) {
     return(character(0))
