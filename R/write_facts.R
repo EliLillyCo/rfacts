@@ -84,7 +84,6 @@ write_facts <- function(fields, values, default_dir = "_facts"){
   fields <- convert_character_columns(fields)
   values <- convert_character_columns(values)
   values <- ensure_output_column(values, default_dir)
-
   lapply(
     split(values, f = seq_len(nrow(values))),
     write_facts_file,
@@ -96,6 +95,7 @@ write_facts <- function(fields, values, default_dir = "_facts"){
 assert_fields <- function(fields) {
   cols <- sort(c("field", "type", "set", "property"))
   stopifnot(identical(sort(colnames(fields)), cols))
+  stopifnot(!anyDuplicated(fields$field))
 }
 
 assert_values <- function(values) {
@@ -145,7 +145,7 @@ write_facts_file <- function(fields, values) {
   for (name in names(values)) {
     xml <- substitute_xml(
       xml = xml,
-      field = as.list(fields[fields$field == name,]),
+      field = fields[fields$field == name, ],
       value = values[[name]]
     )
   }
@@ -156,7 +156,12 @@ write_facts_file <- function(fields, values) {
 substitute_xml <- function(xml, field, value) {
   index <- find_xml_index(xml, field)
   default <- xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
-  if (is.character(default)) {
+  if (is.list(default)) {
+    value <- lapply(unlist(value), as.list)
+    names(value) <- names(default)
+    xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]] <-
+      value
+  } else {
     xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]] <- value
   }
   xml

@@ -41,7 +41,7 @@ test_that("ensure_output_column() with regular default dir", {
   expect_true(all(grepl("\\.facts$", out$output)))
 })
 
-test_that("write_facts(), scalar and default files", {
+test_that("write_facts() max_subjects", {
   skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
   fields <- data.frame(
@@ -62,4 +62,86 @@ test_that("write_facts(), scalar and default files", {
   expect_equal(nrow(out), 1200L)
   expect_equal(nrow(out1), 4000L)
   expect_equal(nrow(out2), 8000L)
+})
+
+test_that("write_facts() change VSR", {
+  skip_paths()
+  facts_file <- get_facts_file_example("contin.facts")
+  fields <- data.frame(
+    field = "response",
+    type = "EfficacyParameterSet",
+    set = "resp2",
+    property = "true_endpoint_response"
+  )
+  values <- data.frame(
+    facts_file = facts_file,
+    output = file.path(tempfile(), c("out1000.facts", "out2000.facts"))
+  )
+  values$response <- list(c(0, 1000), c(0, 2000))
+  files <- write_facts(fields = fields, values = values)
+  out <- read_patients(run_facts(facts_file, n_sims = 1))
+  out_1 <- read_patients(run_facts(files[1], n_sims = 1))
+  out_2 <- read_patients(run_facts(files[2], n_sims = 1))
+  out1 <- dplyr::filter(
+    out,
+    facts_scenario == "acc1_drop1_resp1" & dose == 2
+  )
+  out11 <- dplyr::filter(
+    out_1,
+    facts_scenario == "acc1_drop1_resp1" & dose == 2
+  )
+  out12 <- dplyr::filter(
+    out_2,
+    facts_scenario == "acc1_drop1_resp1" & dose == 2
+  )
+  expect_lt(mean(out1$visit_1), 30)
+  expect_lt(mean(out11$visit_1), 30)
+  expect_lt(mean(out12$visit_1), 30)
+  out1 <- dplyr::filter(
+    out,
+    facts_scenario == "acc1_drop1_resp1" & dose == 1
+  )
+  out11 <- dplyr::filter(
+    out_1,
+    facts_scenario == "acc1_drop1_resp1" & dose == 1
+  )
+  out12 <- dplyr::filter(
+    out_2,
+    facts_scenario == "acc1_drop1_resp1" & dose == 1
+  )
+  expect_lt(mean(out1$visit_1), 30)
+  expect_lt(mean(out11$visit_1), 30)
+  expect_lt(mean(out12$visit_1), 30)
+  out2 <- dplyr::filter(
+    out,
+    facts_scenario == "acc1_drop1_resp2" & dose == 2
+  )
+  out21 <- dplyr::filter(
+    out_1,
+    facts_scenario == "acc1_drop1_resp2" & dose == 2
+  )
+  out22 <- dplyr::filter(
+    out_2,
+    facts_scenario == "acc1_drop1_resp2" & dose == 2
+  )
+  expect_lt(mean(out2$visit_1), 30)
+  expect_lt(mean(out21$visit_1), 1030)
+  expect_lt(mean(out22$visit_1), 2030)
+  expect_gt(mean(out21$visit_1), 970)
+  expect_gt(mean(out22$visit_1), 1970)
+  out1 <- dplyr::filter(
+    out,
+    facts_scenario == "acc1_drop1_resp2" & dose == 1
+  )
+  out11 <- dplyr::filter(
+    out_1,
+    facts_scenario == "acc1_drop1_resp2" & dose == 1
+  )
+  out12 <- dplyr::filter(
+    out_2,
+    facts_scenario == "acc1_drop1_resp2" & dose == 1
+  )
+  expect_lt(mean(out1$visit_1), 30)
+  expect_lt(mean(out11$visit_1), 30)
+  expect_lt(mean(out12$visit_1), 30)
 })

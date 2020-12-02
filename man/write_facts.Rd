@@ -31,7 +31,7 @@ if \code{values} has no \code{output} column.}
 }
 \value{
 The function writes FACTS XML files and
-invisibly returns a character vector with the paths to those files.
+returns a character vector with the paths to those files.
 }
 \description{
 Write modified versions of existing FACTS files.
@@ -56,13 +56,13 @@ To use the \code{write_facts()} function, you must first identify
 the parts of the FACTS file you want to modify (the \code{fields} argument)
 then the values that should be substituted in (the \code{values} argument).
 Given the XML above, to create new FACTS files with intervals
-5 and 6 instead of 4, you would set\if{html}{\out{<div class="r">}}\preformatted{fields <- data.frame(
+5 and 6 instead of 4, you would set\if{html}{\out{<div class="r">}}\preformatted{fields <- tibble::tibble(
   field = "my_interval",
   type = "NucleusParameterSet",
   set = "nucleus",
   property = "update_freq_save"
 )
-values <- data.frame(
+values <- tibble::tibble(
   facts_file = "your_facts_file.facts",
   output = "output_file.facts",
   my_interval = c(5, 6)
