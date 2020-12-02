@@ -69,6 +69,8 @@ reference:
   - '`get_facts_version`'
   - '`get_facts_versions`'
   - '`get_facts_engine`'
+  - '`read_facts`'
+  - '`write_facts`'
 - title: Param files
   contents:
   - '`prep_param_files`'

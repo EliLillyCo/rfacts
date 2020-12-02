@@ -1,6 +1,7 @@
 # Version 0.0.2.9000
 
-
+* Add new function `read_facts()` to read arbitrary XML fields of FACTS files.
+* Add new function `write_facts()` to programmatically generate modified copies of FACTS files.
 
 # Version 0.0.2
 
