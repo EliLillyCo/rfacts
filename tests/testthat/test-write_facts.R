@@ -35,6 +35,7 @@ test_that("ensure_output_column() with regular default dir", {
     stringsAsFactors = TRUE
   )
   out <- ensure_output_column(x, default_dir = "_facts")
+  expect_true(is.character(out$output))
   expect_true(all(dirname(out$output) == "_facts"))
   expect_true(all(dirname(out$output) == "_facts"))
   expect_true(all(grepl("\\.facts$", out$output)))
