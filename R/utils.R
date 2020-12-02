@@ -16,6 +16,15 @@
   }
 }
 
+trn <- function(condition, x, y) {
+  if (any(condition)) {
+    x
+  }
+  else {
+    y
+  }
+}
+
 choose_version <- function(version, choices) {
   if (!length(choices)) {
     return(character(0))
@@ -71,6 +80,15 @@ sanitize_paths <- function(x) {
   x <- path.expand(x)
   x <- gsub(" ", "\\\ ", x, fixed = TRUE)
   gsub("\t", "\\\ ", x, fixed = TRUE)
+}
+
+bare_object <- function(x) {
+  attributes(x) <- NULL
+  x
+}
+
+bare_objects <- function(x) {
+  lapply(x, bare_object)
 }
 
 pattern_param <- "\\.param$|\\.bcrm$"

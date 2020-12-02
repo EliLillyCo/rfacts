@@ -39,3 +39,7 @@ assert_scalar <- function(x) {
 assert_vector_numeric <- function(x) {
   stopifnot(is.numeric(x))
 }
+
+assert_df <- function(x) {
+  stopifnot(is.data.frame(x))
+}

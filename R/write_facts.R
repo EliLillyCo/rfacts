@@ -23,13 +23,13 @@
 #'   Given the XML above, to create new FACTS files with intervals
 #'   5 and 6 instead of 4, you would set
 #'   ```r
-#'   fields <- data.frame(
+#'   fields <- tibble::tibble(
 #'     field = "my_interval",
 #'     type = "NucleusParameterSet",
 #'     set = "nucleus",
 #'     property = "update_freq_save"
 #'   )
-#'   values <- data.frame(
+#'   values <- tibble::tibble(
 #'     facts_file = "your_facts_file.facts",
 #'     output = "output_file.facts",
 #'     my_interval = c(5, 6)
@@ -75,5 +75,49 @@
 #' list.files("_facts")
 #' unlink("_facts", recursive = TRUE)
 write_facts <- function(fields, values, default_dir = "_facts"){
-  
+  assert_df(fields)
+  assert_df(values)
+  assert_scalar_character(default_dir)
+  assert_fields(fields)
+  assert_values(values)
+  fields <- convert_character_columns(fields)
+  values <- convert_character_columns(values)
+  values <- ensure_output_column(values, default_dir)
+}
+
+assert_fields <- function(fields) {
+  cols <- sort(c("field", "type", "set", "property"))
+  stopifnot(identical(sort(colnames(fields)), cols))
+}
+
+assert_values <- function(values) {
+  stopifnot("facts_file" %in% colnames(values))
+}
+
+convert_character_columns <- function(x) {
+  for (index in seq_along(x)) {
+    x[[index]] <- trn(
+      is.list(x[[index]]),
+      lapply(x[[index]], as.character),
+      as.character(x[[index]])
+    )
+  }
+  x
+}
+
+ensure_output_column <- function(values, default_dir) {
+  if ("output" %in% colnames(values)) {
+    return(values)
+  }
+  values$output <- output_column(values, default_dir)
+  values
+}
+
+output_column <- function(values, default_dir) {
+  hashes <- lapply(
+    split(values, seq_len(nrow(values))),
+    digest::digest,
+    algo = "xxhash32"
+  )
+  file.path(default_dir, paste0(unlist(hashes), ".facts"))
 }

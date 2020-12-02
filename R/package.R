@@ -20,6 +20,7 @@
 #' # and patients00004.csv.
 #' read_patients(out)
 #' }
+#' @importFrom digest digest
 #' @importFrom tibble as_tibble tibble
 #' @importFrom utils read.table write.table
 #' @importFrom xml2 read_xml xml_find_first xml_text
