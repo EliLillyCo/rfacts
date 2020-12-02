@@ -155,8 +155,8 @@ write_facts_file <- function(fields, values) {
 
 substitute_xml <- function(xml, field, value) {
   index <- find_xml_index(xml, field)
-  prior <- xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
-  if (is.character(prior)) {
+  default <- xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
+  if (is.character(default)) {
     xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]] <- value
   }
   xml
