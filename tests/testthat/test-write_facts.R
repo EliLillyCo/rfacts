@@ -42,6 +42,7 @@ test_that("ensure_output_column() with regular default dir", {
 })
 
 test_that("write_facts(), scalar and default files", {
+  skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
   fields <- data.frame(
     field = "my_subjects",
@@ -54,5 +55,11 @@ test_that("write_facts(), scalar and default files", {
     output = file.path(tempfile(), c("out1000.facts", "out2000.facts")),
     my_subjects = c(1000, 2000)
   )
-  write_facts(fields = fields, values = values)
+  files <- write_facts(fields = fields, values = values)
+  out <- read_patients(run_facts(facts_file, n_sims = 1))
+  out1 <- read_patients(run_facts(files[1], n_sims = 1))
+  out2 <- read_patients(run_facts(files[2], n_sims = 1))
+  expect_equal(nrow(out), 1200L)
+  expect_equal(nrow(out1), 4000L)
+  expect_equal(nrow(out2), 8000L)
 })
