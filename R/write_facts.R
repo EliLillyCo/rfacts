@@ -141,7 +141,7 @@ write_facts_file <- function(fields, values) {
   values <- as.list(values)
   values$facts_file <- NULL
   values$output <- NULL
-  xml <- xml2::as_list(xml2::read_xml(facts_file))
+  xml <- xml2::as_list(xml2::read_xml(file))
   for (name in names(values)) {
     xml <- substitute_xml(
       xml = xml,
