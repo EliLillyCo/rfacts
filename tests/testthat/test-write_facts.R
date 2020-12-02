@@ -51,9 +51,8 @@ test_that("write_facts(), scalar and default files", {
   )
   values <- data.frame(
     facts_file = facts_file,
-    output = c("_facts/out1000.facts", "_facts/out2000.facts"),
+    output = file.path(tempfile(), c("out1000.facts", "out2000.facts")),
     my_subjects = c(1000, 2000)
   )
-  default_dir <- tempfile()
-  write_facts(fields = fields, values = values, default_dir = default_dir)
+  write_facts(fields = fields, values = values)
 })

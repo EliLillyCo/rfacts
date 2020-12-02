@@ -37,7 +37,7 @@
 #'   ```
 #'   and then call `write_facts(fields = fields, values = values)`.
 #' @return The function writes FACTS XML files and
-#'   invisibly returns a character vector with the paths to those files.
+#'   returns a character vector with the paths to those files.
 #' @param fields Data frame defining the kind of XML data to be replaced.
 #'   It must have one row per field definition and the following columns:
 #'   1. `field`: custom name of the field.
@@ -83,6 +83,12 @@ write_facts <- function(fields, values, default_dir = "_facts"){
   fields <- convert_character_columns(fields)
   values <- convert_character_columns(values)
   values <- ensure_output_column(values, default_dir)
+  lapply(
+    split(values, f = seq_len(nrow(values))),
+    write_facts_file,
+    fields = fields
+  )
+  values$output
 }
 
 assert_fields <- function(fields) {
@@ -120,4 +126,21 @@ output_column <- function(values, default_dir) {
     algo = "xxhash32"
   )
   file.path(default_dir, paste0(unlist(hashes), ".facts"))
+}
+
+write_facts_file <- function(fields, values) {
+  file <- values$facts_file
+  output <- values$output
+  values <- as.list(values)
+  values$facts_file <- NULL
+  values$output <- NULL
+  xml <- xml2::read_xml(facts_file)
+  for (name in names(values)) {
+    xml <- substitute_xml(xml, name, values[[name]])
+  }
+  browser()
+}
+
+substitute_xml <- function(xml, name, value) {
+  browser()
 }
