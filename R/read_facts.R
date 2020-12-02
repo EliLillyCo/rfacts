@@ -48,7 +48,7 @@ read_facts <- function(facts_file, fields){
   assert_df(fields)
   assert_fields(fields)
   fields <- convert_character_columns(fields)
-  xml <- xml2::as_list(xml2::read_xml(facts_file))
+  xml <- xml2::read_xml(facts_file)
   out <- lapply(
     split(fields, f = seq_len(nrow(fields))),
     read_facts_field,
@@ -64,7 +64,10 @@ read_facts <- function(facts_file, fields){
 }
 
 read_facts_field <- function(field, xml) {
-  index <- find_xml_index(xml, field)
-  out <- xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
-  trn(is.list(out), list(unname(unlist(out))), out)
+  property <- xml2::xml_find_first(xml, get_xpath(field))
+  trn(
+    length(xml2::xml_children(property)),
+    list(unname(unlist(xml2::as_list(property)[[1]]))),
+    xml2::xml_text(property)
+  )
 }

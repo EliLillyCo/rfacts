@@ -64,6 +64,26 @@ test_that("write_facts() to default path", {
   })
 })
 
+test_that("length error replacing VSR", {
+  skip_paths()
+  facts_file <- get_facts_file_example("contin.facts")
+  fields <- data.frame(
+    field = "response",
+    type = "EfficacyParameterSet",
+    set = "resp2",
+    property = "true_endpoint_response"
+  )
+  values <- data.frame(
+    facts_file = facts_file,
+    output = file.path(tempfile(), c("out1000.facts", "out2000.facts"))
+  )
+  values$response <- list(c(1), c(0, 2000))
+  expect_error(
+    write_facts(fields = fields, values = values),
+    regexp = "item list"
+  )
+})
+
 test_that("write_facts() change VSR", {
   skip_paths()
   facts_file <- get_facts_file_example("contin.facts")

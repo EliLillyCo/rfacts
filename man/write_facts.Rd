@@ -24,7 +24,10 @@ names of the output FACTS files is recommended but not required.
 written to automatically generated paths inside \code{default_dir}.)
 Other columns must have names corresponding to elements of \code{fields$field}
 and contain values to insert into the FACTS files. These columns could
-be vectors or lists of vectors.}
+be vectors or lists of vectors. In the former case, each element
+is a scalar replacement to a property. In the latter case,
+an XML property receives an entire vector as an item list,
+and the vector must be the same length as the original item list.}
 
 \item{default_dir}{Directory to write the output FACTS files
 if \code{values} has no \code{output} column.}

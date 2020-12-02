@@ -52,7 +52,10 @@
 #'   written to automatically generated paths inside `default_dir`.)
 #'   Other columns must have names corresponding to elements of `fields$field`
 #'   and contain values to insert into the FACTS files. These columns could
-#'   be vectors or lists of vectors.
+#'   be vectors or lists of vectors. In the former case, each element
+#'   is a scalar replacement to a property. In the latter case,
+#'   an XML property receives an entire vector as an item list,
+#'   and the vector must be the same length as the original item list.
 #' @param default_dir Directory to write the output FACTS files
 #'   if `values` has no `output` column.
 #' @examples
@@ -154,8 +157,7 @@ write_facts_file <- function(fields, values) {
 }
 
 substitute_xml <- function(xml, field, value) {
-  xpath <- get_xpath(field)
-  property <- xml2::xml_find_first(xml, xpath)
+  property <- xml2::xml_find_first(xml, get_xpath(field))
   trn(
     length(xml2::xml_children(property)),
     insert_xml_vector(property, value),
@@ -176,14 +178,22 @@ get_xpath <- function(field) {
 }
 
 insert_xml_scalar <- function(property, value) {
-  xml_text(property) <- value
+  xml2::xml_text(property) <- value
 }
 
 insert_xml_vector <- function(property, value) {
   list <- xml2::xml_child(property)
   value <- unlist(value)
+  children <- xml2::xml_children(list)
+  if (length(value) != length(children)) {
+    stop0(
+      "A FACTS XML replacement value can be a vector ",
+      "but it must have the same length as the original ",
+      "item list being replaced."
+    )
+  }
   for (index in seq_along(value)) {
-    child <- xml2::xml_children(list)[[index]]
+    child <- children[[index]]
     xml2::xml_text(child) <- value[[index]]
   }
 }
