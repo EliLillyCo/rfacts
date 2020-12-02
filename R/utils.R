@@ -82,15 +82,6 @@ sanitize_paths <- function(x) {
   gsub("\t", "\\\ ", x, fixed = TRUE)
 }
 
-bare_object <- function(x) {
-  attributes(x) <- NULL
-  x
-}
-
-bare_objects <- function(x) {
-  lapply(x, bare_object)
-}
-
 pattern_param <- "\\.param$|\\.bcrm$"
 pattern_packet <- paste0(pattern_param, "|\\.dat$")
 
