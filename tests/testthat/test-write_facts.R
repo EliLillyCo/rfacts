@@ -145,3 +145,39 @@ test_that("write_facts() change VSR", {
   expect_lt(mean(out11$visit_1), 30)
   expect_lt(mean(out12$visit_1), 30)
 })
+
+test_that("write_facts() analysis prior", {
+  skip_paths()
+  facts_file <- get_facts_file_example("contin.facts")
+  fields <- data.frame(
+    field = "analysis_prior",
+    type = "NucleusParameterSet",
+    set = "nucleus",
+    property = "control_prior",
+    stringsAsFactors = FALSE
+  )
+  values <- data.frame(
+    facts_file = facts_file,
+    output = file.path(tempfile(), c("out1000.facts", "out2000.facts")),
+    stringsAsFactors = FALSE
+  )
+  values$analysis_prior <- list(c(1, 3), c(2, 4))
+  files <- write_facts(fields = fields, values = values)
+  run_facts(facts_file, n_sims = 1)
+  run_facts(files[1], n_sims = 1)
+  run_facts(files[2], n_sims = 1)
+  get_prior <- function(file) {
+    xml <- xml2::as_list(xml2::read_xml(file))
+    index <- find_xml_index(xml, fields)
+    xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
+  }
+  prior0 <- get_prior(facts_file)
+  prior1 <- get_prior(files[1])
+  prior2 <- get_prior(files[2])
+  expect_equal(unlist(prior0$mean), "0")
+  expect_equal(unlist(prior1$mean), "1")
+  expect_equal(unlist(prior2$mean), "2")
+  expect_equal(unlist(prior0$sd), "10")
+  expect_equal(unlist(prior1$sd), "3")
+  expect_equal(unlist(prior2$sd), "4")
+})

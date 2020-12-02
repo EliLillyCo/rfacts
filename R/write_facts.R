@@ -145,7 +145,7 @@ write_facts_file <- function(fields, values) {
   for (name in names(values)) {
     xml <- substitute_xml(
       xml = xml,
-      field = fields[fields$field == name, ],
+      field = fields[fields$field == name,, drop = FALSE],
       value = values[[name]]
     )
   }
