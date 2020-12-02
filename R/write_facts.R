@@ -141,89 +141,49 @@ write_facts_file <- function(fields, values) {
   values <- as.list(values)
   values$facts_file <- NULL
   values$output <- NULL
-  xml <- xml2::as_list(xml2::read_xml(file))
+  xml <- xml2::read_xml(file)
   for (name in names(values)) {
-    xml <- substitute_xml(
+    substitute_xml(
       xml = xml,
       field = fields[fields$field == name,, drop = FALSE],
       value = values[[name]]
     )
   }
   fs::dir_create(dirname(output))
-  xml2::write_xml(x = xml2::as_xml_document(xml), file = output)
+  xml2::write_xml(x = xml, file = output)
 }
 
 substitute_xml <- function(xml, field, value) {
-  index <- find_xml_index(xml, field)
-  default <- xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
-  if (is.list(default)) {
-    value <- lapply(unlist(value), as.list)
-    names(value) <- names(default)
-    xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]] <-
-      value
-  } else {
-    xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]] <- value
-  }
-  xml
-}
-
-find_xml_index <- function(xml, field) {
-  index_paramsets <- find_xml_index_scalar(
-    xml$facts,
-    "parameterSets",
-    "type",
-    field$type
-  )
-  index_paramset <- find_xml_index_scalar(
-    xml$facts[[index_paramsets]],
-    "parameterSet",
-    "name",
-    field$set
-  )
-  index_property <- find_xml_index_scalar(
-    xml$facts[[index_paramsets]][[index_paramset]],
-    "property",
-    "name",
-    field$property
-  )
-  list(
-    paramsets = index_paramsets,
-    paramset = index_paramset,
-    property = index_property
+  xpath <- get_xpath(field)
+  property <- xml2::xml_find_first(xml, xpath)
+  trn(
+    length(xml2::xml_children(property)),
+    insert_xml_vector(property, value),
+    insert_xml_scalar(property, value)
   )
 }
 
-find_xml_index_scalar <- function(xml, tag, attr, element) {
-  names <- names(xml)
-  index <- vapply(seq_along(xml), function(index) {
-    identical(bare_object(names[[index]]), tag) &&
-      identical(bare_object(attr(xml[[index]], attr)), bare_object(element))
-  }, FUN.VALUE = logical(1))
-  assert_xml_found(index, tag, attr, element)
-  which(index)
+get_xpath <- function(field) {
+  paste0(
+    "/facts/parameterSets[@type='",
+    field$type,
+    "']/parameterSet[@name='",
+    field$set,
+    "']/property[@name='",
+    field$property,
+    "']"
+  )
 }
 
-assert_xml_found <- function(index, tag, attr, element) {
-  if (sum(index) < 1L) {
-    stop0(
-      "no XML tag ",
-      tag,
-      " found with ",
-      attr,
-      " ",
-      element,
-      " in the current piece of FACTS file XML."
-    )
-  }
-  if (sum(index) > 1L) {
-    stop0(
-      "more than one XML tag ",
-      tag,
-      " found with ",
-      attr,
-      " ",
-      element,
-      " in the current piece of FACTS file XML."
-    )
+insert_xml_scalar <- function(property, value) {
+  xml_text(property) <- value
+}
+
+insert_xml_vector <- function(property, value) {
+  list <- xml2::xml_child(property)
+  value <- unlist(value)
+  for (index in seq_along(value)) {
+    child <- xml2::xml_children(list)[[index]]
+    xml2::xml_text(child) <- value[[index]]
   }
 }
