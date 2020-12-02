@@ -186,9 +186,9 @@ test_that("write_facts() max_subjects and analysis prior", {
     stringsAsFactors = FALSE
   )
   get_prior <- function(file) {
-    xml <- xml2::as_list(xml2::read_xml(file))
-    index <- find_xml_index(xml, field)
-    xml$facts[[index$paramsets]][[index$paramset]][[index$property]][[1]]
+    xml <- xml2::read_xml(file)
+    property <- xml2::xml_find_first(xml, get_xpath(field))
+    xml2::as_list(property)[[1]]
   }
   prior0 <- get_prior(facts_file)
   prior1 <- get_prior(files[1])
