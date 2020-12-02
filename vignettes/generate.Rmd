@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 knitr::opts_knit$set(root.dir = fs::dir_create(tempfile()))
 library(rfacts)
-library(tidyverse)
+library(tibble)
 ```
 
 To help statisticians explore wider ranges of possibilities for clinical trials, the  `write_facts()` function generates multiple versions of existing FACTS files with different features. This vignette walks through the process
