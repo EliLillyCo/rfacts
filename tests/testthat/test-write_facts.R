@@ -42,7 +42,6 @@ test_that("ensure_output_column() with regular default dir", {
 })
 
 test_that("write_facts() to default path", {
-  skip_paths()
   withr::with_dir(fs::dir_create(tempdir()), {
     facts_file <- get_facts_file_example("contin.facts")
     fields <- data.frame(
@@ -57,6 +56,7 @@ test_that("write_facts() to default path", {
     )
     values$response <- list(c(0, 1000), c(0, 2000))
     files <- write_facts(fields = fields, values = values)
+    skip_paths()
     expect_equal(sort(files), sort(file.path("_facts", list.files("_facts"))))
     expect_true(all(file.exists(files)))
     expect_true(all(dirname(files) == "_facts"))
@@ -65,7 +65,6 @@ test_that("write_facts() to default path", {
 })
 
 test_that("length error replacing VSR", {
-  skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
   fields <- data.frame(
     field = "response",
@@ -85,7 +84,6 @@ test_that("length error replacing VSR", {
 })
 
 test_that("write_facts() change VSR", {
-  skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
   fields <- data.frame(
     field = "response",
@@ -99,6 +97,7 @@ test_that("write_facts() change VSR", {
   )
   values$response <- list(c(0, 1000), c(0, 2000))
   files <- write_facts(fields = fields, values = values)
+  skip_paths()
   out <- read_patients(run_facts(facts_file, n_sims = 1))
   out_1 <- read_patients(run_facts(files[1], n_sims = 1))
   out_2 <- read_patients(run_facts(files[2], n_sims = 1))
@@ -167,7 +166,6 @@ test_that("write_facts() change VSR", {
 })
 
 test_that("write_facts() max_subjects and analysis prior", {
-  skip_paths()
   facts_file <- get_facts_file_example("contin.facts")
   fields <- rbind(
     data.frame(
@@ -192,12 +190,6 @@ test_that("write_facts() max_subjects and analysis prior", {
   )
   values$analysis_prior <- list(c(1, 3), c(2, 4))
   files <- write_facts(fields = fields, values = values)
-  out <- read_patients(run_facts(facts_file, n_sims = 1))
-  out1 <- read_patients(run_facts(files[1], n_sims = 1))
-  out2 <- read_patients(run_facts(files[2], n_sims = 1))
-  expect_equal(nrow(out), 1200L)
-  expect_equal(nrow(out1), 4000L)
-  expect_equal(nrow(out2), 8000L)
   field <- data.frame(
     field = "analysis_prior",
     type = "NucleusParameterSet",
@@ -219,4 +211,11 @@ test_that("write_facts() max_subjects and analysis prior", {
   expect_equal(unlist(prior0$sd), "10")
   expect_equal(unlist(prior1$sd), "3")
   expect_equal(unlist(prior2$sd), "4")
+  skip_paths()
+  out <- read_patients(run_facts(facts_file, n_sims = 1))
+  out1 <- read_patients(run_facts(files[1], n_sims = 1))
+  out2 <- read_patients(run_facts(files[2], n_sims = 1))
+  expect_equal(nrow(out), 1200L)
+  expect_equal(nrow(out1), 4000L)
+  expect_equal(nrow(out2), 8000L)
 })

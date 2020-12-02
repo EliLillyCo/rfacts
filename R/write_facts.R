@@ -77,7 +77,7 @@
 #' write_facts(fields = fields, values = values, default_dir = default_dir)
 #' list.files("_facts")
 #' unlink("_facts", recursive = TRUE)
-write_facts <- function(fields, values, default_dir = "_facts"){
+write_facts <- function(fields, values, default_dir = "_facts") {
   assert_df(fields)
   assert_df(values)
   assert_scalar_character(default_dir)
@@ -148,7 +148,7 @@ write_facts_file <- function(fields, values) {
   for (name in names(values)) {
     substitute_xml(
       xml = xml,
-      field = fields[fields$field == name,, drop = FALSE],
+      field = fields[fields$field == name,, drop = FALSE], # nolint
       value = values[[name]]
     )
   }

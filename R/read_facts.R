@@ -43,7 +43,7 @@
 #'   property = c("max_subjects", "true_endpoint_response")
 #' )
 #' read_facts(facts_file = facts_file, fields = fields)
-read_facts <- function(facts_file, fields){
+read_facts <- function(facts_file, fields) {
   assert_scalar_character(facts_file)
   assert_df(fields)
   assert_fields(fields)
