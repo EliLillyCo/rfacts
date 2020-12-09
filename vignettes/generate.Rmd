@@ -35,16 +35,18 @@ FACTS files have a special XML format to define clinical trial simulations. Most
       ...
     </parameterSet>
   </parameterSets>
+  ...
   <parameterSets type="EfficacyParameterSet">
-    <parameterSet name="Resp 1" EndpointType="1">
+     <parameterSet name="resp2" EndpointType="1">
       <property name="true_endpoint_response">
         <items>
-          <item>1.777</item>
-          <item>2.777</item>
-          <item>3.777</item>
+          <item>0</item>
+          <item>10</item>
         </items>
       </property>
+      ...
     </parameterSet>
+    ...
   </parameterSets>
 </facst>
 ```
@@ -120,9 +122,64 @@ write_facts(fields = fields, values = values)
 
 ## Check your work
 
-Please verify that your FACTS files were generated properly. There are 3 main ways to do this:
+To verify that the generated FACTS files are correct, you can open them in a text or XML editor. Above, `small.facts` should have 1000 max subjects and `resp2` VSR parameters equal to `15` and `50`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<facts version="6.2.5.22668" name="contin" host="host">
+  <parameterSets type="NucleusParameterSet">
+    <parameterSet name="nucleus">
+      <property name="max_subjects">1000</property>
+      ...
+    </parameterSet>
+  </parameterSets>
+  ...
+  <parameterSets type="EfficacyParameterSet">
+     <parameterSet name="resp2" EndpointType="1">
+      <property name="true_endpoint_response">
+        <items>
+          <item>15</item>
+          <item>50</item>
+        </items>
+      </property>
+      ...
+    </parameterSet>
+    ...
+  </parameterSets>
+</facst>
+```
+
+Likewise, `large.facts` should have 2000 max subjects and `resp2` VSR parameters equal to `25` and `75`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<facts version="6.2.5.22668" name="contin" host="host">
+  <parameterSets type="NucleusParameterSet">
+    <parameterSet name="nucleus">
+      <property name="max_subjects">2000</property>
+      ...
+    </parameterSet>
+  </parameterSets>
+  ...
+  <parameterSets type="EfficacyParameterSet">
+     <parameterSet name="resp2" EndpointType="1">
+      <property name="true_endpoint_response">
+        <items>
+          <item>25</item>
+          <item>75</item>
+        </items>
+      </property>
+      ...
+    </parameterSet>
+    ...
+  </parameterSets>
+</facst>
+```
+
+Other ways to check your work include the following.
 
 1. Open the generated FACTS files in the Windows GUI and inspect the various tabs.
+1. Run the generated FACTS files from the Windows GUI (using a small number of iterations if sufficient to detect the changed settings).
 1. Run the FACTS file with `run_facts()` and check that the output is consistent with the input settings you specified.
 1. Use `read_facts()` to inspect the settings that should be modified.
 
