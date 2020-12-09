@@ -116,18 +116,20 @@
 <span id="cb1-11"><a href="#cb1-11"></a>      ...</span>
 <span id="cb1-12"><a href="#cb1-12"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="kw">&lt;parameterSets</span><span class="ot"> type=</span><span class="st">"EfficacyParameterSet"</span><span class="kw">&gt;</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>    <span class="kw">&lt;parameterSet</span><span class="ot"> name=</span><span class="st">"Resp 1"</span><span class="ot"> EndpointType=</span><span class="st">"1"</span><span class="kw">&gt;</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>      <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">"true_endpoint_response"</span><span class="kw">&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>        <span class="kw">&lt;items&gt;</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a>          <span class="kw">&lt;item&gt;</span>1.777<span class="kw">&lt;/item&gt;</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>          <span class="kw">&lt;item&gt;</span>2.777<span class="kw">&lt;/item&gt;</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>          <span class="kw">&lt;item&gt;</span>3.777<span class="kw">&lt;/item&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  ...</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="kw">&lt;parameterSets</span><span class="ot"> type=</span><span class="st">"EfficacyParameterSet"</span><span class="kw">&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>     <span class="kw">&lt;parameterSet</span><span class="ot"> name=</span><span class="st">"resp2"</span><span class="ot"> EndpointType=</span><span class="st">"1"</span><span class="kw">&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>      <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">"true_endpoint_response"</span><span class="kw">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>        <span class="kw">&lt;items&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>          <span class="kw">&lt;item&gt;</span>0<span class="kw">&lt;/item&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>          <span class="kw">&lt;item&gt;</span>10<span class="kw">&lt;/item&gt;</span></span>
 <span id="cb1-21"><a href="#cb1-21"></a>        <span class="kw">&lt;/items&gt;</span></span>
 <span id="cb1-22"><a href="#cb1-22"></a>      <span class="kw">&lt;/property&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="kw">&lt;/facst&gt;</span></span></code></pre></div>
+<span id="cb1-23"><a href="#cb1-23"></a>      ...</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>    ...</span>
+<span id="cb1-26"><a href="#cb1-26"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="kw">&lt;/facst&gt;</span></span></code></pre></div>
 </div>
 <div id="write-facts-files" class="section level2">
 <h2 class="hasAnchor">
@@ -194,13 +196,60 @@
 <div id="check-your-work" class="section level2">
 <h2 class="hasAnchor">
 <a href="#check-your-work" class="anchor"></a>Check your work</h2>
-<p>Please verify that your FACTS files were generated properly. There are 3 main ways to do this:</p>
+<p>To verify that the generated FACTS files are correct, you can open them in a text or XML editor. Above, <code>small.facts</code> should have 1000 max subjects and <code>resp2</code> VSR parameters equal to <code>15</code> and <code>50</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">&lt;facts</span><span class="ot"> version=</span><span class="st">"6.2.5.22668"</span><span class="ot"> name=</span><span class="st">"contin"</span><span class="ot"> host=</span><span class="st">"host"</span><span class="kw">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="kw">&lt;parameterSets</span><span class="ot"> type=</span><span class="st">"NucleusParameterSet"</span><span class="kw">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">&lt;parameterSet</span><span class="ot"> name=</span><span class="st">"nucleus"</span><span class="kw">&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>      <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">"max_subjects"</span><span class="kw">&gt;</span>1000<span class="kw">&lt;/property&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>      ...</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  ...</span>
+<span id="cb9-10"><a href="#cb9-10"></a>  <span class="kw">&lt;parameterSets</span><span class="ot"> type=</span><span class="st">"EfficacyParameterSet"</span><span class="kw">&gt;</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>     <span class="kw">&lt;parameterSet</span><span class="ot"> name=</span><span class="st">"resp2"</span><span class="ot"> EndpointType=</span><span class="st">"1"</span><span class="kw">&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a>      <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">"true_endpoint_response"</span><span class="kw">&gt;</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>        <span class="kw">&lt;items&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a>          <span class="kw">&lt;item&gt;</span>15<span class="kw">&lt;/item&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a>          <span class="kw">&lt;item&gt;</span>50<span class="kw">&lt;/item&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a>        <span class="kw">&lt;/items&gt;</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a>      <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a>      ...</span>
+<span id="cb9-19"><a href="#cb9-19"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a>    ...</span>
+<span id="cb9-21"><a href="#cb9-21"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
+<span id="cb9-22"><a href="#cb9-22"></a><span class="kw">&lt;/facst&gt;</span></span></code></pre></div>
+<p>Likewise, <code>large.facts</code> should have 2000 max subjects and <code>resp2</code> VSR parameters equal to <code>25</code> and <code>75</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">&lt;facts</span><span class="ot"> version=</span><span class="st">"6.2.5.22668"</span><span class="ot"> name=</span><span class="st">"contin"</span><span class="ot"> host=</span><span class="st">"host"</span><span class="kw">&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="kw">&lt;parameterSets</span><span class="ot"> type=</span><span class="st">"NucleusParameterSet"</span><span class="kw">&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>    <span class="kw">&lt;parameterSet</span><span class="ot"> name=</span><span class="st">"nucleus"</span><span class="kw">&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>      <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">"max_subjects"</span><span class="kw">&gt;</span>2000<span class="kw">&lt;/property&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>      ...</span>
+<span id="cb10-7"><a href="#cb10-7"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a>  ...</span>
+<span id="cb10-10"><a href="#cb10-10"></a>  <span class="kw">&lt;parameterSets</span><span class="ot"> type=</span><span class="st">"EfficacyParameterSet"</span><span class="kw">&gt;</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>     <span class="kw">&lt;parameterSet</span><span class="ot"> name=</span><span class="st">"resp2"</span><span class="ot"> EndpointType=</span><span class="st">"1"</span><span class="kw">&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a>      <span class="kw">&lt;property</span><span class="ot"> name=</span><span class="st">"true_endpoint_response"</span><span class="kw">&gt;</span></span>
+<span id="cb10-13"><a href="#cb10-13"></a>        <span class="kw">&lt;items&gt;</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a>          <span class="kw">&lt;item&gt;</span>25<span class="kw">&lt;/item&gt;</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a>          <span class="kw">&lt;item&gt;</span>75<span class="kw">&lt;/item&gt;</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a>        <span class="kw">&lt;/items&gt;</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a>      <span class="kw">&lt;/property&gt;</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a>      ...</span>
+<span id="cb10-19"><a href="#cb10-19"></a>    <span class="kw">&lt;/parameterSet&gt;</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a>    ...</span>
+<span id="cb10-21"><a href="#cb10-21"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="kw">&lt;/facst&gt;</span></span></code></pre></div>
+<p>Other ways to check your work include the following.</p>
 <ol style="list-style-type: decimal">
 <li>Open the generated FACTS files in the Windows GUI and inspect the various tabs.</li>
+<li>Run the generated FACTS files from the Windows GUI (using a small number of iterations if sufficient to detect the changed settings).</li>
 <li>Run the FACTS file with <code><a href="../reference/run_facts.html">run_facts()</a></code> and check that the output is consistent with the input settings you specified.</li>
 <li>Use <code><a href="../reference/read_facts.html">read_facts()</a></code> to inspect the settings that should be modified.</li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="va">facts_file</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1 x 3</span>
 <span class="co">#&gt;   facts_file   my_subjects my_vsr   </span>
