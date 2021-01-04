@@ -9,7 +9,7 @@ Description: The 'rfacts' package is an R interface to the
   they enhance computational reproducibility.
   For more information on 'FACTS' itself,
   please visit <https://www.berryconsultants.com/software/>.
-Version: 0.1.0
+Version: 0.1.0.9000
 License: MIT + file LICENSE
 URL: https://elilillyco.github.io/rfacts/,
   https://github.com/EliLillyCo/rfacts
