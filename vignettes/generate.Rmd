@@ -77,7 +77,7 @@ field_subjects <- tibble(
 and another field to modify the "resp2" virtual subject response scenario.
 
 ```{r}
-field_vsr <- data.frame(
+field_vsr <- tibble(
   field = "my_vsr",                 
   type = "EfficacyParameterSet",      
   set = "resp2",                      
