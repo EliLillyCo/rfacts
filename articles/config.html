@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -46,31 +48,10 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
-<li>
-  <a href="../reference/index.html">Reference</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/config.html">System configuration</a>
-    </li>
-    <li>
-      <a href="../articles/generate.html">Generating FACTS files</a>
-    </li>
-    <li>
-      <a href="../articles/te.html">Trial execution mode</a>
-    </li>
-  </ul>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/EliLillyCo/rfacts">
+  <a href="https://github.com/EliLillyCo/rfacts" class="external-link">
     <span class="fas fa-github fa-lg"></span>
      
   </a>
@@ -91,7 +72,7 @@
       <h1 data-toc-skip>System configuration</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/EliLillyCo/rfacts/blob/master/vignettes/config.Rmd"><code>vignettes/config.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/EliLillyCo/rfacts/blob/master/vignettes/config.Rmd" class="external-link"><code>vignettes/config.Rmd</code></a></small>
       <div class="hidden name"><code>config.Rmd</code></div>
 
     </div>
@@ -107,10 +88,10 @@
 <li>FLFLL (&gt;= 6.2.4)</li>
 <li>Mono (&gt;= 5.20.1.19)</li>
 </ul>
-<p>Before you can use <code>rfacts</code> to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at <a href="https://github.com/EliLillyCo/rfacts/blob/main/inst/example_paths.csv"><code>inst/example_paths.csv</code></a> in the <code>rfacts</code> package source.</p>
+<p>Before you can use <code>rfacts</code> to simulate trials in R, you must specify the paths to all these executable files in a CSV file. You can see an example CSV file at <a href="https://github.com/EliLillyCo/rfacts/blob/main/inst/example_paths.csv" class="external-link"><code>inst/example_paths.csv</code></a> in the <code>rfacts</code> package source.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"example_paths.csv"</span>, package <span class="op">=</span> <span class="st">"rfacts"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/writeLines.html">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html">readLines</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"example_paths.csv"</span>, package <span class="op">=</span> <span class="st">"rfacts"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/readLines.html" class="external-link">readLines</a></span><span class="op">(</span><span class="va">path</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; executable_type,facts_version,path,engine_name,param_set,param_type</span>
 <span class="co">#&gt; mono,6.2.4,/PATH/TO/mono/mono-5.20.1.19/bin/mono,NA,NA,NA</span>
 <span class="co">#&gt; mono,6.2.5,/PATH/TO/mono/mono-5.20.1.19/bin/mono,NA,NA,NA</span>
@@ -145,7 +126,7 @@
 <li>
 <code>path</code>: File path to the executable.</li>
 <li>
-<code>engine_name</code>: For engines only. Name of the engine. Must be one of the engine types in the example CSV file at <code><a href="https://rdrr.io/r/base/system.file.html">system.file("example_paths.csv", package = "rfacts")</a></code>.</li>
+<code>engine_name</code>: For engines only. Name of the engine. Must be one of the engine types in the example CSV file at <code><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file("example_paths.csv", package = "rfacts")</a></code>.</li>
 <li>
 <code>param_set</code>: For engines only. Parameter set designation listed in the XML code of FACTS files for that engine.</li>
 <li>
@@ -156,13 +137,13 @@
 <div id="connecting-rfacts-to-the-system-dependencies" class="section level1">
 <h1 class="hasAnchor">
 <a href="#connecting-rfacts-to-the-system-dependencies" class="anchor"></a>Connecting <code>rfacts</code> to the system dependencies</h1>
-<p>To allow <code>rfacts</code> to find the CSV file above, you must set the <code>RFACTS_PATHS</code> environment variable. For a single R session, you can do this with <code><a href="https://rdrr.io/r/base/Sys.setenv.html">Sys.setenv(RFACTS_PATHS = "path/to/file.csv")</a></code>. To set <code>RFACTS_PATHS</code> permanently for all future sessions, open your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code> and add a line with <code>RFACTS_PATHS=path/to/file.csv</code>. Then, restart R so the changes take effect. Verify that you did this correctly by checking the value of the environment variable.</p>
+<p>To allow <code>rfacts</code> to find the CSV file above, you must set the <code>RFACTS_PATHS</code> environment variable. For a single R session, you can do this with <code><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv(RFACTS_PATHS = "path/to/file.csv")</a></code>. To set <code>RFACTS_PATHS</code> permanently for all future sessions, open your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code> and add a line with <code>RFACTS_PATHS=path/to/file.csv</code>. Then, restart R so the changes take effect. Verify that you did this correctly by checking the value of the environment variable.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/rfacts/example_paths.csv"</span></code></pre></div>
 <p>Check the system dependency information with <code><a href="../reference/rfacts_paths.html">rfacts_paths()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/">rfacts</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/" class="external-link">rfacts</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/rfacts_paths.html">rfacts_paths</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 22 x 6</span>
 <span class="co">#&gt;    executable_type facts_version path         engine_name param_set   param_type</span>
@@ -210,11 +191,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by William Michael Landau.</p>
+  <p></p>
+<p>Developed by William Michael Landau.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -222,6 +205,8 @@
 
   
 
+
+  
 
   </body>
 </html>
