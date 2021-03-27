@@ -1,4 +1,4 @@
-# Version 0.1.0.9000
+# Version 0.1.1
 
 * Remove LazyData in the DESCRIPTION to address CRAN check notes.
 
