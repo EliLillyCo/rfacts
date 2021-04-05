@@ -112,7 +112,7 @@ assert_all_fields_defined <- function(fields, values) {
 
 convert_character_columns <- function(x) {
   for (index in seq_along(x)) {
-    x[[index]] <- trn(
+    x[[index]] <- if_any(
       is.list(x[[index]]),
       lapply(x[[index]], as.character),
       as.character(x[[index]])
@@ -158,7 +158,7 @@ write_facts_file <- function(fields, values) {
 
 substitute_xml <- function(xml, field, value) {
   property <- xml2::xml_find_first(xml, get_xpath(field))
-  trn(
+  if_any(
     length(xml2::xml_children(property)),
     insert_xml_vector(property, value),
     insert_xml_scalar(property, value)

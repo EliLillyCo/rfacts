@@ -65,7 +65,7 @@ read_facts <- function(facts_file, fields) {
 
 read_facts_field <- function(field, xml) {
   property <- xml2::xml_find_first(xml, get_xpath(field))
-  trn(
+  if_any(
     length(xml2::xml_children(property)),
     list(unname(unlist(xml2::as_list(property)[[1]]))),
     xml2::xml_text(property)
