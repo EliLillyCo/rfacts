@@ -40,19 +40,34 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
      
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/config.html">System configuration</a>
+    </li>
+    <li>
+      <a href="../articles/generate.html">Generating FACTS files</a>
+    </li>
+    <li>
+      <a href="../articles/te.html">Trial execution mode</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/EliLillyCo/rfacts" class="external-link">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/EliLillyCo/rfacts/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -82,7 +97,7 @@
 <p>To help statisticians explore wider ranges of possibilities for clinical trials, the <code><a href="../reference/write_facts.html">write_facts()</a></code> function generates multiple versions of existing FACTS files with different features. This vignette walks through the process</p>
 <div id="facts-xml-format" class="section level2">
 <h2 class="hasAnchor">
-<a href="#facts-xml-format" class="anchor"></a>FACTS XML format</h2>
+<a href="#facts-xml-format" class="anchor" aria-hidden="true"></a>FACTS XML format</h2>
 <p>FACTS files have a special XML format to define clinical trial simulations. Most of the internal configuration settings are defined in <code>&lt;property&gt;</code> tags inside <code>&lt;parameterSet&gt;...&lt;/parameterSet&gt;</code> and <code>&lt;parameterSets&gt;...&lt;/parameterSets&gt;</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">&lt;facts</span><span class="ot"> version=</span><span class="st">"6.2.5.22668"</span><span class="ot"> name=</span><span class="st">"contin"</span><span class="ot"> host=</span><span class="st">"host"</span><span class="kw">&gt;</span></span>
@@ -114,7 +129,7 @@
 </div>
 <div id="write-facts-files" class="section level2">
 <h2 class="hasAnchor">
-<a href="#write-facts-files" class="anchor"></a>Write FACTS files</h2>
+<a href="#write-facts-files" class="anchor" aria-hidden="true"></a>Write FACTS files</h2>
 <p><code><a href="../reference/write_facts.html">write_facts()</a></code> works on the <code>&lt;property&gt;</code> tags located above. Any <code>&lt;property&gt;</code> within a <code>&lt;facts&gt;&lt;parameterSets&gt;&lt;parameterSet&gt;</code> block can be modified programmatically. To demonstrate, we will create two new FACTS files with modified virtual subject response scenarios and different numbers of patients. We start with a known FACTS file we create from the Windows GUI (or a built-in example from this package).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
@@ -176,7 +191,7 @@
 </div>
 <div id="check-your-work" class="section level2">
 <h2 class="hasAnchor">
-<a href="#check-your-work" class="anchor"></a>Check your work</h2>
+<a href="#check-your-work" class="anchor" aria-hidden="true"></a>Check your work</h2>
 <p>To verify that the generated FACTS files are correct, you can open them in a text or XML editor. Above, <code>small.facts</code> should have 1000 max subjects and <code>resp2</code> VSR parameters equal to <code>15</code> and <code>50</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw">&lt;facts</span><span class="ot"> version=</span><span class="st">"6.2.5.22668"</span><span class="ot"> name=</span><span class="st">"contin"</span><span class="ot"> host=</span><span class="st">"host"</span><span class="kw">&gt;</span></span>

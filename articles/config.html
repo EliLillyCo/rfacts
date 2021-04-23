@@ -40,19 +40,34 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
      
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/config.html">System configuration</a>
+    </li>
+    <li>
+      <a href="../articles/generate.html">Generating FACTS files</a>
+    </li>
+    <li>
+      <a href="../articles/te.html">Trial execution mode</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/EliLillyCo/rfacts" class="external-link">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/EliLillyCo/rfacts/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -81,7 +96,7 @@
     
 <div id="system-dependency-specification-file" class="section level1">
 <h1 class="hasAnchor">
-<a href="#system-dependency-specification-file" class="anchor"></a>System dependency specification file</h1>
+<a href="#system-dependency-specification-file" class="anchor" aria-hidden="true"></a>System dependency specification file</h1>
 <p><code>rfacts</code> has strict system dependencies.</p>
 <ul>
 <li>FACTS Linux engines (&gt;= 6.2.4)</li>
@@ -117,7 +132,7 @@
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/dichot/6.0.0.4/dichot.x,dichot,SDBaseParameterSet,2</span></code></pre></div>
 <div id="required-columns" class="section level2">
 <h2 class="hasAnchor">
-<a href="#required-columns" class="anchor"></a>Required columns</h2>
+<a href="#required-columns" class="anchor" aria-hidden="true"></a>Required columns</h2>
 <ul>
 <li>
 <code>executable_type</code>: Must be “mono”, “flfll”, or “engine” to denote the general type of the executable.</li>
@@ -136,7 +151,7 @@
 </div>
 <div id="connecting-rfacts-to-the-system-dependencies" class="section level1">
 <h1 class="hasAnchor">
-<a href="#connecting-rfacts-to-the-system-dependencies" class="anchor"></a>Connecting <code>rfacts</code> to the system dependencies</h1>
+<a href="#connecting-rfacts-to-the-system-dependencies" class="anchor" aria-hidden="true"></a>Connecting <code>rfacts</code> to the system dependencies</h1>
 <p>To allow <code>rfacts</code> to find the CSV file above, you must set the <code>RFACTS_PATHS</code> environment variable. For a single R session, you can do this with <code><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv(RFACTS_PATHS = "path/to/file.csv")</a></code>. To set <code>RFACTS_PATHS</code> permanently for all future sessions, open your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code> and add a line with <code>RFACTS_PATHS=path/to/file.csv</code>. Then, restart R so the changes take effect. Verify that you did this correctly by checking the value of the environment variable.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span>

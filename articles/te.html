@@ -40,19 +40,34 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
      
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/config.html">System configuration</a>
+    </li>
+    <li>
+      <a href="../articles/generate.html">Generating FACTS files</a>
+    </li>
+    <li>
+      <a href="../articles/te.html">Trial execution mode</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/EliLillyCo/rfacts" class="external-link">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/EliLillyCo/rfacts/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -82,7 +97,7 @@
 <p>In trial simulation mode, we simulate patient data and then analyze it with a (usually Bayesian) model. In trial execution mode, we begin with patient data and just do the downstream analysis. This is useful for simulating entire clinical programs where the same patients move from trial to trial.</p>
 <div id="how-it-works" class="section level1">
 <h1 class="hasAnchor">
-<a href="#how-it-works" class="anchor"></a>How it works</h1>
+<a href="#how-it-works" class="anchor" aria-hidden="true"></a>How it works</h1>
 <p>The workflow is very similar to the parallel computing section of the vignette. First, we use our FACTS file and <code><a href="../reference/run_flfll.html">run_flfll()</a></code> to generate a directory of param files. The example below uses a <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile()</a></code> to store the param files (i.e. <code>output_path</code>). However, for distributed computing on traditional HPC clusters, <code>output_path</code> should be a directory path that all nodes can access.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/" class="external-link">rfacts</a></span><span class="op">)</span>
@@ -122,7 +137,7 @@
 </div>
 <div id="test-locally-first" class="section level1">
 <h1 class="hasAnchor">
-<a href="#test-locally-first" class="anchor"></a>Test locally first</h1>
+<a href="#test-locally-first" class="anchor" aria-hidden="true"></a>Test locally first</h1>
 <p>The data frame below is an aggregate of all the <code>weeks00000.csv</code> files from trial execution mode.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
@@ -135,7 +150,7 @@
 </div>
 <div id="on-a-cluster" class="section level1">
 <h1 class="hasAnchor">
-<a href="#on-a-cluster" class="anchor"></a>On a cluster</h1>
+<a href="#on-a-cluster" class="anchor" aria-hidden="true"></a>On a cluster</h1>
 <p>Thanks to <a href="https://github.com/mschubert/clustermq" class="external-link"><code>clustermq</code></a>, it is straightforward to run simulations in parallel on a cluster. First, configure <code>clustermq</code> with a template file and global options. Here, we demonstrate using an SGE cluster.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Configure clustermq to use our grid and your template file.</span>
