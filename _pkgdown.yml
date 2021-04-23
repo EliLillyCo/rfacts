@@ -1,24 +1,4 @@
 destination: docs
-navbar:
-  title: rfacts
-  type: default
-  structure:
-    left: 
-    - home
-    - slides
-    - news
-    right:
-    - github
-  components:
-    home:
-      icon: fa-home fa-lg
-      href: index.html
-    news:
-      text: News
-      href: news/index.html
-    github:
-      icon: fa-github fa-lg
-      href: https://github.com/EliLillyCo/rfacts
 reference:
 - title: Help
   contents:
