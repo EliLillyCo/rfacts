@@ -32,7 +32,7 @@ param_files <- run_flfll(facts_file, verbose = FALSE)
 scenarios <- get_param_dirs(param_files)
 scenarios
 scenario <- scenarios[1]
-run_engine_contin(scenario, n_sims = 2, verbose = FALSE)
+run_engine_contin(scenario, n_sims = 2, verbose = FALSE, version = "6.2.5")
 read_patients(scenario)
 }
 }

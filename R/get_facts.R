@@ -92,9 +92,7 @@ facts_versions <- function() {
   paths_engine()$facts_version
 }
 
-get_mono_flfll_paths <- function(facts_file) {
-  version <- get_facts_version(facts_file)
-  assert_good_version(version)
+get_mono_flfll_paths <- function(facts_file, version) {
   mono <- get_path_version(paths_mono(), version, "path")
   flfll <- get_path_version(paths_flfll(), version, "path")
   list(mono = mono, flfll = flfll)
@@ -135,7 +133,7 @@ get_path_version <- function(paths, version, field) {
 #' # ?run_engine_contin
 #' # Call the FACTS engine function to run simulations.
 #' # Alternatively, you could just call `run_engine()`.
-#' run_engine_contin(out, n_sims = 1, verbose = FALSE)
+#' run_engine_contin(out, n_sims = 1, verbose = FALSE, version = "6.2.5")
 #' # See the results.
 #' read_patients(out)
 #' }

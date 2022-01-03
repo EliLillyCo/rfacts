@@ -1,6 +1,7 @@
-# Version 0.1.1.9000
+# Version 0.2.0
 
-
+* Add a `max_sims` argument to `run_flfll()` because `-nSims` in FLFLL can no longer safely be set to 1. (FLFLL 6.4.1 now uses `-nSims` to set the number of CRM cohort files.)
+* Manually disable packetization with the `-packet` flag in FLFLL >= 6.4.1.
 
 # Version 0.1.1
 

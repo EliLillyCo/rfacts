@@ -120,7 +120,8 @@ test_that("staged and parallel", {
     run_engine_dichot,
     mc.cores = 2L,
     n_sims = 1L,
-    verbose = FALSE
+    verbose = FALSE,
+    version = "6.2.5"
   )
   files <- list.files(
     out,

@@ -242,7 +242,7 @@ test_that("overwrite_csv_files() overwrites files", {
   for (col in c(exempt_cols(), "visit_1")) {
     pats1[[col]] <- pats2[[col]] <- NULL
   }
-  expect_equivalent(pats1, pats2)
+  expect_equal(pats1, pats2)
 })
 
 test_that("overwrite_csv_files() does not mangle CSV files", {

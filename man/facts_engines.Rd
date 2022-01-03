@@ -300,7 +300,7 @@ out <- run_flfll(facts_file, verbose = FALSE) # Generate param files.
 # Identify which engine you need.
 get_facts_engine(facts_file)
 # Run the sims with the engine function or `run_engine()`.
-run_engine_contin(out, n_sims = 1, verbose = FALSE)
+run_engine_contin(out, n_sims = 1, verbose = FALSE, version = "6.2.5")
 read_patients(out)
 }
 }

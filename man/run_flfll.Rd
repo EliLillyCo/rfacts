@@ -16,7 +16,8 @@ run_flfll(
   n_mcmc_thin = NULL,
   flfll_seed = NULL,
   flfll_offset = NULL,
-  verbose = FALSE
+  verbose = FALSE,
+  max_sims = 99999L
 )
 }
 \arguments{
@@ -52,6 +53,15 @@ one of the specific \verb{run_engine*()} functions.}
 
 \item{verbose}{Logical, whether to print progress information to the
 R console.}
+
+\item{max_sims}{Positive integer of length 1, maximum number of simulations
+that will be allowed to run for certain engines like CRM
+in subsequent calls to the engine. If the \code{n_sims} argument
+of the engine is larger than \code{max_sims}, only \code{max_sims}
+simulations will be run. The \code{max_sims} argument
+only applies to FLFLL >= 6.4.1
+and only needs to be set manually if you are manually calling
+\code{run_flfll()} and then the engine instead of just \code{\link[=run_facts]{run_facts()}}.}
 }
 \value{
 Character, the value of \code{output_path}.

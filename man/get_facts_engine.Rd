@@ -40,7 +40,7 @@ get_facts_engine(facts_file)
 # ?run_engine_contin
 # Call the FACTS engine function to run simulations.
 # Alternatively, you could just call `run_engine()`.
-run_engine_contin(out, n_sims = 1, verbose = FALSE)
+run_engine_contin(out, n_sims = 1, verbose = FALSE, version = "6.2.5")
 # See the results.
 read_patients(out)
 }

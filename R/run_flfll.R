@@ -32,6 +32,14 @@
 #' @param flfll_offset Integer, offset for the random number generator.
 #' @param verbose Logical, whether to print progress information to the
 #'   R console.
+#' @param max_sims Positive integer of length 1, maximum number of simulations
+#'   that will be allowed to run for certain engines like CRM
+#'   in subsequent calls to the engine. If the `n_sims` argument
+#'   of the engine is larger than `max_sims`, only `max_sims`
+#'   simulations will be run. The `max_sims` argument
+#'   only applies to FLFLL >= 6.4.1
+#'   and only needs to be set manually if you are manually calling
+#'   `run_flfll()` and then the engine instead of just [run_facts()].
 #' @examples
 #' # Can only run if system dependencies are configured:
 #' if (file.exists(Sys.getenv("RFACTS_PATHS"))) {
@@ -58,21 +66,22 @@ run_flfll <- function(
   n_mcmc_thin = NULL,
   flfll_seed = NULL,
   flfll_offset = NULL,
-  verbose = FALSE
+  verbose = FALSE,
+  max_sims = 99999L
 ) {
   assert_files_exist(facts_file)
   tmp_dir <- tempfile()
   dir.create(tmp_dir)
   new_file <- file.path(tmp_dir, basename(facts_file))
   file.copy(from = facts_file, to = new_file)
-  paths <- get_mono_flfll_paths(facts_file)
+  version <- get_facts_version(facts_file)
+  assert_good_version(version)
+  paths <- get_mono_flfll_paths(facts_file, version)
   args <- c(
     paths$flfll,
     arg_character("-file", new_file),
     arg_character("-outputPath", output_path),
     arg_character("-logPath", log_path),
-    # Disables auto packetization. The engine controls num sims, not FLFLL.
-    arg_integer("-nSim", 1),
     arg_integer("-nBurn", n_burn),
     arg_integer("-nMCMC", n_mcmc),
     arg_integer("-nWeeksFiles", n_weeks_files),
@@ -82,6 +91,14 @@ run_flfll <- function(
     arg_integer("-seed", flfll_seed),
     arg_integer("-offset", flfll_offset)
   )
+  # Disables auto packetization without cutting off simulations.
+  # The engine controls num sims, not FLFLL.
+  args_sims <- if_any(
+    utils::compareVersion(version, "6.4.1") < 0L,
+    arg_integer("-nSim", 1),
+    c(arg_integer("-nSim", max_sims), arg_integer("-packet", max_sims))
+  )
+  args <- c(args, args_sims)
   run_linux(command = paths$mono, args = args, verbose = verbose)
   output_path
 }

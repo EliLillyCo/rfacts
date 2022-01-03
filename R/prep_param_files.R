@@ -25,7 +25,12 @@
 #' out <- run_flfll(facts_file, verbose = FALSE)
 #' param_files <- prep_param_files(out) # For speed.
 #' param_files # Shows where the param files live and how they are organized.
-#' run_engine_contin(param_files, n_sims = 2, verbose = FALSE)
+#' run_engine_contin(
+#'   param_files,
+#'   n_sims = 2,
+#'   verbose = FALSE,
+#'   version = "6.2.5"
+#' )
 #' # Slower: run_engine_contin(out, n_sims = 2, verbose = FALSE) # nolint
 #' }
 prep_param_files <- function(param_files) {

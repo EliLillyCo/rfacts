@@ -7,6 +7,7 @@
 #'   latter two functions individually.
 #' @return Character, path to the directory with FACTS output.
 #' @inheritParams run_flfll
+#' @inheritParams facts_engines
 #' @param ... Named arguments to the appropriate FACTS engine function.
 #'   Use [get_facts_engine()] to identify the appropriate
 #'   engine function and then open the help file of that function to read
@@ -40,8 +41,11 @@ run_facts <- function(
   n_mcmc_thin = NULL,
   flfll_seed = NULL,
   flfll_offset = NULL,
+  n_sims,
   ...
 ) {
+  args <- list(...)
+  args$n_sims <- n_sims
   out <- run_flfll(
     facts_file = facts_file,
     output_path = output_path,
@@ -54,8 +58,11 @@ run_facts <- function(
     n_mcmc_thin = n_mcmc_thin,
     flfll_seed = flfll_seed,
     flfll_offset = flfll_offset,
-    verbose = list(...)$verbose %||% FALSE
+    max_sims = n_sims,
+    verbose = args$verbose %||% FALSE
   )
-  run_engine(facts_file = facts_file, param_files = out, ...)
+  args$facts_file <- facts_file
+  args$param_files <- out
+  do.call(what = run_engine, args = args)
   out
 }

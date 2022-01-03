@@ -16,6 +16,7 @@ run_facts(
   n_mcmc_thin = NULL,
   flfll_seed = NULL,
   flfll_offset = NULL,
+  n_sims,
   ...
 )
 }
@@ -49,6 +50,8 @@ use the \code{seed} argument of \code{\link[=run_facts]{run_facts()}}, \code{\li
 one of the specific \verb{run_engine*()} functions.}
 
 \item{flfll_offset}{Integer, offset for the random number generator.}
+
+\item{n_sims}{Positive integer, number of simulations per param file.}
 
 \item{...}{Named arguments to the appropriate FACTS engine function.
 Use \code{\link[=get_facts_engine]{get_facts_engine()}} to identify the appropriate
