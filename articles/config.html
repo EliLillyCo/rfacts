@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -87,16 +87,16 @@
       <h1 data-toc-skip>System configuration</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/EliLillyCo/rfacts/blob/master/vignettes/config.Rmd" class="external-link"><code>vignettes/config.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/EliLillyCo/rfacts/blob/HEAD/vignettes/config.Rmd" class="external-link"><code>vignettes/config.Rmd</code></a></small>
       <div class="hidden name"><code>config.Rmd</code></div>
 
     </div>
 
     
     
-<div id="system-dependency-specification-file" class="section level1">
-<h1 class="hasAnchor">
-<a href="#system-dependency-specification-file" class="anchor" aria-hidden="true"></a>System dependency specification file</h1>
+<div class="section level1">
+<h1 id="system-dependency-specification-file">System dependency specification file<a class="anchor" aria-label="anchor" href="#system-dependency-specification-file"></a>
+</h1>
 <p><code>rfacts</code> has strict system dependencies.</p>
 <ul>
 <li>FACTS Linux engines (&gt;= 6.2.4)</li>
@@ -130,9 +130,9 @@
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/CRM/6.0.0.4/CRM.x,crm,CRMDesignParamSet,0</span>
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/contin/6.0.0.4/contin.x,contin,SDBaseParameterSet,1</span>
 <span class="co">#&gt; engine,6.2.5,/PATH/TO/facts/engines/dichot/6.0.0.4/dichot.x,dichot,SDBaseParameterSet,2</span></code></pre></div>
-<div id="required-columns" class="section level2">
-<h2 class="hasAnchor">
-<a href="#required-columns" class="anchor" aria-hidden="true"></a>Required columns</h2>
+<div class="section level2">
+<h2 id="required-columns">Required columns<a class="anchor" aria-label="anchor" href="#required-columns"></a>
+</h2>
 <ul>
 <li>
 <code>executable_type</code>: Must be “mono”, “flfll”, or “engine” to denote the general type of the executable.</li>
@@ -141,7 +141,7 @@
 <li>
 <code>path</code>: File path to the executable.</li>
 <li>
-<code>engine_name</code>: For engines only. Name of the engine. Must be one of the engine types in the example CSV file at <code><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file("example_paths.csv", package = "rfacts")</a></code>.</li>
+<code>engine_name</code>: For engines only. Name of the engine. Must be one of the engine types in the example CSV file at <code>system.file("example_paths.csv", package = "rfacts")</code>.</li>
 <li>
 <code>param_set</code>: For engines only. Parameter set designation listed in the XML code of FACTS files for that engine.</li>
 <li>
@@ -149,10 +149,10 @@
 </ul>
 </div>
 </div>
-<div id="connecting-rfacts-to-the-system-dependencies" class="section level1">
-<h1 class="hasAnchor">
-<a href="#connecting-rfacts-to-the-system-dependencies" class="anchor" aria-hidden="true"></a>Connecting <code>rfacts</code> to the system dependencies</h1>
-<p>To allow <code>rfacts</code> to find the CSV file above, you must set the <code>RFACTS_PATHS</code> environment variable. For a single R session, you can do this with <code><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv(RFACTS_PATHS = "path/to/file.csv")</a></code>. To set <code>RFACTS_PATHS</code> permanently for all future sessions, open your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code> and add a line with <code>RFACTS_PATHS=path/to/file.csv</code>. Then, restart R so the changes take effect. Verify that you did this correctly by checking the value of the environment variable.</p>
+<div class="section level1">
+<h1 id="connecting-rfacts-to-the-system-dependencies">Connecting <code>rfacts</code> to the system dependencies<a class="anchor" aria-label="anchor" href="#connecting-rfacts-to-the-system-dependencies"></a>
+</h1>
+<p>To allow <code>rfacts</code> to find the CSV file above, you must set the <code>RFACTS_PATHS</code> environment variable. For a single R session, you can do this with <code>Sys.setenv(RFACTS_PATHS = "path/to/file.csv")</code>. To set <code>RFACTS_PATHS</code> permanently for all future sessions, open your <code>.Renviron</code> file with <code>usethis::edit_r_environ()</code> and add a line with <code>RFACTS_PATHS=path/to/file.csv</code>. Then, restart R so the changes take effect. Verify that you did this correctly by checking the value of the environment variable.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "/Users/runner/work/_temp/Library/rfacts/example_paths.csv"</span></code></pre></div>
@@ -160,37 +160,37 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/" class="external-link">rfacts</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/rfacts_paths.html">rfacts_paths</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 22 x 6</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 22 × 6</span></span>
 <span class="co">#&gt;    executable_type facts_version path         engine_name param_set   param_type</span>
-<span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;     </span>
-<span class="co">#&gt;  1 mono            6.2.4         /PATH/TO/mo… &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;      </span>
-<span class="co">#&gt;  2 mono            6.2.5         /PATH/TO/mo… &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;      </span>
-<span class="co">#&gt;  3 flfll           6.2.4         /PATH/TO/fl… &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;      </span>
-<span class="co">#&gt;  4 flfll           6.2.5         /PATH/TO/fl… &lt;NA&gt;        &lt;NA&gt;        &lt;NA&gt;      </span>
-<span class="co">#&gt;  5 engine          6.0.0.1       /PATH/TO/fa… contin      NucleusPar… 1         </span>
-<span class="co">#&gt;  6 engine          6.0.0.1       /PATH/TO/fa… dichot      NucleusPar… 2         </span>
-<span class="co">#&gt;  7 engine          6.0.0.1       /PATH/TO/fa… multep      MultipleEn… 1         </span>
-<span class="co">#&gt;  8 engine          6.0.0.1       /PATH/TO/fa… tte         TTEDesignP… 3         </span>
-<span class="co">#&gt;  9 engine          6.0.0.1       /PATH/TO/fa… aipf_contin AIPFParame… 1         </span>
-<span class="co">#&gt; 10 engine          6.0.0.1       /PATH/TO/fa… aipf_dichot AIPFParame… 2         </span>
-<span class="co">#&gt; # … with 12 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> mono            6.2.4         /PATH/TO/mo… <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> mono            6.2.5         /PATH/TO/mo… <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> flfll           6.2.4         /PATH/TO/fl… <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> flfll           6.2.5         /PATH/TO/fl… <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>          <span style="color: #BB0000;">NA</span>        </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> engine          6.0.0.1       /PATH/TO/fa… contin      NucleusPar… 1         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> engine          6.0.0.1       /PATH/TO/fa… dichot      NucleusPar… 2         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> engine          6.0.0.1       /PATH/TO/fa… multep      MultipleEn… 1         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> engine          6.0.0.1       /PATH/TO/fa… tte         TTEDesignP… 3         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> engine          6.0.0.1       /PATH/TO/fa… aipf_contin AIPFParame… 1         </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> engine          6.0.0.1       /PATH/TO/fa… aipf_dichot AIPFParame… 2         </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 12 more rows</span></span></code></pre></div>
 <p>Use <code><a href="../reference/rfacts_sitrep.html">rfacts_sitrep()</a></code> to verify that all the executables exist and are indeed executable. This vignette uses toy paths that do not actually exist. In your setup, if <code>exists</code> and <code>is_executable</code> are all <code>TRUE</code>, then your setup is configured correctly.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/rfacts_sitrep.html">rfacts_sitrep</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 22 x 5</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 22 × 5</span></span>
 <span class="co">#&gt;    executable_type facts_version exists is_executable path                      </span>
-<span class="co">#&gt;    &lt;chr&gt;           &lt;chr&gt;         &lt;lgl&gt;  &lt;lgl&gt;         &lt;chr&gt;                     </span>
-<span class="co">#&gt;  1 mono            6.2.4         FALSE  FALSE         /PATH/TO/mono/mono-5.20.1…</span>
-<span class="co">#&gt;  2 mono            6.2.5         FALSE  FALSE         /PATH/TO/mono/mono-5.20.1…</span>
-<span class="co">#&gt;  3 flfll           6.2.4         FALSE  FALSE         /PATH/TO/flfll/prd/prior_…</span>
-<span class="co">#&gt;  4 flfll           6.2.5         FALSE  FALSE         /PATH/TO/flfll/prd/prior_…</span>
-<span class="co">#&gt;  5 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/co…</span>
-<span class="co">#&gt;  6 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/di…</span>
-<span class="co">#&gt;  7 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/mu…</span>
-<span class="co">#&gt;  8 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/tt…</span>
-<span class="co">#&gt;  9 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/ai…</span>
-<span class="co">#&gt; 10 engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/ai…</span>
-<span class="co">#&gt; # … with 12 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> mono            6.2.4         FALSE  FALSE         /PATH/TO/mono/mono-5.20.1…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> mono            6.2.5         FALSE  FALSE         /PATH/TO/mono/mono-5.20.1…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> flfll           6.2.4         FALSE  FALSE         /PATH/TO/flfll/prd/prior_…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> flfll           6.2.5         FALSE  FALSE         /PATH/TO/flfll/prd/prior_…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/co…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/di…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/mu…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/tt…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/ai…</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> engine          6.0.0.1       FALSE  FALSE         /PATH/TO/facts/engines/ai…</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 12 more rows</span></span></code></pre></div>
 <p>If you change <code>RFACTS_PATHS</code>, you need to call <code><a href="../reference/reset_rfacts_paths.html">reset_rfacts_paths()</a></code> or restart R in order for the changes to take effect.</p>
 </div>
   </div>
@@ -212,7 +212,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer>

@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0</span>
       </span>
     </div>
 
@@ -87,7 +87,7 @@
       <h1 data-toc-skip>Generating FACTS files</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/EliLillyCo/rfacts/blob/master/vignettes/generate.Rmd" class="external-link"><code>vignettes/generate.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/EliLillyCo/rfacts/blob/HEAD/vignettes/generate.Rmd" class="external-link"><code>vignettes/generate.Rmd</code></a></small>
       <div class="hidden name"><code>generate.Rmd</code></div>
 
     </div>
@@ -95,9 +95,9 @@
     
     
 <p>To help statisticians explore wider ranges of possibilities for clinical trials, the <code><a href="../reference/write_facts.html">write_facts()</a></code> function generates multiple versions of existing FACTS files with different features. This vignette walks through the process</p>
-<div id="facts-xml-format" class="section level2">
-<h2 class="hasAnchor">
-<a href="#facts-xml-format" class="anchor" aria-hidden="true"></a>FACTS XML format</h2>
+<div class="section level2">
+<h2 id="facts-xml-format">FACTS XML format<a class="anchor" aria-label="anchor" href="#facts-xml-format"></a>
+</h2>
 <p>FACTS files have a special XML format to define clinical trial simulations. Most of the internal configuration settings are defined in <code>&lt;property&gt;</code> tags inside <code>&lt;parameterSet&gt;...&lt;/parameterSet&gt;</code> and <code>&lt;parameterSets&gt;...&lt;/parameterSets&gt;</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">&lt;facts</span><span class="ot"> version=</span><span class="st">"6.2.5.22668"</span><span class="ot"> name=</span><span class="st">"contin"</span><span class="ot"> host=</span><span class="st">"host"</span><span class="kw">&gt;</span></span>
@@ -127,9 +127,9 @@
 <span id="cb1-26"><a href="#cb1-26"></a>  <span class="kw">&lt;/parameterSets&gt;</span></span>
 <span id="cb1-27"><a href="#cb1-27"></a><span class="kw">&lt;/facst&gt;</span></span></code></pre></div>
 </div>
-<div id="write-facts-files" class="section level2">
-<h2 class="hasAnchor">
-<a href="#write-facts-files" class="anchor" aria-hidden="true"></a>Write FACTS files</h2>
+<div class="section level2">
+<h2 id="write-facts-files">Write FACTS files<a class="anchor" aria-label="anchor" href="#write-facts-files"></a>
+</h2>
 <p><code><a href="../reference/write_facts.html">write_facts()</a></code> works on the <code>&lt;property&gt;</code> tags located above. Any <code>&lt;property&gt;</code> within a <code>&lt;facts&gt;&lt;parameterSets&gt;&lt;parameterSet&gt;</code> block can be modified programmatically. To demonstrate, we will create two new FACTS files with modified virtual subject response scenarios and different numbers of patients. We start with a known FACTS file we create from the Windows GUI (or a built-in example from this package).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
@@ -157,11 +157,11 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">fields</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">field_subjects</span>, <span class="va">field_vsr</span><span class="op">)</span>
 <span class="va">fields</span>
-<span class="co">#&gt; # A tibble: 2 x 4</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 4</span></span>
 <span class="co">#&gt;   field       type                 set     property              </span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;                &lt;chr&gt;   &lt;chr&gt;                 </span>
-<span class="co">#&gt; 1 my_subjects NucleusParameterSet  nucleus max_subjects          </span>
-<span class="co">#&gt; 2 my_vsr      EfficacyParameterSet resp2   true_endpoint_response</span></code></pre></div>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> my_subjects NucleusParameterSet  nucleus max_subjects          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> my_vsr      EfficacyParameterSet resp2   true_endpoint_response</span></code></pre></div>
 <p>Next, we define a grid of values to iterate over when we modify these fields. The grid should have one row per FACTS file and one column for every value of <code>fields$field</code> you want to modify in the XML. The <code>values</code> data frame must also contain a <code>facts_file</code> column to identify the source file. You can optionally include an <code>output</code> column to control the output path of each generated FACTS file, but this is not required.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
@@ -170,11 +170,11 @@
   my_vsr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">50</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">75</span><span class="op">)</span><span class="op">)</span>
 <span class="op">)</span>
 <span class="va">values</span>
-<span class="co">#&gt; # A tibble: 2 x 3</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span>
 <span class="co">#&gt;   facts_file   my_subjects my_vsr   </span>
-<span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt; &lt;list&gt;   </span>
-<span class="co">#&gt; 1 contin.facts        1000 &lt;dbl [2]&gt;</span>
-<span class="co">#&gt; 2 contin.facts        2000 &lt;dbl [2]&gt;</span></code></pre></div>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> contin.facts        <span style="text-decoration: underline;">1</span>000 <span style="color: #949494;">&lt;dbl [2]&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> contin.facts        <span style="text-decoration: underline;">2</span>000 <span style="color: #949494;">&lt;dbl [2]&gt;</span></span></code></pre></div>
 <p>Above, <code>my_subjects</code> is a vector of max sample sizes, and <code>my_vsr</code> is a list of VSR response means (one for each treatment group). Each value of <code>my_vsr</code> will be inserted as an <code>&lt;item&gt;</code> list in each output FACTS file, and the length of each list element must equal the length of the original <code>&lt;item&gt;</code> list.</p>
 <p>To generate the FACTS files, simply call <code><a href="../reference/write_facts.html">write_facts()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
@@ -189,9 +189,9 @@
 <span class="fu"><a href="../reference/write_facts.html">write_facts</a></span><span class="op">(</span>fields <span class="op">=</span> <span class="va">fields</span>, values <span class="op">=</span> <span class="va">values</span><span class="op">)</span>
 <span class="co">#&gt; [1] "small.facts" "large.facts"</span></code></pre></div>
 </div>
-<div id="check-your-work" class="section level2">
-<h2 class="hasAnchor">
-<a href="#check-your-work" class="anchor" aria-hidden="true"></a>Check your work</h2>
+<div class="section level2">
+<h2 id="check-your-work">Check your work<a class="anchor" aria-label="anchor" href="#check-your-work"></a>
+</h2>
 <p>To verify that the generated FACTS files are correct, you can open them in a text or XML editor. Above, <code>small.facts</code> should have 1000 max subjects and <code>resp2</code> VSR parameters equal to <code>15</code> and <code>50</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">&lt;?xml</span> version="1.0" encoding="utf-8"<span class="kw">?&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw">&lt;facts</span><span class="ot"> version=</span><span class="st">"6.2.5.22668"</span><span class="ot"> name=</span><span class="st">"contin"</span><span class="ot"> host=</span><span class="st">"host"</span><span class="kw">&gt;</span></span>
@@ -247,22 +247,22 @@
 </ol>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="va">facts_file</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 x 3</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="co">#&gt;   facts_file   my_subjects my_vsr   </span>
-<span class="co">#&gt;   &lt;chr&gt;        &lt;chr&gt;       &lt;list&gt;   </span>
-<span class="co">#&gt; 1 contin.facts 300         &lt;chr [2]&gt;</span>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> contin.facts 300         <span style="color: #949494;">&lt;chr [2]&gt;</span></span>
 
 <span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="st">"small.facts"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 x 3</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="co">#&gt;   facts_file  my_subjects my_vsr   </span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;   </span>
-<span class="co">#&gt; 1 small.facts 1000        &lt;chr [2]&gt;</span>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> small.facts 1000        <span style="color: #949494;">&lt;chr [2]&gt;</span></span>
 
 <span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="st">"large.facts"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 x 3</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span>
 <span class="co">#&gt;   facts_file  my_subjects my_vsr   </span>
-<span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;   </span>
-<span class="co">#&gt; 1 large.facts 2000        &lt;chr [2]&gt;</span></code></pre></div>
+<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> large.facts 2000        <span style="color: #949494;">&lt;chr [2]&gt;</span></span></code></pre></div>
 </div>
   </div>
 
@@ -283,7 +283,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer>
