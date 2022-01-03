@@ -66,13 +66,22 @@ run_linux <- function(command, args, verbose) {
     dest <- "" # nocov
   }
   command <- paste(c(command, args, dest), collapse = " ")
-  code <- system(command)
+  code <- system(
+    command,
+    ignore.stdout = !verbose,
+    ignore.stderr = !verbose
+  )
   handle_exit_code(code, command)
 }
 
 handle_exit_code <- function(code, command) {
   if (code != 0L) {
-    stop0(shQuote(command), " failed with exit code ", code)
+    stop0(
+      shQuote(command),
+      " failed with exit code ",
+      code,
+      ". Retry with verbose = TRUE for more details."
+    )
   }
 }
 
