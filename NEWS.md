@@ -1,6 +1,6 @@
-# Version 0.2.0.9000
+# Version 0.2.1
 
-
+* Fix HTML docs.
 
 # Version 0.2.0
 

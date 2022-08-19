@@ -30,7 +30,9 @@ Most of the content sits in an overarching \verb{<facts>} tag,
 then a \verb{<parameterSets>} tag, then a
 \verb{<parameterSet>} tag, then a \verb{<property>} tag.
 For example, here is the part of a FACTS file that controls
-the weeks between interims.\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<facts>
+the weeks between interims.
+
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<facts>
   <parameterSets type="NucleusParameterSet">
     <parameterSet name="nucleus">
       <property name="update_freq_save">4</property>
@@ -39,7 +41,9 @@ the weeks between interims.\if{html}{\out{<div class="sourceCode xml">}}\preform
 To use the \code{read_facts()} function, you must first identify
 the parts of the FACTS file you want to read using the \code{fields} argument.
 To read the above part of the XML, you would first define the
-\code{update_freq_save} field.\if{html}{\out{<div class="sourceCode r">}}\preformatted{fields <- tibble::tibble(
+\code{update_freq_save} field.
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{fields <- tibble::tibble(
   field = "my_interval",
   type = "NucleusParameterSet",
   set = "nucleus",
