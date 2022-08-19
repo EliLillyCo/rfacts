@@ -23,7 +23,7 @@ the *.param files."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/aj
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -32,7 +32,7 @@ the *.param files."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/aj
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -81,7 +81,7 @@ the <code>*.param</code> files.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">run_engine</span><span class="op">(</span><span class="va">facts_file</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">run_engine</span><span class="op">(</span><span class="va">facts_file</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -89,15 +89,20 @@ the <code>*.param</code> files.</p>
     <dl><dt>facts_file</dt>
 <dd><p>Character, name of a FACTS file.
 Usually has a <code>*.facts</code> file extension.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Named arguments to the appropriate inner engine function,
 such as <code><a href="facts_engines.html">run_engine_contin()</a></code>. Use <code><a href="get_facts_engine.html">get_facts_engine()</a></code>
 to identify the appropriate engine function for your FACTS file.
 Then, open the help file of that function to read about the arguments.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Nothing.</p>
+    
+
+<p>Nothing.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -115,19 +120,19 @@ functions (such as <code><a href="facts_engines.html">run_engine_contin()</a></c
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Can only run if system dependencies are configured:</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span> <span class="co"># example FACTS file</span></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># Generate param files.</span></span>
-<span class="r-in"><span class="co"># Run the simulations.</span></span>
-<span class="r-in"><span class="fu">run_engine</span><span class="op">(</span></span>
-<span class="r-in">  <span class="va">facts_file</span>,</span>
-<span class="r-in">  param_files <span class="op">=</span> <span class="va">out</span>,</span>
-<span class="r-in">  n_sims <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Can only run if system dependencies are configured:</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span> <span class="co"># example FACTS file</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># Generate param files.</span></span></span>
+<span class="r-in"><span><span class="co"># Run the simulations.</span></span></span>
+<span class="r-in"><span><span class="fu">run_engine</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">facts_file</span>,</span></span>
+<span class="r-in"><span>  param_files <span class="op">=</span> <span class="va">out</span>,</span></span>
+<span class="r-in"><span>  n_sims <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -142,7 +147,7 @@ functions (such as <code><a href="facts_engines.html">run_engine_contin()</a></c
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

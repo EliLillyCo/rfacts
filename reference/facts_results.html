@@ -28,7 +28,7 @@ but be warned: not every kind of CSV output file is tested in rfacts.'><!-- math
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -37,7 +37,7 @@ but be warned: not every kind of CSV output file is tested in rfacts.'><!-- math
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -91,35 +91,35 @@ but be warned: not every kind of CSV output file is tested in <code>rfacts</code
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_s1_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_s1_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_s1_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_s2_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_s2_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_s2_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_master_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_master_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_master_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_cohorts</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_simulations</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span>
-
-<span class="fu">read_csv_special</span><span class="op">(</span><span class="va">csv_files</span>, <span class="va">prefix</span>, numbered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_s1_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_s1_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_s1_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_s2_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_s2_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_s2_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_master_mcmc</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_master_patients</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_master_weeks</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_cohorts</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_simulations</span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_csv_special</span><span class="op">(</span><span class="va">csv_files</span>, <span class="va">prefix</span>, numbered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -128,22 +128,29 @@ but be warned: not every kind of CSV output file is tested in <code>rfacts</code
 <dd><p>Character vector of file paths.
 Either the directories containing the trial simulation
 results or the actual CSV file files themselves.</p></dd>
+
+
 <dt>prefix</dt>
 <dd><p>Character, name of the prefix for <code>read_csv_special()</code>.
 <code>read_weeks(x)</code> is equivalent to <code>read_csv_special(x, prefix = "weeks")</code>.
 Be careful: not all kinds of CSV output are tested. We can only
 guarantee the file types with special functions will be read
 correctly, e.g. <code>read_patients()</code> and <code>read_weeks()</code>.</p></dd>
+
+
 <dt>numbered</dt>
 <dd><p>Logical. If <code>TRUE</code>,
 only read the numbered files like <code>patients00001.csv</code>,
 <code>weeks00017.csv</code>, etc. If <code>FALSE</code>, only list the non-numbered files
 like <code>simulations.csv</code> and <code>simulations_freq_locf.csv</code>.
 Avoid <code>summary.csv</code> files. They are not reliable on Linux.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A data frame of trial simulation data. Each <code>read_*()</code> function
+    
+
+<p>A data frame of trial simulation data. Each <code>read_*()</code> function
 returns different information, but all the <code>read_*()</code> functions
 support the following columns:</p><ul><li><p><code>facts_file</code>: character, the base name of the FACTS file.</p></li>
 <li><p><code>facts_scenario</code>: character, the name of the simulation scenario
@@ -174,22 +181,22 @@ Required for <code><a href="overwrite_csv_files.html">overwrite_csv_files()</a><
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Can only run if system dependencies are configured:</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_facts.html">run_facts</a></span><span class="op">(</span></span>
-<span class="r-in">  <span class="va">facts_file</span>,</span>
-<span class="r-in">  n_sims <span class="op">=</span> <span class="fl">4</span>,</span>
-<span class="r-in">  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="co"># What results files do we have?</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="get_csv_files.html">get_csv_files</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># Read all the "patients*.csv" files with `read_patients(out)`.</span></span>
-<span class="r-in"><span class="co"># For each scenario, we have files named</span></span>
-<span class="r-in"><span class="co"># patients00001.csv, patients00002.csv, patients00003.csv,</span></span>
-<span class="r-in"><span class="co"># and patients00004.csv.</span></span>
-<span class="r-in"><span class="fu">read_patients</span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Can only run if system dependencies are configured:</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_facts.html">run_facts</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="va">facts_file</span>,</span></span>
+<span class="r-in"><span>  n_sims <span class="op">=</span> <span class="fl">4</span>,</span></span>
+<span class="r-in"><span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># What results files do we have?</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu"><a href="get_csv_files.html">get_csv_files</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Read all the "patients*.csv" files with `read_patients(out)`.</span></span></span>
+<span class="r-in"><span><span class="co"># For each scenario, we have files named</span></span></span>
+<span class="r-in"><span><span class="co"># patients00001.csv, patients00002.csv, patients00003.csv,</span></span></span>
+<span class="r-in"><span><span class="co"># and patients00004.csv.</span></span></span>
+<span class="r-in"><span><span class="fu">read_patients</span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -204,7 +211,7 @@ Required for <code><a href="overwrite_csv_files.html">overwrite_csv_files()</a><
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

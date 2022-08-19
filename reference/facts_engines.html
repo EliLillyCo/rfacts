@@ -30,7 +30,7 @@ run_engine_tte(): Time to event.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -39,7 +39,7 @@ run_engine_tte(): Time to event.
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -92,171 +92,171 @@ for your FACTS file, call <code><a href="get_facts_engine.html">get_facts_engine
 </ul></div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">run_engine_aipf_contin</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"r"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_aipf_dichot</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"r"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_aipf_tte</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"r"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_contin</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,
-  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,
-  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  noadapt <span class="op">=</span> <span class="cn">NULL</span>,
-  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,
-  stage <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_crm</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">""</span><span class="op">)</span>,
-  directory <span class="op">=</span> <span class="st">"."</span>,
-  allocator <span class="op">=</span> <span class="cn">NULL</span>,
-  charting_info <span class="op">=</span> <span class="cn">NULL</span>,
-  estimator <span class="op">=</span> <span class="cn">NULL</span>,
-  force_cohort <span class="op">=</span> <span class="cn">NULL</span>,
-  reduced_priority <span class="op">=</span> <span class="cn">NULL</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_dichot</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,
-  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,
-  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  noadapt <span class="op">=</span> <span class="cn">NULL</span>,
-  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,
-  stage <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_multep</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,
-  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,
-  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  noadapt <span class="op">=</span> <span class="cn">NULL</span>,
-  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,
-  stage <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span>
-
-<span class="fu">run_engine_tte</span><span class="op">(</span>
-  <span class="va">param_files</span>,
-  n_sims <span class="op">=</span> <span class="fl">1L</span>,
-  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,
-  seed <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,
-  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,
-  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,
-  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,
-  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,
-  current_week <span class="op">=</span> <span class="cn">NULL</span>,
-  execdata <span class="op">=</span> <span class="cn">NULL</span>,
-  final <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,
-  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,
-  interim <span class="op">=</span> <span class="cn">NULL</span>,
-  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,
-  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,
-  noadapt <span class="op">=</span> <span class="cn">NULL</span>,
-  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,
-  stage <span class="op">=</span> <span class="cn">NULL</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  version <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">run_engine_aipf_contin</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"r"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_aipf_dichot</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"r"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_aipf_tte</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"r"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_contin</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  noadapt <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  stage <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_crm</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">""</span><span class="op">)</span>,</span>
+<span>  directory <span class="op">=</span> <span class="st">"."</span>,</span>
+<span>  allocator <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  charting_info <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  estimator <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  force_cohort <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  reduced_priority <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_dichot</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  noadapt <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  stage <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_multep</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  noadapt <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  stage <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">run_engine_tte</span><span class="op">(</span></span>
+<span>  <span class="va">param_files</span>,</span>
+<span>  n_sims <span class="op">=</span> <span class="fl">1L</span>,</span>
+<span>  mode <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"s"</span>, <span class="st">"r"</span>, <span class="st">"p"</span><span class="op">)</span>,</span>
+<span>  seed <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  analysis_mode <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  arm_selection <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  armsdropped <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  complete_data_analysis <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  current_week <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  execdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  final <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimdata <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimexp <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  fsimparam <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  keepfiles <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mcmc_num <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  noadapt <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  s2_aux_paramfile <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  stage <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  version <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -267,37 +267,61 @@ of <code><a href="prep_param_files.html">prep_param_files()</a></code>. If a cha
 can be directories containing <code>*.param</code> files or the paths to the
 <code>*.param</code> files themselves.
 Such a directory is returned by <code><a href="run_flfll.html">run_flfll()</a></code>.</p></dd>
+
+
 <dt>n_sims</dt>
 <dd><p>Positive integer, number of simulations per param file.</p></dd>
+
+
 <dt>mode</dt>
 <dd><p>Character scalar: <code>"s"</code> for simulation mode in non-enrichment
 designs, <code>""</code> for simulation mode in enrichment designs,
 <code>"r"</code> for execution mode, and <code>"p"</code> for prediction mode.
 For the CRM engine, <code>mode</code> needs to be <code>"s"</code> or <code>""</code>.</p></dd>
+
+
 <dt>seed</dt>
 <dd><p>Positive integer, random number generator seed for the
 actual trial simulations. Use this <code>seed</code> argument instead of
 <code>flfll_seed</code> (<code><a href="run_facts.html">run_facts()</a></code>, <code><a href="run_flfll.html">run_flfll()</a></code>) to control
 pseudo-randomness in the actual trial simulations. <code>flfll_seed</code>
 only controls how the <code>*.param</code> files are generated.</p></dd>
+
+
 <dt>analysis_data</dt>
 <dd><p>Character, analysis mode patient data file name.</p></dd>
+
+
 <dt>analysis_mode</dt>
 <dd><p>Logical, whether to activate analysis mode.</p></dd>
+
+
 <dt>current_week</dt>
 <dd><p>Numeric, current time in weeks.</p></dd>
+
+
 <dt>execdata</dt>
 <dd><p>Character, name of the execution mode patient file.</p></dd>
+
+
 <dt>final</dt>
 <dd><p>Logical, whether to do the final analysis.
 For execution mode only.</p></dd>
+
+
 <dt>interim</dt>
 <dd><p>Integer, interim number.</p></dd>
+
+
 <dt>mcmc_num</dt>
 <dd><p>Integer, MCMC file number. For analysis mode only.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>Logical, whether to print progress information to the R
 console.</p></dd>
+
+
 <dt>version</dt>
 <dd><p>Character scalar, version of FACTS corresponding to the
 FACTS file. Get by calling <code><a href="get_facts_version.html">get_facts_version()</a></code> on your FACTS file.
@@ -305,49 +329,84 @@ See possible versions with <code><a href="get_facts_versions.html">get_facts_ver
 Do not supply <code>version</code> to <code><a href="run_engine.html">run_engine()</a></code>. <code><a href="run_engine.html">run_engine()</a></code>
 detects the version automatically from the FACTS file and
 passes it to the appropriate engine function.</p></dd>
+
+
 <dt>arm_selection</dt>
 <dd><p>Logical, whether to activate arm selection.</p></dd>
+
+
 <dt>armsdropped</dt>
 <dd><p>Character, a comma-separated collection of integers
 indicating dropped arms.</p></dd>
+
+
 <dt>complete_data_analysis</dt>
 <dd><p>Logical, whether to do a complete
 data analysis.</p></dd>
+
+
 <dt>fsimdata</dt>
 <dd><p>Character, prediction mode patient data file name.</p></dd>
+
+
 <dt>fsimexp</dt>
 <dd><p>Logical. For expert use only.</p></dd>
+
+
 <dt>fsimparam</dt>
 <dd><p>Character, name of the prediction mode <code>*.param</code> file.</p></dd>
+
+
 <dt>keepfiles</dt>
 <dd><p>Logical, whether to deactivate cleanup of
 extraneous staged design files.</p></dd>
+
+
 <dt>noadapt</dt>
 <dd><p>Logical, whether to deactivate adaptive actions
 in prediction mode.</p></dd>
+
+
 <dt>s2_aux_paramfile</dt>
 <dd><p>Character, name of the stage 2 execution
 auxiliary <code>*.param</code> file.</p></dd>
+
+
 <dt>stage</dt>
 <dd><p>Integer, trial design stage. For staged designs only.</p></dd>
+
+
 <dt>directory</dt>
 <dd><p>Character, working directory. CRM only.</p></dd>
+
+
 <dt>allocator</dt>
 <dd><p>Logical, allocator/execution/recommender mode. CRM only.</p></dd>
+
+
 <dt>charting_info</dt>
 <dd><p>Logical, unused.</p></dd>
+
+
 <dt>estimator</dt>
 <dd><p>Logical, use estimator. CRM only.</p></dd>
+
+
 <dt>force_cohort</dt>
 <dd><p>Logical, whether to force small cohort run-in to end.
 CRM only.</p></dd>
+
+
 <dt>reduced_priority</dt>
 <dd><p>Logical, whether to run at reduced priority.
 CRM only.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Nothing.</p>
+    
+
+<p>Nothing.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -366,16 +425,16 @@ functions (such as <code>run_engine_contin()</code>).</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># Can only run if system dependencies are configured:</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># Generate param files.</span></span>
-<span class="r-in"><span class="co"># Identify which engine you need.</span></span>
-<span class="r-in"><span class="fu"><a href="get_facts_engine.html">get_facts_engine</a></span><span class="op">(</span><span class="va">facts_file</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># Run the sims with the engine function or `run_engine()`.</span></span>
-<span class="r-in"><span class="fu">run_engine_contin</span><span class="op">(</span><span class="va">out</span>, n_sims <span class="op">=</span> <span class="fl">1</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, version <span class="op">=</span> <span class="st">"6.2.5"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Can only run if system dependencies are configured:</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="co"># Generate param files.</span></span></span>
+<span class="r-in"><span><span class="co"># Identify which engine you need.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="get_facts_engine.html">get_facts_engine</a></span><span class="op">(</span><span class="va">facts_file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Run the sims with the engine function or `run_engine()`.</span></span></span>
+<span class="r-in"><span><span class="fu">run_engine_contin</span><span class="op">(</span><span class="va">out</span>, n_sims <span class="op">=</span> <span class="fl">1</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, version <span class="op">=</span> <span class="st">"6.2.5"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -390,7 +449,7 @@ functions (such as <code>run_engine_contin()</code>).</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

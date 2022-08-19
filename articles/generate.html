@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -43,7 +43,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -132,62 +132,62 @@
 </h2>
 <p><code><a href="../reference/write_facts.html">write_facts()</a></code> works on the <code>&lt;property&gt;</code> tags located above. Any <code>&lt;property&gt;</code> within a <code>&lt;facts&gt;&lt;parameterSets&gt;&lt;parameterSet&gt;</code> block can be modified programmatically. To demonstrate, we will create two new FACTS files with modified virtual subject response scenarios and different numbers of patients. We start with a known FACTS file we create from the Windows GUI (or a built-in example from this package).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/" class="external-link">rfacts</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span>
-<span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="st">"contin.facts"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://elilillyco.github.io/rfacts/" class="external-link">rfacts</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
+<span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="../reference/get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="st">"contin.facts"</span></span></code></pre></div>
 <p>Next, we declare the XML fields we want to replace. We define one field to control the maximum number of subjects,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">field_subjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  field <span class="op">=</span> <span class="st">"my_subjects"</span>,        <span class="co"># custom name the user can make up</span>
-  type <span class="op">=</span> <span class="st">"NucleusParameterSet"</span>, <span class="co"># "type" attribute of the &lt;parameterSets&gt; tag</span>
-  set <span class="op">=</span> <span class="st">"nucleus"</span>,              <span class="co"># "name" attribute of the &lt;parameterSet&gt; tag</span>
-  property <span class="op">=</span> <span class="st">"max_subjects"</span>     <span class="co"># "name" attribute of the &lt;property&gt; tag</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">field_subjects</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  field <span class="op">=</span> <span class="st">"my_subjects"</span>,        <span class="co"># custom name the user can make up</span></span>
+<span>  type <span class="op">=</span> <span class="st">"NucleusParameterSet"</span>, <span class="co"># "type" attribute of the &lt;parameterSets&gt; tag</span></span>
+<span>  set <span class="op">=</span> <span class="st">"nucleus"</span>,              <span class="co"># "name" attribute of the &lt;parameterSet&gt; tag</span></span>
+<span>  property <span class="op">=</span> <span class="st">"max_subjects"</span>     <span class="co"># "name" attribute of the &lt;property&gt; tag</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>and another field to modify the “resp2” virtual subject response scenario.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">field_vsr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  field <span class="op">=</span> <span class="st">"my_vsr"</span>,                 
-  type <span class="op">=</span> <span class="st">"EfficacyParameterSet"</span>,      
-  set <span class="op">=</span> <span class="st">"resp2"</span>,                      
-  property <span class="op">=</span> <span class="st">"true_endpoint_response"</span> 
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">field_vsr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  field <span class="op">=</span> <span class="st">"my_vsr"</span>,                 </span>
+<span>  type <span class="op">=</span> <span class="st">"EfficacyParameterSet"</span>,      </span>
+<span>  set <span class="op">=</span> <span class="st">"resp2"</span>,                      </span>
+<span>  property <span class="op">=</span> <span class="st">"true_endpoint_response"</span> </span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>We put the fields together in a single data frame.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fields</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">field_subjects</span>, <span class="va">field_vsr</span><span class="op">)</span>
-<span class="va">fields</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 4</span></span>
-<span class="co">#&gt;   field       type                 set     property              </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> my_subjects NucleusParameterSet  nucleus max_subjects          </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> my_vsr      EfficacyParameterSet resp2   true_endpoint_response</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">fields</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="va">field_subjects</span>, <span class="va">field_vsr</span><span class="op">)</span></span>
+<span><span class="va">fields</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 4</span></span></span>
+<span><span class="co">#&gt;   field       type                 set     property              </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> my_subjects NucleusParameterSet  nucleus max_subjects          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> my_vsr      EfficacyParameterSet resp2   true_endpoint_response</span></span></code></pre></div>
 <p>Next, we define a grid of values to iterate over when we modify these fields. The grid should have one row per FACTS file and one column for every value of <code>fields$field</code> you want to modify in the XML. The <code>values</code> data frame must also contain a <code>facts_file</code> column to identify the source file. You can optionally include an <code>output</code> column to control the output path of each generated FACTS file, but this is not required.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>
-  facts_file <span class="op">=</span> <span class="va">facts_file</span>,
-  my_subjects <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">2000</span><span class="op">)</span>,
-  my_vsr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">50</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">75</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span>
-<span class="va">values</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span>
-<span class="co">#&gt;   facts_file   my_subjects my_vsr   </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> contin.facts        <span style="text-decoration: underline;">1</span>000 <span style="color: #949494;">&lt;dbl [2]&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">2</span> contin.facts        <span style="text-decoration: underline;">2</span>000 <span style="color: #949494;">&lt;dbl [2]&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  facts_file <span class="op">=</span> <span class="va">facts_file</span>,</span>
+<span>  my_subjects <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">2000</span><span class="op">)</span>,</span>
+<span>  my_vsr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">50</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">75</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">values</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 3</span></span></span>
+<span><span class="co">#&gt;   facts_file   my_subjects my_vsr   </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> contin.facts        <span style="text-decoration: underline;">1</span>000 <span style="color: #949494;">&lt;dbl [2]&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> contin.facts        <span style="text-decoration: underline;">2</span>000 <span style="color: #949494;">&lt;dbl [2]&gt;</span></span></span></code></pre></div>
 <p>Above, <code>my_subjects</code> is a vector of max sample sizes, and <code>my_vsr</code> is a list of VSR response means (one for each treatment group). Each value of <code>my_vsr</code> will be inserted as an <code>&lt;item&gt;</code> list in each output FACTS file, and the length of each list element must equal the length of the original <code>&lt;item&gt;</code> list.</p>
 <p>To generate the FACTS files, simply call <code><a href="../reference/write_facts.html">write_facts()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/write_facts.html">write_facts</a></span><span class="op">(</span>fields <span class="op">=</span> <span class="va">fields</span>, values <span class="op">=</span> <span class="va">values</span><span class="op">)</span>
-<span class="co">#&gt; [1] "_facts/38b2cfd4.facts" "_facts/00e8e729.facts"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="st">"_facts"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "00e8e729.facts" "38b2cfd4.facts"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/write_facts.html">write_facts</a></span><span class="op">(</span>fields <span class="op">=</span> <span class="va">fields</span>, values <span class="op">=</span> <span class="va">values</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "_facts/38b2cfd4.facts" "_facts/00e8e729.facts"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="st">"_facts"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "00e8e729.facts" "38b2cfd4.facts"</span></span></code></pre></div>
 <p>To control the output paths, add an <code>output</code> column to the <code>values</code> data frame.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">"_facts"</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="va">values</span><span class="op">$</span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"small.facts"</span>, <span class="st">"large.facts"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/write_facts.html">write_facts</a></span><span class="op">(</span>fields <span class="op">=</span> <span class="va">fields</span>, values <span class="op">=</span> <span class="va">values</span><span class="op">)</span>
-<span class="co">#&gt; [1] "small.facts" "large.facts"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">"_facts"</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="va">values</span><span class="op">$</span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"small.facts"</span>, <span class="st">"large.facts"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/write_facts.html">write_facts</a></span><span class="op">(</span>fields <span class="op">=</span> <span class="va">fields</span>, values <span class="op">=</span> <span class="va">values</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "small.facts" "large.facts"</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="check-your-work">Check your work<a class="anchor" aria-label="anchor" href="#check-your-work"></a>
@@ -246,23 +246,23 @@
 <li>Use <code><a href="../reference/read_facts.html">read_facts()</a></code> to inspect the settings that should be modified.</li>
 </ol>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="va">facts_file</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span>
-<span class="co">#&gt;   facts_file   my_subjects my_vsr   </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> contin.facts 300         <span style="color: #949494;">&lt;chr [2]&gt;</span></span>
-
-<span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="st">"small.facts"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span>
-<span class="co">#&gt;   facts_file  my_subjects my_vsr   </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> small.facts 1000        <span style="color: #949494;">&lt;chr [2]&gt;</span></span>
-
-<span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="st">"large.facts"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span>
-<span class="co">#&gt;   facts_file  my_subjects my_vsr   </span>
-<span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">1</span> large.facts 2000        <span style="color: #949494;">&lt;chr [2]&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="va">facts_file</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span></span>
+<span><span class="co">#&gt;   facts_file   my_subjects my_vsr   </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> contin.facts 300         <span style="color: #949494;">&lt;chr [2]&gt;</span></span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="st">"small.facts"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span></span>
+<span><span class="co">#&gt;   facts_file  my_subjects my_vsr   </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> small.facts 1000        <span style="color: #949494;">&lt;chr [2]&gt;</span></span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/read_facts.html">read_facts</a></span><span class="op">(</span>facts_file <span class="op">=</span> <span class="st">"large.facts"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 1 × 3</span></span></span>
+<span><span class="co">#&gt;   facts_file  my_subjects my_vsr   </span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> large.facts 2000        <span style="color: #949494;">&lt;chr [2]&gt;</span></span></span></code></pre></div>
 </div>
   </div>
 
@@ -283,7 +283,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

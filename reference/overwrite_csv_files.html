@@ -20,7 +20,7 @@ and writes the content to the original CSV files it came from."><!-- mathjax -->
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -29,7 +29,7 @@ and writes the content to the original CSV files it came from."><!-- mathjax -->
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,7 +75,7 @@ and writes the content to the original CSV files it came from.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">overwrite_csv_files</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">overwrite_csv_files</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -83,25 +83,28 @@ and writes the content to the original CSV files it came from.</p>
     <dl><dt>x</dt>
 <dd><p>An aggregated data frame from <code><a href="facts_results.html">read_patients()</a></code>
 or similar function.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Nothing.</p>
+    
+
+<p>Nothing.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co"># Can only run if system dependencies are configured:</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_facts.html">run_facts</a></span><span class="op">(</span><span class="va">facts_file</span>, n_sims <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pats</span> <span class="op">&lt;-</span> <span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pats</span><span class="op">$</span><span class="va">visit_1</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pats</span><span class="op">$</span><span class="va">visit_1</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="fu">overwrite_csv_files</span><span class="op">(</span><span class="va">pats</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pats2</span> <span class="op">&lt;-</span> <span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pats2</span><span class="op">$</span><span class="va">visit_1</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co"># Can only run if system dependencies are configured:</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_facts.html">run_facts</a></span><span class="op">(</span><span class="va">facts_file</span>, n_sims <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pats</span> <span class="op">&lt;-</span> <span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pats</span><span class="op">$</span><span class="va">visit_1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pats</span><span class="op">$</span><span class="va">visit_1</span> <span class="op">&lt;-</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="fu">overwrite_csv_files</span><span class="op">(</span><span class="va">pats</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pats2</span> <span class="op">&lt;-</span> <span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">out</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pats2</span><span class="op">$</span><span class="va">visit_1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -116,7 +119,7 @@ or similar function.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

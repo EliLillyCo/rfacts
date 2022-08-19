@@ -18,7 +18,7 @@ This helps us run FACTS simulation scenarios one at a time."><!-- mathjax --><sc
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rfacts</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -27,7 +27,7 @@ This helps us run FACTS simulation scenarios one at a time."><!-- mathjax --><sc
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -71,7 +71,7 @@ This helps us run FACTS simulation scenarios one at a time.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">get_param_dirs</span><span class="op">(</span><span class="va">param_files</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_param_dirs</span><span class="op">(</span><span class="va">param_files</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -80,10 +80,13 @@ This helps us run FACTS simulation scenarios one at a time.</p>
 <dd><p>Character, path to a top-level
 directory containing param files. <code><a href="run_flfll.html">run_flfll()</a></code> and <code><a href="run_facts.html">run_facts()</a></code>
 return paths you can supply to <code>param_files</code> in <code>get_param_dirs()</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Character vector of FACTS simulation scenario directories.</p>
+    
+
+<p>Character vector of FACTS simulation scenario directories.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -100,16 +103,16 @@ subdirectories, each corresponding to a single simulation scenario
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Can only run if system dependencies are configured:</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">scenarios</span> <span class="op">&lt;-</span> <span class="fu">get_param_dirs</span><span class="op">(</span><span class="va">param_files</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">scenarios</span></span>
-<span class="r-in"><span class="va">scenario</span> <span class="op">&lt;-</span> <span class="va">scenarios</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
-<span class="r-in"><span class="fu"><a href="facts_engines.html">run_engine_contin</a></span><span class="op">(</span><span class="va">scenario</span>, n_sims <span class="op">=</span> <span class="fl">2</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, version <span class="op">=</span> <span class="st">"6.2.5"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">scenario</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Can only run if system dependencies are configured:</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.exists</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"RFACTS_PATHS"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">facts_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_facts_file_example.html">get_facts_file_example</a></span><span class="op">(</span><span class="st">"contin.facts"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">param_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="run_flfll.html">run_flfll</a></span><span class="op">(</span><span class="va">facts_file</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">scenarios</span> <span class="op">&lt;-</span> <span class="fu">get_param_dirs</span><span class="op">(</span><span class="va">param_files</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">scenarios</span></span></span>
+<span class="r-in"><span><span class="va">scenario</span> <span class="op">&lt;-</span> <span class="va">scenarios</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="facts_engines.html">run_engine_contin</a></span><span class="op">(</span><span class="va">scenario</span>, n_sims <span class="op">=</span> <span class="fl">2</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span>, version <span class="op">=</span> <span class="st">"6.2.5"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="facts_results.html">read_patients</a></span><span class="op">(</span><span class="va">scenario</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -124,7 +127,7 @@ subdirectories, each corresponding to a single simulation scenario
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
